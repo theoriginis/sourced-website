@@ -1,0 +1,144 @@
+ 
+ 	.header{
+    background-image: url("../../images/newimages/hero.png");
+    background-size:100% 100%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-color: transparent;
+    padding-bottom: 5em;
+    padding-top: 100px;
+  }
+  
+  #home .container {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 10%;
+    position: relative;
+    z-index: 999;
+    padding-bottom: 6rem;
+  }
+
+  #home h2 {
+    font-size: 35px;
+    text-transform: none;
+    margin-top: 0;
+    line-height: 50px;
+    color: #fff;
+    text-align: left;
+    font-weight: 700;
+  }
+
+  #home h5 {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.70);
+    text-align: left;
+    margin-top: 1em;
+    margin-bottom: 2em !important;
+    text-transform: capitalize;
+    text-shadow: 0px 4px 33px rgba(0, 0, 0, 0.25);
+    max-width: 436px;
+    line-height: 22px;
+  }
+
+  #home h3{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px !important;
+  }
+
+  .purchase_btn {
+    max-width: 100%;
+    margin: auto;
+      margin-top: auto;
+    margin-top: auto;
+    margin-top: 25px;
+  }
+
+  .purchase_btn .button_zal {
+    background: #7D5FD2;
+    border: none;
+    margin-right: 0%;
+    padding: 16px 15px 18px 18px;
+    text-transform: capitalize;
+    width: 230px;
+    text-align: left;
+  }
+
+  .purchase_btn .button_zal img{
+  width: 30px;
+  float: right;
+  margin-top: -3px;
+  }
+ 
+  .button_zal {
+    padding: 15px 23px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    color: #fff !important;
+    border-radius: 6px;
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    background: #fff;
+  }
+
+  .hero-right {
+    text-align: right;
+    padding-right: 2%;
+  }
+
+  /* slider css*/
+  .carousel {
+    position: relative;
+  }
+
+  .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  } 
+   /* slider css*/
+
+   .search-div input:focus{
+     outline:none !important;
+   }
+
+   .icons {
+    position: relative;
+   }
+
+   .icon1{
+    position: absolute;
+    left: 59%;
+    top: 4em;
+   }
+
+   .icon1 img{
+   width: 60px;
+   }
+
+   .icon2
+   {
+  position: absolute;
+  right: 6%;
+  top: -5em;
+   }
+
+   .icon2 img{
+   width: 70px;
+   }
+
+   .icon3{
+    position: absolute;
+    left: 33%;
+    top: -3em;
+   }
+
+   .icon3 img{
+    width: 70px;
+   }

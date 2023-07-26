@@ -1,0 +1,13 @@
+.section-heading h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  color: #06061b;
+}
+
+@media only screen and (max-width: 1800px) and (min-width: 1000px) {
+  .section-heading h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+}

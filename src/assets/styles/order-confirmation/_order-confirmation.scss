@@ -1,0 +1,31 @@
+.order-confirmation {
+  .order-icon-box {
+    padding-top: 20px;
+    text-align: center;
+  }
+  .ticket-status {
+    font-size: 32px;
+    letter-spacing: 1px;
+    padding-top: 30px;
+  }
+  .check-mail {
+    padding-top: 11px;
+    font-size: 16px;
+  }
+  .check-mail-text {
+    font-size: 16px;
+  }
+  .order-buttons {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-size: 16px;
+    color: #0d6efd;
+    padding-bottom: 10%;
+  }
+  .gotohome {
+    padding-right: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+}

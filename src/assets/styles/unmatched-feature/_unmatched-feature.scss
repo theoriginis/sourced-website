@@ -1,0 +1,52 @@
+#feat{
+    border: 1px solid #2C293C;
+    background: #211E32;
+    padding: 80px 0px;
+    padding-top: 50px;
+}
+
+#feat .section-heading{
+    padding: 12px;
+    color: #fff;
+    font-size: 27px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 60px !important;
+}
+
+#feat .section-heading span{
+    color:#A992FF;
+}
+
+.feat_box {
+    border-radius: 10px;
+    border: 1px solid #3A3749;
+    background: #29263A;
+    padding: 20px 15px;
+    min-height: 200px;
+    margin-bottom: 2em;
+}
+
+.feat_box h2{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 35px;
+    margin-top: 0;
+}
+
+.feat_box p{
+    color: #7B7794;
+font-size: 14px;
+font-weight: 600;
+}
+
+@media (min-width: 1200px)
+{
+ #feat .container {
+    max-width: 100%;
+    width: 1350px;
+}
+}
+

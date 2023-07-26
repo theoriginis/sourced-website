@@ -1,0 +1,212 @@
+.search_image-cart-details {
+    width: 26%;
+}
+button.remove-ticket-cart {
+    color: #fff;
+    border: none;
+    background: #0466FF;
+    font-size: 15px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 0 15px 15px 0;
+    float: right;
+    font-weight: 600;
+}
+.total-bill {
+    display: flex;
+    justify-content: center;
+}
+
+.cart-background{
+    background-image: url(http://localhost:3000/static/media/upcoming_events_bg.111055b996340cddde6b.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.cart-details-box  {
+padding: 0px!important;
+}
+
+.total-price-headin {
+    font-size: 23px;
+padding-right: 5px;
+color: #12165f;
+font-weight: bold;
+
+}
+.total-price {
+    font-size: 23px;
+    color: #0466FF;
+    font-weight: bold;
+}
+
+
+
+.total-bill-btn {
+    color: #fff;
+    border: none;
+    width: 15%;
+    text-align: center;
+    background: #0466FF;
+    padding: 10px;
+    cursor: pointer;
+    margin: 20px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px;
+    border-radius: 30px;
+}
+
+.pdding-0 {
+    padding-left: 0%;
+    padding-right: 0;
+    padding-top: 30px;
+}
+
+.cart-details {
+    color: #0466FF;
+    font-size: 22px;
+    padding-right: 0px;
+    font-weight:bold;
+}
+span.cart-details-time {
+    font-size: 16px;
+    padding-right: 10px;
+}
+p.cart-details-event-location {
+    justify-content: center;
+    align-items: center;
+}
+.order-summary {
+    text-align: center;
+    padding: 10px;
+}
+.cart-details-table tbody > tr , .cart-details-table tbody > tr:hover {
+    background: transparent !important;
+}
+
+table tr td {
+    vertical-align: middle !important;
+}
+
+
+.cart-details-list li{
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.cart-details-list li:hover{
+    background-color:transparent !important;
+}
+.events-details-cart-details {
+    padding-top: 10px;
+}
+.cart-details-list h3{
+margin-top: 0;
+font-size: 23px;
+color: #12165f;
+font-weight: 700;
+text-transform: capitalize;
+padding: 10px 0px;
+}
+
+.cart-details-list p{
+font-size: 20px;
+font-weight: 500;
+}
+
+.cart-details-list span{
+    padding-right: 10px;
+    color: #12165f;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.cart-details-list i{
+    font-weight:bold;
+}
+
+.padding0{
+    padding:0 !important;
+}
+
+.border-bottom0 h2{
+    margin-bottom: 0;
+}
+
+.cart-details-summary h3{
+    color: #12165f;
+font-size: 30px;
+font-weight: bold;
+margin-top: 0;
+}
+
+.tickets-info-cart-details{
+    background-color: #ebebeb;
+    border-radius: 40px;
+    padding: 20px;
+    margin-bottom: 2em;
+}
+
+.tickets-inner-container-cart-details{
+    margin-bottom: 3em;
+}
+.cart-details-table tr th{
+    color: #12165f;
+font-size: 15px;
+font-weight: 500;
+border-bottom: 2px solid #ccc !important;
+text-align: center;
+}
+
+.cart-details-table tr td{
+color: #12165f;
+font-size: 17px;
+font-weight: 600;
+background-color: #dddcdc;
+border:none !important;
+text-align: center;
+}
+
+.cart_price{
+color:#0466FF !important;
+}
+
+.bolder{
+    font-weight: 700;
+}
+
+.row-space{
+    height: 20px;
+}
+
+.cart-details-table tr td:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+
+ .cart-details-table tr td:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .p-1{
+    padding:8px 0px 0px 0px !important;
+}
+
+@media screen and (min-width:2000px) {
+.cart-details
+{
+    font-size:23px !important;
+    padding-right: 0px;
+}
+
+.selling_top p{
+    font-size: 24px;
+}
+}

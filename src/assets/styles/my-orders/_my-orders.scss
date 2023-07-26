@@ -1,0 +1,106 @@
+.pending-status {
+    color: #0466ff;
+    padding-left: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.my-orders-details {
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.billing-details {
+    flex-basis: 30% !important;
+}
+
+.my-orders-booked-tickets {
+    display: flex;
+    /* flex-basis: 19% !important; */
+    font-size: 15px;
+    color: #585858;
+}
+
+.ticket-information-box.table {
+    font-size: 14px;
+    width: 70%;
+}
+
+.ticket-information-text {
+    //text-align: center;
+}
+
+.booked-tickets {
+    width: 35%;
+}
+
+.invoice-text {
+    text-align: center;
+}
+
+.tickets-body {
+    color: #585858;
+}
+
+p {
+    font-size: 16px;
+}
+
+.billing-details p {
+    font-size: 14px !important;
+}
+
+.payment-id-details {
+    font-weight: 600;
+}
+
+.complete-status {
+    color: #10CD27;
+    text-transform: uppercase;
+    padding-left: 3px;
+    font-weight: 600;
+}
+
+.cancelled-status {
+    text-transform: uppercase;
+    color: #A5280C;
+    padding-left: 3px;
+    font-weight: 600;
+}
+
+figure.ordr_img {
+    width: 80px;
+    height: 80px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+.my-orders-details {
+    .flex {
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.in-vo-content {
+    p{
+        padding-top: 3px !important;
+    }
+}
+
+p.mid-content {
+    //padding: 5px 0;
+    font-size: 14px !important;
+    font-weight: 600;
+}
+.ds-main {
+    align-items: flex-start !important;
+    padding: 10px;
+    gap: 30px;
+    justify-content: flex-start !important;
+}
