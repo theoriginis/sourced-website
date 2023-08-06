@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-import { upcomingEvent, evenDetails } from "../../redux/upcoming-event/action";
+
 import history from "../../history";
 import Loader from "../spinner/spinner";
 import moment from "moment";
@@ -19,52 +19,52 @@ class MainIntro extends React.Component {
       activeItem: -1,
     };
   }
-  componentDidUpdate(prevProps) {
-    if (prevProps.event_list !== this.props.event_list) {
-      if (this.props.event_list && this.props.event_list.event_list !== "") {
-        //let firstEight = this.props.event_list.event_list.slice(0, 8);
-        this.setState({
-          events_lits: this.props.event_list.event_list,
-        });
-      }
-    }
-  }
-  componentDidMount = async () => {
-    let data = {
-      limit: this.state.event_limit,
-      page: this.state.currentPage,
-      type: "upcoming",
-    };
-    await this.props.upcomingEvent(data);
-    if (this.props.event_list && this.props.event_list.event_list !== "") {
-      //let firstEight = this.props.event_list.event_list.slice(0, 8);
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.event_list !== this.props.event_list) {
+  //     if (this.props.event_list && this.props.event_list.event_list !== "") {
+  //       //let firstEight = this.props.event_list.event_list.slice(0, 8);
+  //       this.setState({
+  //         events_lits: this.props.event_list.event_list,
+  //       });
+  //     }
+  //   }
+  // }
+  // componentDidMount = async () => {
+  //   let data = {
+  //     limit: this.state.event_limit,
+  //     page: this.state.currentPage,
+  //     type: "upcoming",
+  //   };
+  //   await this.props.upcomingEvent(data);
+  //   if (this.props.event_list && this.props.event_list.event_list !== "") {
+  //     //let firstEight = this.props.event_list.event_list.slice(0, 8);
 
-      this.setState({
-        events_lits: this.props.event_list.event_list,
-      });
-    }
-  };
-  openEvent = async (event_id) => {
-    if (event_id !== "") {
-      await this.props.evenDetails(event_id);
-    }
-    if (this.props.event_details.event_details) {
-      this.props.history.push(`/event-details/${event_id}`);
-    }
-  };
-  viewAllevent() {
-    this.props.history.push("/all-events");
-  }
-  mouseEnter = (index) => {
-    this.setState({
-      activeItem: index,
-    });
-  };
-  mouseLeave = (index) => {
-    this.setState({
-      activeItem: -1,
-    });
-  };
+  //     this.setState({
+  //       events_lits: this.props.event_list.event_list,
+  //     });
+  //   }
+  // };
+  // openEvent = async (event_id) => {
+  //   if (event_id !== "") {
+  //     await this.props.evenDetails(event_id);
+  //   }
+  //   if (this.props.event_details.event_details) {
+  //     this.props.history.push(`/event-details/${event_id}`);
+  //   }
+  // };
+  // viewAllevent() {
+  //   this.props.history.push("/all-events");
+  // }
+  // mouseEnter = (index) => {
+  //   this.setState({
+  //     activeItem: index,
+  //   });
+  // };
+  // mouseLeave = (index) => {
+  //   this.setState({
+  //     activeItem: -1,
+  //   });
+  // };
   render() {
     return (
       <div>
@@ -134,12 +134,10 @@ class MainIntro extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  event_list: state.event_list,
-  event_details: state.event_details,
+
 });
 export default withRouter(
   connect(mapStateToProps, {
-    upcomingEvent,
-    evenDetails,
+
   })(MainIntro)
 );

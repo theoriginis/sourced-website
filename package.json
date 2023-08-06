@@ -1,8 +1,8 @@
 {
-  "name": "ticketpenguin",
+  "name": "Sourcedtickets",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://ticketpenguin.co.uk",
+  "homepage": "https://sourcedtickets.com/",
   "dependencies": {
     "@stripe/react-stripe-js": "^1.16.4",
     "@stripe/stripe-js": "^1.46.0",
@@ -15,6 +15,7 @@
     "react-bootstrap": "^2.7.0",
     "react-bootstrap-sweetalert": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-geocode": "^0.2.3",
     "react-google-recaptcha": "^2.1.0",
     "react-google-recaptcha-v3": "^1.10.1",
     "react-image-lightbox": "^5.1.4",

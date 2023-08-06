@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import moment from "moment";
-import { popularEventsList } from "../../redux/popular-events/action";
+
 class UnmatchedFeature extends React.Component {
   constructor(props) {
     super(props);
@@ -11,37 +11,37 @@ class UnmatchedFeature extends React.Component {
       activeItem: -1,
     };
   }
-  componentDidUpdate(prevProps) {
-    if (prevProps.popular_event_list !== this.props.popular_event_list) {
-      if (
-        this.props.popular_event_list &&
-        this.props.popular_event_list.popular_event_list !== ""
-      ) {
-        //let firstEight = this.props.event_list.event_list.slice(0, 8);
-        this.setState({
-          popular_events: this.props.popular_event_list.popular_event_list,
-        });
-      }
-    }
-  }
-  componentDidMount() {
-    this.props.popularEventsList();
-  }
-  openEvent = async (event_id) => {
-    if (this.props.popular_event_list.popular_event_list) {
-      this.props.history.push(`/event-details/${event_id}`);
-    }
-  };
-  mouseEnter = (index) => {
-    this.setState({
-      activeItem: index,
-    });
-  };
-  mouseLeave = (index) => {
-    this.setState({
-      activeItem: -1,
-    });
-  };
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.popular_event_list !== this.props.popular_event_list) {
+  //     if (
+  //       this.props.popular_event_list &&
+  //       this.props.popular_event_list.popular_event_list !== ""
+  //     ) {
+  //       //let firstEight = this.props.event_list.event_list.slice(0, 8);
+  //       this.setState({
+  //         popular_events: this.props.popular_event_list.popular_event_list,
+  //       });
+  //     }
+  //   }
+  // }
+  // componentDidMount() {
+  //   this.props.popularEventsList();
+  // }
+  // openEvent = async (event_id) => {
+  //   if (this.props.popular_event_list.popular_event_list) {
+  //     this.props.history.push(`/event-details/${event_id}`);
+  //   }
+  // };
+  // mouseEnter = (index) => {
+  //   this.setState({
+  //     activeItem: index,
+  //   });
+  // };
+  // mouseLeave = (index) => {
+  //   this.setState({
+  //     activeItem: -1,
+  //   });
+  // };
   render() {
     return (
       <div>
@@ -117,10 +117,10 @@ class UnmatchedFeature extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  popular_event_list: state.popular_event_list,
+
 });
 export default withRouter(
   connect(mapStateToProps, {
-    popularEventsList,
+
   })(UnmatchedFeature)
 );

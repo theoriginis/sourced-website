@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import SearchBar from "../../components/main-search-bar";
-import { mainSearch } from "../../redux/main-search/action";
-import { upcomingEvent, evenDetails } from "../../redux/upcoming-event/action";
-import { perFormerDetails } from "../../redux/performers/action";
+
 import moment from "moment";
 class PerformerSearch extends Component {
   constructor(props) {
@@ -193,13 +191,10 @@ class PerformerSearch extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  artist_details: state.artist_details.artist_details,
-  last_page_value: state.artist_details.last_page_value
+
 });
 export default withRouter(
   connect(mapStateToProps, {
-    mainSearch,
-    evenDetails,
-    perFormerDetails,
+
   })(PerformerSearch)
 );

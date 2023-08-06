@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import SimpleSlider from "../Slider";
-import SearchBar from "../components/main-search-bar";
+
 import MainIntro from "../components/main-intro/main-intro";
 import UnmatchedFeature from "../components/unmatched-feature/unmatchedFeature";
 import LocalEvents from "../components/local-events/localEvents";
@@ -12,9 +12,7 @@ class Home extends Component {
     return (
       <>
       <title>Source Home</title>
-        <div>
-          <SearchBar />
-        </div>
+        
 
         <div>
           <MainIntro />
