@@ -30,81 +30,66 @@ class LocalEvents extends React.Component {
   }
 
   componentDidMount() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          // Get the user's latitude and longitude coordinates
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
-          this.setState({
-            latitude: lat,
-            longitude: lng,
-          });
-          this.Geolocation(lat, lng);
-        },
-        (error) => {
-          console.error("Error getting user location:", error);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
+    let data = {
+      salesRankOptions:{"interval":"30days","metric":"ticketVolume"}
     }
+    this.props.searchedEvent(data);
     
   }
-  Geolocation(lat, lng) {
-    Geocode.setApiKey("AIzaSyC6l4iBNvQwIaPjoqKIoOBKJPxqqvXEYso");
-    Geocode.enableDebug();
-    Geocode.setRegion("es");
-    Geocode.setLanguage("en");
+  // Geolocation(lat, lng) {
+  //   Geocode.setApiKey("AIzaSyC6l4iBNvQwIaPjoqKIoOBKJPxqqvXEYso");
+  //   Geocode.enableDebug();
+  //   Geocode.setRegion("es");
+  //   Geocode.setLanguage("en");
 
-    Geocode.fromLatLng(lat, lng).then(
-      (response) => {
-        const address = response.results[0].formatted_address;
-        let city, state, country;
-        for (
-          let i = 0;
-          i < response.results[0].address_components.length;
-          i++
-        ) {
-          for (
-            let j = 0;
-            j < response.results[0].address_components[i].types.length;
-            j++
-          ) {
-            switch (response.results[0].address_components[i].types[j]) {
-              case "locality":
-                city = response.results[0].address_components[i].long_name;
-                break;
-              case "administrative_area_level_1":
-                state = response.results[0].address_components[i].long_name;
-                break;
-              case "country":
-                country = response.results[0].address_components[i].long_name;
-                break;
-            }
-          }
-        }
-        if(city){
-          this.setState({
-            city:city
-          })
-          let searched_city = {
-            searched_city: city,
-          };
-          this.props.searchedEvent(searched_city);
-        }else{
-          let searched_city = {
-            searched_city: "new york",
-          };
-          this.props.searchedEvent(searched_city);
-        }
+  //   Geocode.fromLatLng(lat, lng).then(
+  //     (response) => {
+  //       const address = response.results[0].formatted_address;
+  //       let city, state, country;
+  //       for (
+  //         let i = 0;
+  //         i < response.results[0].address_components.length;
+  //         i++
+  //       ) {
+  //         for (
+  //           let j = 0;
+  //           j < response.results[0].address_components[i].types.length;
+  //           j++
+  //         ) {
+  //           switch (response.results[0].address_components[i].types[j]) {
+  //             case "locality":
+  //               city = response.results[0].address_components[i].long_name;
+  //               break;
+  //             case "administrative_area_level_1":
+  //               state = response.results[0].address_components[i].long_name;
+  //               break;
+  //             case "country":
+  //               country = response.results[0].address_components[i].long_name;
+  //               break;
+  //           }
+  //         }
+  //       }
+  //       if(city){
+  //         this.setState({
+  //           city:city
+  //         })
+  //         let searched_city = {
+  //           searched_city: city,
+  //         };
+  //         this.props.searchedEvent(searched_city);
+  //       }else{
+  //         let searched_city = {
+  //           searched_city: "new york",
+  //         };
+  //         this.props.searchedEvent(searched_city);
+  //       }
    
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+  //     },
+  //     (error) => {
+  //       console.error(error);
+  //     }
+  //   );
+  // }
   openEvent = async (artist_id) => {
     if (artist_id !== "") {
       this.props.history.push(`/performers-details/${artist_id}`);
@@ -116,13 +101,18 @@ class LocalEvents extends React.Component {
         <section class="section events" id="events">
           <div class="container">
             <div class="row">
-              <div
+            <div
                 class="col-lg-12 wow slideInLeft"
-                style={{ animationDuration: "3s" }}
+                style={{animationDuration: "3s"}}
               >
-                <h2 class="wow slideInLeft" style={{ animationDuration: "1s" }}>
-                  Local Events Near <span>{this.state.city}</span>
+                <h2
+                  class="wow slideInLeft section-heading"
+                  style={{animationDuration: "1s"}}
+                >
+                  {" "}
+                  <span>Trending</span> Features
                 </h2>
+              </div>
                 {this.state.searched_events_list &&
                   this.state.searched_events_list.map((event, index) => (
                     <div className="col-lg-6 pad10">
@@ -349,7 +339,7 @@ class LocalEvents extends React.Component {
                     </div>
                   </div>
                 </div> */}
-              </div>
+              
             </div>
           </div>
         </section>

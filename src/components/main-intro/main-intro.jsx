@@ -17,6 +17,8 @@ class MainIntro extends React.Component {
       event_limit: 8,
       isMouseInside: false,
       activeItem: -1,
+      search_box: "",
+      search_box_error:false
     };
   }
   // componentDidUpdate(prevProps) {
@@ -65,6 +67,20 @@ class MainIntro extends React.Component {
   //     activeItem: -1,
   //   });
   // };
+  handleInput=(evt)=> {
+
+    this.setState({ search_box: evt.target.value });
+  }
+  seachResults=()=>{
+    if(this.state.search_box){
+      this.props.history.push(`/events-results/${this.state.search_box}`)
+    }else{
+      this.setState({
+        search_box_error:true
+      })
+    }
+    console.log('sdfsdfd',this.state.search_box)
+  }
   render() {
     return (
       <div>
@@ -73,7 +89,7 @@ class MainIntro extends React.Component {
             <div class="row">
               <div
                 class="col-md-6 col-lg-6 col-sm-12 col-xs-12 wow  center z-index-12"
-                style={{visibility: "visible",animationName: "slideInRight"}}
+                style={{ visibility: "visible", animationName: "slideInRight" }}
               >
                 <h2>
                   Experience More. <br />
@@ -89,39 +105,62 @@ class MainIntro extends React.Component {
                 </h5>
                 <h3>
                   {" "}
-                  <img src={require("../../assets/images/newimages/tick.png")} alt="sourced" /> Best Price guaranteed{" "}
+                  <img
+                    src={require("../../assets/images/newimages/tick.png")}
+                    alt="sourced"
+                  />{" "}
+                  Best Price guaranteed{" "}
                 </h3>
                 <div class="search-box flex">
                   <div class="search-img">
-                    <img src={require("../../assets/images/newimages/search.png")} alt="sourced" />{" "}
+                    <img
+                      src={require("../../assets/images/newimages/search.png")}
+                      alt="sourced"
+                    />{" "}
                   </div>
                   <div class="search-div">
                     <input
                       type="text"
                       placeholder="Search For Artist, Team, Event or Venue"
+                      name="search_box"
+                      state={this.state.search_box}
+                      onChange={this.handleInput}
                     />
                   </div>
                 </div>
-                <nav class="nav purchase_btn">
-                  <a href="#" class="button_zal">
+                <nav class="nav purchase_btn" onClick={this.seachResults}>
+                  <span  class="button_zal">
                     {" "}
-                    Search <img src={require("../../assets/images/newimages/arrow-right.png")} alt="sourced" />{" "}
-                  </a>
+                    Search{" "}
+                    <img
+                      src={require("../../assets/images/newimages/arrow-right.png")}
+                      alt="sourced"
+                    />{" "}
+                  </span>
                 </nav>
               </div>
               <div
                 class="col-md-6 col-lg-6 col-sm-12 col-xs-12 hero-right wow  center z-index-12"
-                style={{visibility: "visible",animationName: "slideInRight"}}
+                style={{ visibility: "visible", animationName: "slideInRight" }}
               >
                 <div class="icons">
                   <div class="icon1">
-                    <img src={require("../../assets/images/newimages/mic.png")}  alt="sourced" />
+                    <img
+                      src={require("../../assets/images/newimages/mic.png")}
+                      alt="sourced"
+                    />
                   </div>
                   <div class="icon2">
-                    <img src={require("../../assets/images/newimages/earth.png")}  alt="sourced" />
+                    <img
+                      src={require("../../assets/images/newimages/earth.png")}
+                      alt="sourced"
+                    />
                   </div>
                   <div class="icon3">
-                    <img src={require("../../assets/images/newimages/ticket.png")} alt="sourced" />
+                    <img
+                      src={require("../../assets/images/newimages/ticket.png")}
+                      alt="sourced"
+                    />
                   </div>
                 </div>
               </div>
@@ -133,11 +172,5 @@ class MainIntro extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-
-});
-export default withRouter(
-  connect(mapStateToProps, {
-
-  })(MainIntro)
-);
+const mapStateToProps = (state) => ({});
+export default withRouter(connect(mapStateToProps, {})(MainIntro));

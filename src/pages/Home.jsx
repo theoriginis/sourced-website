@@ -11,17 +11,16 @@ class Home extends Component {
   render() {
     return (
       <>
-      <title>Source Home</title>
-        
+        <title>Source Home</title>
 
         <div>
           <MainIntro />
         </div>
-      
-        <div >
+
+        <div>
           <LocalEvents />
         </div>
-        <div >
+        <div>
           <UnmatchedFeature />
         </div>
         <div>

@@ -42,3 +42,26 @@ export async function loginUser(data) {
   }
 }
 
+
+export async function SearchEvent(data) {
+  try {
+    const config = {
+ 
+    };
+    let salesRankOptions = data.salesRankOptions;
+    return axios({
+      method: "get",
+      url: `https://sandbox.tn-apis.com/catalog/v2/events?websiteConfigId=${websiteConfigId}`,
+      params: {
+        salesRankOptions: salesRankOptions,
+               page: "1",
+               perPage: "8",
+            },
+      headers: { 
+        Authorization: "Bearer " + token 
+      },
+    });
+  } catch (error) {
+    return error;
+  }
+}

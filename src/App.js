@@ -13,8 +13,7 @@ import Footer from "./components/Footer";
 import ErrorPage from "./components/ErrorPage";
 
 import history from "./history";
-
-
+import SearchResult from "./pages/search-result/eventsResult";
 
 
 export class App extends Component {
@@ -34,6 +33,10 @@ export class App extends Component {
             <Header />
             <Switch>
               <Route path={"/"} exact component={Home} />
+              <Route
+                path={"/events-results/:search"}
+                component={SearchResult}
+              />
               {/* <Route path={"/about"} component={About} />
               <Route path={"/contact"} component={Contact} />
               <Route path={"/login"} component={Login} />
