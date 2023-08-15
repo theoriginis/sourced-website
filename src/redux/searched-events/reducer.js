@@ -2,6 +2,8 @@ const INIT_STATE = {
   error: "",
   in_action: false,
   searched_events: "",
+  performer_search:"",
+  error_performer_search:""
 
 };
 
@@ -33,7 +35,21 @@ export default (state = INIT_STATE, action) => {
         ...state,
         in_action_artist: true,
       };
- 
+      case "ACTION_INITIATED_SEARCH_PERFORMER":
+      return {
+        ...state,
+        in_action_artist: true,
+      };
+      case "SEARCH_PERFORMER":
+        return {
+          ...state,
+          performer_search: action.payload,
+        };
+        case "SEARCH_PERFORMER_FAILURE":
+        return {
+          ...state,
+          error_performer_search: action.payload,
+        };
       return {
         ...state,
         in_action_artist: false,

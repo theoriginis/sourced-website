@@ -65,3 +65,23 @@ export async function SearchEvent(data) {
     return error;
   }
 }
+export async function SearchPerformer(data) {
+  try {
+  
+    let performer_name = data.performer_name;
+    return axios({
+      method: "get",
+      url: `https://sandbox.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text/name eq %27${performer_name}%27`,
+      // params: {
+      //   performerFilter: salesRankOptions,
+      //          page: "1",
+      //          perPage: "8",
+      //       },
+      headers: { 
+        Authorization: "Bearer " + token 
+      },
+    });
+  } catch (error) {
+    return error;
+  }
+}

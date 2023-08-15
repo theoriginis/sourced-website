@@ -46,7 +46,6 @@
     color: #fff;
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 30px !important;
   }
 
   .purchase_btn {
@@ -54,16 +53,17 @@
     margin: auto;
       margin-top: auto;
     margin-top: auto;
-    margin-top: 25px;
+    cursor: pointer;
+
   }
 
   .purchase_btn .button_zal {
     background: #7D5FD2;
     border: none;
     margin-right: 0%;
-    padding: 16px 15px 18px 18px;
+    padding: 8px 11px 6px 14px;
     text-transform: capitalize;
-    width: 230px;
+    width: 110px;
     text-align: left;
   }
 
@@ -142,3 +142,10 @@
    .icon3 img{
     width: 70px;
    }
+   .main-search-bar {
+    display: flex;
+    padding-top: 23px;
+}
+.main-search-bar-inner-one {
+  width: 83%;
+}
