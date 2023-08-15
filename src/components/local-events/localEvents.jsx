@@ -117,9 +117,9 @@ class LocalEvents extends React.Component {
                   this.state.searched_events_list.map((event, index) => (
                     <div className="col-lg-6 pad10">
                       <div className="event_box">
-                        <div className="date">
-                          {" "}
-                          <h3>{event.date.date} </h3>{" "}
+                      <div className="date">
+                          <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}
+                          <p> {moment(event.date.date).format("ddd")} </p>{" "}
                         </div>
                         <div className="Info">
                           {" "}
@@ -145,200 +145,13 @@ class LocalEvents extends React.Component {
                         <div className="prices">
                           {" "}
                           <button>
-                            <a href="#"> From $212 </a>{" "}
+                          <a>  {event.pricingInfo ?`From ${ event.pricingInfo.lowPrice.text.formatted}`  :'N/A'} </a>{" "}
                           </button>
                         </div>
                       </div>
                     </div>
                   ))}
                  
-                {/* <div class="col-lg-6 pad10">
-                  <div class="event_box">
-                    <div class="date">
-                      {" "}
-                      <h3>6/23 </h3> <p> Fri </p>{" "}
-                    </div>
-                    <div class="Info">
-                      {" "}
-                      <h3>Jake Paul vs Tom Furry </h3>
-                      <p> T-Mobile Arena • Las Vegas, NV </p>
-                    </div>
-                    <div class="time">
-                      {" "}
-                      <p class="t1">
-                        {" "}
-                        <img src="img/time.png" alt="sourced" /> 3: 00 PM{" "}
-                      </p>{" "}
-                    </div>
-                    <div class="prices">
-                      {" "}
-                      <button>
-                        <a href="#"> From $212 </a>{" "}
-                      </button>
-                    </div>
-                  </div>
-                </div> */}
-
-                {/* <div class="col-lg-6 pad10">
-                  <div class="event_box">
-                    <div class="date">
-                      {" "}
-                      <h3>6/23 </h3> <p> Fri </p>{" "}
-                    </div>
-                    <div class="Info">
-                      {" "}
-                      <h3>Jake Paul vs Tom Furry </h3>
-                      <p> T-Mobile Arena • Las Vegas, NV </p>
-                    </div>
-                    <div class="time">
-                      {" "}
-                      <p class="t1">
-                        {" "}
-                        <img src="img/time.png" alt="sourced" /> 3: 00 PM{" "}
-                      </p>{" "}
-                    </div>
-                    <div class="prices">
-                      {" "}
-                      <button>
-                        <a href="#"> From $212 </a>{" "}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6 pad10">
-                  <div class="event_box">
-                    <div class="date">
-                      {" "}
-                      <h3>6/23 </h3> <p> Fri </p>{" "}
-                    </div>
-                    <div class="Info">
-                      {" "}
-                      <h3>Jake Paul vs Tom Furry </h3>
-                      <p> T-Mobile Arena • Las Vegas, NV </p>
-                    </div>
-                    <div class="time">
-                      {" "}
-                      <p class="t1">
-                        {" "}
-                        <img src="img/time.png" alt="sourced" /> 3: 00 PM{" "}
-                      </p>{" "}
-                    </div>
-                    <div class="prices">
-                      {" "}
-                      <button>
-                        <a href="#"> From $212 </a>{" "}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6 pad10">
-                  <div class="event_box">
-                    <div class="date">
-                      {" "}
-                      <h3>6/23 </h3> <p> Fri </p>{" "}
-                    </div>
-                    <div class="Info">
-                      {" "}
-                      <h3>Jake Paul vs Tom Furry </h3>
-                      <p> T-Mobile Arena • Las Vegas, NV </p>
-                    </div>
-                    <div class="time">
-                      {" "}
-                      <p class="t1">
-                        {" "}
-                        <img src="img/time.png" alt="sourced" /> 3: 00 PM{" "}
-                      </p>{" "}
-                    </div>
-                    <div class="prices">
-                      {" "}
-                      <button>
-                        <a href="#"> From $212 </a>{" "}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 pad10">
-                  <div class="event_box">
-                    <div class="date">
-                      {" "}
-                      <h3>6/23 </h3> <p> Fri </p>{" "}
-                    </div>
-                    <div class="Info">
-                      {" "}
-                      <h3>Jake Paul vs Tom Furry </h3>
-                      <p> T-Mobile Arena • Las Vegas, NV </p>
-                    </div>
-                    <div class="time">
-                      {" "}
-                      <p class="t1">
-                        {" "}
-                        <img src="img/time.png" alt="sourced" /> 3: 00 PM{" "}
-                      </p>{" "}
-                    </div>
-                    <div class="prices">
-                      {" "}
-                      <button>
-                        <a href="#"> From $212 </a>{" "}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6 pad10">
-                  <div class="event_box">
-                    <div class="date">
-                      {" "}
-                      <h3>6/23 </h3> <p> Fri </p>{" "}
-                    </div>
-                    <div class="Info">
-                      {" "}
-                      <h3>Jake Paul vs Tom Furry </h3>
-                      <p> T-Mobile Arena • Las Vegas, NV </p>
-                    </div>
-                    <div class="time">
-                      {" "}
-                      <p class="t1">
-                        {" "}
-                        <img src="img/time.png" alt="sourced" /> 3: 00 PM{" "}
-                      </p>{" "}
-                    </div>
-                    <div class="prices">
-                      {" "}
-                      <button>
-                        <a href="#"> From $212 </a>{" "}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6 pad10">
-                  <div class="event_box">
-                    <div class="date">
-                      {" "}
-                      <h3>6/23 </h3> <p> Fri </p>{" "}
-                    </div>
-                    <div class="Info">
-                      {" "}
-                      <h3>Jake Paul vs Tom Furry </h3>
-                      <p> T-Mobile Arena • Las Vegas, NV </p>
-                    </div>
-                    <div class="time">
-                      {" "}
-                      <p class="t1">
-                        {" "}
-                        <img src="img/time.png" alt="sourced" /> 3: 00 PM{" "}
-                      </p>{" "}
-                    </div>
-                    <div class="prices">
-                      {" "}
-                      <button>
-                        <a href="#"> From $212 </a>{" "}
-                      </button>
-                    </div>
-                  </div>
-                </div> */}
               
             </div>
           </div>

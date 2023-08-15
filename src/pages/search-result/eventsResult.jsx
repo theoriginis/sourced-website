@@ -125,7 +125,7 @@ class SearchResult extends Component {
                       Date{" "}
                     </li>
                   </ul>
-                  <h5> All Events </h5>
+                  <h5 className="eventes-heading"> All Events </h5>
                   {this.state.search_results &&
                     this.state.search_results.map((event, key) => (
                       <div className="event_box">

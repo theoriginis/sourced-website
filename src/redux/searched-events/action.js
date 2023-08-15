@@ -6,7 +6,7 @@ export const searchedEvent = (data) => async (dispatch)=>{
     try{
 
         const response = await SearchEvent(data);
-     console.log('api response',response)
+     console.log('api response seacrhed ',response)
         if(response.status <=201){
             dispatch({
                 type: "SEARCH_EVENT",
@@ -36,7 +36,6 @@ export const searchedPerformer = (data) => async (dispatch)=>{
     try{
 
         const response = await SearchPerformer(data);
-     console.log('api response',response)
         if(response.status <=201){
             dispatch({
                 type: "SEARCH_PERFORMER",
