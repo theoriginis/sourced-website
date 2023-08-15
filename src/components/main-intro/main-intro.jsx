@@ -72,14 +72,32 @@ class MainIntro extends React.Component {
   };
   searchPerformer = () => {
     if (this.state.search_box) {
-      this.props.history.push(`/events-results/${this.state.search_box}`);
+      this.props.history.push(`/events-results/performer/${this.state.search_box}`);
     } else {
       this.setState({
         search_box_error: true,
       });
     }
-    console.log("sdfsdfd", this.state.search_box);
+   
   };
+  searchEvent = () => {
+    if (this.state.search_box) {
+      this.props.history.push(`/events-results/events/${this.state.search_box}`);
+    } else {
+      this.setState({
+        search_box_error: true,
+      });
+    }
+  };
+  seachVenue = ()=>{
+    if (this.state.search_box) {
+      this.props.history.push(`/events-results/venue/${this.state.search_box}`);
+    } else {
+      this.setState({
+        search_box_error: true,
+      });
+    }
+  }
   render() {
     return (
       <div>
@@ -166,7 +184,7 @@ class MainIntro extends React.Component {
                     </div>
                   </div>
                   <div>
-                    <nav class="nav purchase_btn" onClick={this.seachResults}>
+                    <nav class="nav purchase_btn" onClick={this.searchEvent}>
                       <span class="button_zal">
                         {" "}
                         Search{" "}
@@ -200,7 +218,7 @@ class MainIntro extends React.Component {
                     </div>
                   </div>
                   <div>
-                    <nav class="nav purchase_btn" onClick={this.seachResults}>
+                    <nav class="nav purchase_btn" onClick={this.seachVenue}>
                       <span class="button_zal">
                         {" "}
                         Search{" "}

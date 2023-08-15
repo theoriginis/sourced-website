@@ -1,4 +1,4 @@
-import {SearchEvent,SearchPerformer} from "../../utils/apis.js";
+import {SearchEvent,SearchPerformer,EventSearch,Searchvenue} from "../../utils/apis.js";
 
 export const searchedEvent = (data) => async (dispatch)=>{
 
@@ -30,12 +30,21 @@ export const searchedEvent = (data) => async (dispatch)=>{
         payload:'performer list not found '
     });
 }
-export const searchedPerformer = (data) => async (dispatch)=>{
+export const searchedPerformer = (data,type) => async (dispatch)=>{
 
     dispatch({type:"ACTION_INITIATED_SEARCH_PERFORMER"});
     try{
-
-        const response = await SearchPerformer(data);
+        console.log('Type',type)
+        let response = ""
+        if(type == 'performer'){
+          
+            response = await SearchPerformer(data);
+        }else if(type == 'events'){
+            response = await EventSearch(data);
+        }else{
+            response = await Searchvenue(data);
+        }
+        console.log('response',response)
         if(response.status <=201){
             dispatch({
                 type: "SEARCH_PERFORMER",

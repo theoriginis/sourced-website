@@ -17,15 +17,16 @@ class SearchResult extends Component {
   }
   componentDidMount() {
     let url_segment = this.props.location.pathname.split("/");
-    let keyword_searched = url_segment["2"];
-    console.log("url", keyword_searched);
+   
+    let keyword_searched = url_segment["3"];
+    let search_type = url_segment["2"]
     this.setState({
       keyword_searched: keyword_searched,
     });
     let data = {
       performer_name: keyword_searched,
     };
-    this.props.searchedPerformer(data);
+    this.props.searchedPerformer(data,search_type);
   }
   componentDidUpdate(prevProps) {
     window.scrollTo(0, 0);
@@ -127,6 +128,7 @@ class SearchResult extends Component {
                   </ul>
                   <h5 className="eventes-heading"> All Events </h5>
                   {this.state.search_results &&
+                  this.state.search_results.length > 0 ? (
                     this.state.search_results.map((event, key) => (
                       <div className="event_box">
                         <div className="date">
@@ -143,7 +145,7 @@ class SearchResult extends Component {
                               src={require("../../assets/images/newimages/calender.png")}
                               alt="sourced"
                             />{" "}
-                           {moment(event.date.date).format('MMMM Do')}
+                            {moment(event.date.date).format("MMMM Do")}
                           </p>{" "}
                         </div>
                         <div className="time">
@@ -154,18 +156,25 @@ class SearchResult extends Component {
                               src={require("../../assets/images/newimages/time.png")}
                               alt="sourced"
                             />{" "}
-                           {event.date.text.time}
+                            {event.date.text.time}
                           </p>{" "}
                         </div>
                         <div className="prices">
                           {" "}
                           <button>
-                         
-                            <a>  {event.pricingInfo ?`From ${ event.pricingInfo.lowPrice.text.formatted}`  :'N/A'} </a>{" "}
+                            <a>
+                              {" "}
+                              {event.pricingInfo
+                                ? `From ${event.pricingInfo.lowPrice.text.formatted}`
+                                : "N/A"}{" "}
+                            </a>{" "}
                           </button>
                         </div>
                       </div>
-                    ))}
+                    ))
+                  ) : (
+                    <div className="event_box no-records">No Records Found</div>
+                  )}
                 </div>
               </div>
             </div>

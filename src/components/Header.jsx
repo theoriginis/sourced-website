@@ -40,7 +40,6 @@ class Header extends Component {
     window.location.href = "/";
   };
   goToLogin = (event) => {
-    console.log('target',event.target.innerHTML)
     if(event.target.innerHTML === 'Logout'){
       localStorage.clear();
       window.location.href = "/";
@@ -50,7 +49,7 @@ class Header extends Component {
     //this.props.history.push("/login");
   };
   render() {
-console.log('states',this.state.user_information)
+
     return (
       <div>
         <nav className="navbar navbar-expand-md main-nav navigation fixed-top sidebar-left wow">

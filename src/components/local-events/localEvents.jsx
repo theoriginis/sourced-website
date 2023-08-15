@@ -21,7 +21,7 @@ class LocalEvents extends React.Component {
         this.props.searched_events &&
         this.props.searched_events.searched_events !== ""
       ) {
-        console.log("searched-evnt", this.props.searched_events);
+     
         this.setState({
           searched_events_list: this.props.searched_events.searched_events,
         });

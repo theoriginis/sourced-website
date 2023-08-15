@@ -85,3 +85,43 @@ export async function SearchPerformer(data) {
     return error;
   }
 }
+export async function EventSearch(data) {
+  try {
+  
+    let performer_name = data.performer_name;
+    return axios({
+      method: "get",
+      url: `https://sandbox.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=text/name eq %27${performer_name}%27`,
+      // params: {
+      //   performerFilter: salesRankOptions,
+      //          page: "1",
+      //          perPage: "8",
+      //       },
+      headers: { 
+        Authorization: "Bearer " + token 
+      },
+    });
+  } catch (error) {
+    return error;
+  }
+}
+export async function Searchvenue(data) {
+  try {
+  
+    let performer_name = data.performer_name;
+    return axios({
+      method: "get",
+      url: `https://sandbox.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=venue/text/name eq %27${performer_name}%27`,
+      // params: {
+      //   performerFilter: salesRankOptions,
+      //          page: "1",
+      //          perPage: "8",
+      //       },
+      headers: { 
+        Authorization: "Bearer " + token 
+      },
+    });
+  } catch (error) {
+    return error;
+  }
+}
