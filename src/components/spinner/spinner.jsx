@@ -15,7 +15,7 @@ class Loader extends React.Component {
         <TailSpin
           height="50"
           width="50"
-          color="#0466ff"
+          color="#fff"
           ariaLabel="tail-spin-loading"
           radius="1"
           wrapperStyle={{}}

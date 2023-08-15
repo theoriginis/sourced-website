@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 import moment from "moment";
 import { searchedPerformer } from "../../redux/searched-events/action.js";
+import Loader from "../../components/spinner/spinner.jsx";
 class SearchResult extends Component {
   constructor(props) {
     super(props);
@@ -82,7 +83,7 @@ class SearchResult extends Component {
     this.props.mainSearch(data);
   };
   render() {
-    console.log("props", this.state.search_results);
+    console.log("props", this.state.props);
     return (
       <>
         <main>
@@ -173,7 +174,8 @@ class SearchResult extends Component {
                       </div>
                     ))
                   ) : (
-                    <div className="event_box no-records">No Records Found</div>
+                    // <div className="event_box no-records">No Records Found</div>
+                    <div className="event_box no-records"><Loader /></div>
                   )}
                 </div>
               </div>
