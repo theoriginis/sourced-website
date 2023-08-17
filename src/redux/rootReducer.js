@@ -4,6 +4,8 @@ import user_added from "../redux/signup/reducer";
 import user_info from "../redux/login/reducer";
 import forgot_password from "../redux/forgot-password/reducer";
 import performer_search from "../redux/searched-events/reducer";
+import top_performer_list from "../redux/top-performers/reducer";
+import top_shows_list from "../redux/top-performers/reducer";
 
 import searched_events from "../redux/searched-events/reducer"
 const appReducer = combineReducers ({
@@ -11,7 +13,9 @@ const appReducer = combineReducers ({
     user_info,
     forgot_password,
     performer_search,
-    searched_events
+    searched_events,
+    top_performer_list,
+    top_shows_list
 });
 
 const root_reducer = (state,action)=>{

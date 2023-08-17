@@ -83,7 +83,7 @@ class SearchResult extends Component {
     this.props.mainSearch(data);
   };
   render() {
-    console.log("props", this.state.props);
+    
     return (
       <>
         <main>

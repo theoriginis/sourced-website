@@ -42,23 +42,20 @@ export async function loginUser(data) {
   }
 }
 
-
 export async function SearchEvent(data) {
   try {
-    const config = {
- 
-    };
+    const config = {};
     let salesRankOptions = data.salesRankOptions;
     return axios({
       method: "get",
       url: `https://sandbox.tn-apis.com/catalog/v2/events?websiteConfigId=${websiteConfigId}`,
       params: {
         salesRankOptions: salesRankOptions,
-               page: "1",
-               perPage: "8",
-            },
-      headers: { 
-        Authorization: "Bearer " + token 
+        page: "1",
+        perPage: "8",
+      },
+      headers: {
+        Authorization: "Bearer " + token,
       },
     });
   } catch (error) {
@@ -67,7 +64,6 @@ export async function SearchEvent(data) {
 }
 export async function SearchPerformer(data) {
   try {
-  
     let performer_name = data.performer_name;
     return axios({
       method: "get",
@@ -77,8 +73,8 @@ export async function SearchPerformer(data) {
       //          page: "1",
       //          perPage: "8",
       //       },
-      headers: { 
-        Authorization: "Bearer " + token 
+      headers: {
+        Authorization: "Bearer " + token,
       },
     });
   } catch (error) {
@@ -87,7 +83,6 @@ export async function SearchPerformer(data) {
 }
 export async function EventSearch(data) {
   try {
-  
     let performer_name = data.performer_name;
     return axios({
       method: "get",
@@ -97,8 +92,8 @@ export async function EventSearch(data) {
       //          page: "1",
       //          perPage: "8",
       //       },
-      headers: { 
-        Authorization: "Bearer " + token 
+      headers: {
+        Authorization: "Bearer " + token,
       },
     });
   } catch (error) {
@@ -107,7 +102,6 @@ export async function EventSearch(data) {
 }
 export async function Searchvenue(data) {
   try {
-  
     let performer_name = data.performer_name;
     return axios({
       method: "get",
@@ -117,8 +111,44 @@ export async function Searchvenue(data) {
       //          page: "1",
       //          perPage: "8",
       //       },
-      headers: { 
-        Authorization: "Bearer " + token 
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  } catch (error) {
+    return error;
+  }
+}
+export async function TopPerformer() {
+  try {
+    return axios({
+      method: "get",
+      url: `https://sandbox.tn-apis.com/catalog/v2/performers?websiteConfigId=${websiteConfigId}&page=1&perPage=5`,
+      // params: {
+      //   performerFilter: salesRankOptions,
+      //          page: "1",
+      //          perPage: "8",
+      //       },
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  } catch (error) {
+    return error;
+  }
+}
+export async function TopShows() {
+  try {
+    return axios({
+      method: "get",
+      url: `https://sandbox.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=defaultCategory%2Ftext%2Fname%20eq%20'MUSICAL%20%2F%20PLAY'&page=1&perPage=5`,
+      // params: {
+      //   performerFilter: salesRankOptions,
+      //          page: "1",
+      //          perPage: "8",
+      //       },
+      headers: {
+        Authorization: "Bearer " + token,
       },
     });
   } catch (error) {
