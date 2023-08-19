@@ -149,3 +149,9 @@
 .main-search-bar-inner-one {
   width: 83%;
 }
+.main-intro{
+  display: flex;
+  input::placeholder {
+    color: #00000078;
+  }
+}

@@ -131,7 +131,7 @@ class MainIntro extends React.Component {
 
                 <div className="main-search-bar">
                   <div className="main-search-bar-inner-one">
-                    <div class="search-box flex">
+                    <div class="search-box main-intro">
                       <div class="search-img">
                         <img
                           src={require("../../assets/images/newimages/search.png")}
@@ -165,7 +165,7 @@ class MainIntro extends React.Component {
 
                 <div className="main-search-bar">
                   <div className="main-search-bar-inner-one">
-                    <div class="search-box flex">
+                    <div class="search-box main-intro">
                       <div class="search-img">
                         <img
                           src={require("../../assets/images/newimages/search.png")}
@@ -199,7 +199,7 @@ class MainIntro extends React.Component {
 
                 <div className="main-search-bar">
                   <div className="main-search-bar-inner-one">
-                    <div class="search-box flex">
+                    <div class="search-box main-intro">
                       <div class="search-img">
                         <img
                           src={require("../../assets/images/newimages/search.png")}
