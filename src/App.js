@@ -14,7 +14,7 @@ import ErrorPage from "./components/ErrorPage";
 
 import history from "./history";
 import SearchResult from "./pages/search-result/eventsResult";
-
+import EventDetails from "./pages/eventDetails/eventDetails";
 
 export class App extends Component {
   constructor(props) {
@@ -36,6 +36,10 @@ export class App extends Component {
               <Route
                 path={"/events-results/:search"}
                 component={SearchResult}
+              />
+               <Route
+                path={"/event-details"}
+                component={EventDetails}
               />
               {/* <Route path={"/about"} component={About} />
               <Route path={"/contact"} component={Contact} />
