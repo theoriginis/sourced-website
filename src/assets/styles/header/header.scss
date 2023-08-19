@@ -28,7 +28,7 @@
 }
 
 .navigation.fixed-top .navbar-collapse {
-  height: 100vh;
+  height: auto;
   padding: 17px 0px 6px 0px;
   position: relative;
   display: flex !important;
@@ -181,6 +181,7 @@ nav .search-box{
   background-color: transparent;
   border-radius: 5px;
   height: 45px;
+  display:flex;
   padding: 3px 1px;
 }
 .header-btn{
