@@ -6,6 +6,9 @@ import { connect } from "react-redux";
 import moment from "moment";
 import { searchedPerformer } from "../../redux/searched-events/action.js";
 import Loader from "../../components/spinner/spinner.jsx";
+import { EventInformation } from "../../utils/apis";
+import { Helmet } from "react-helmet";
+import { ViewMap } from "../../utils/apis.js";
 class EventDetails extends Component {
   constructor(props) {
     super(props);
@@ -14,21 +17,27 @@ class EventDetails extends Component {
       currentPage: 1,
       event_limit: 10,
       keyword_searched: "",
+      event_details: "",
+      map_view: "",
     };
   }
-  // componentDidMount() {
-  //   let url_segment = this.props.location.pathname.split("/");
+  componentDidMount() {
+    let url_segment = this.props.location.pathname.split("/");
+    let event_id = url_segment["2"];
+    if (event_id) {
+      EventInformation(event_id).then((eventInfo) => {
+        console.log("response", eventInfo);
+        if (eventInfo.data) {
+          this.setState({
+            event_details: eventInfo.data.data,
+          });
+        } else {
+          this.setState({ event_details: eventInfo.data.data });
+        }
+      });
+    }
+  }
 
-  //   let keyword_searched = url_segment["3"];
-  //   let search_type = url_segment["2"]
-  //   this.setState({
-  //     keyword_searched: keyword_searched,
-  //   });
-  //   let data = {
-  //     performer_name: keyword_searched,
-  //   };
-  //   this.props.searchedPerformer(data,search_type);
-  // }
   // componentDidUpdate(prevProps) {
   //   window.scrollTo(0, 0);
   //   if (prevProps.performer_search !== this.props.performer_search) {
@@ -89,10 +98,7 @@ class EventDetails extends Component {
           <section class="section events search_results" id="products">
             <div class="container">
               <div class="row">
-                <div
-                  class="col-lg-3 col-md-3 col-sm-12 col-xs-12 wow slideInLeft"
-                 
-                >
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 wow slideInLeft">
                   <div class="product_left">
                     <h3>
                       {" "}
@@ -106,14 +112,22 @@ class EventDetails extends Component {
                         {" "}
                         <p class="t2">
                           {" "}
-                          <img src={require("../../assets/images/newimages/calender.png")} alt="sourced" /> March 16{" "}
+                          <img
+                            src={require("../../assets/images/newimages/calender.png")}
+                            alt="sourced"
+                          />{" "}
+                          March 16{" "}
                         </p>{" "}
                       </div>
                       <div class="time">
                         {" "}
                         <p class="t1">
                           {" "}
-                          <img src={require("../../assets/images/newimages/time.png")} alt="sourced" /> 3: 00 PM{" "}
+                          <img
+                            src={require("../../assets/images/newimages/time.png")}
+                            alt="sourced"
+                          />{" "}
+                          3: 00 PM{" "}
                         </p>{" "}
                       </div>
                     </div>
@@ -241,23 +255,28 @@ class EventDetails extends Component {
                     </div>
                   </div>
                 </div>
-                <div
-                  class="col-lg-6 col-md-6 col-xs-12 col-sm-12 wow slideInLeft"
-                 
-                >
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 wow slideInLeft">
                   <div class="ticket_plat">
                     <h3>
                       {" "}
                       Back to tickets{" "}
                       <i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </h3>
-                    <img src={require("../../assets/images/newimages/pngfind 1.png")}class="img_tick" />
+                    {/* <img
+                      src="http://mapwidget3.seatics.com/mobile/html?eventId=5086733&websiteConfigId=12497&userAgent=something&includeBootstrap=false
+                      "
+                      class="img_tick"
+                    /> */}
+                    <Helmet>
+                      <script
+                        src="https://mapwidget3-sandbox.seatics.com/js?eventId=5086733&websiteConfigId=12498"
+                        async
+                        defer
+                      ></script>
+                    </Helmet>
                   </div>
                 </div>
-                <div
-                  class="col-lg-3 col-md-3 col-sm-12 col-xs-12  wow slideInLeft"
-                 
-                >
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12  wow slideInLeft">
                   <div class="product_filter">
                     <h1> Filter Results</h1>
                     <div class="form-group">
@@ -281,7 +300,7 @@ class EventDetails extends Component {
                     </div>
                     <div class="form-group">
                       <lable>Price Per Ticket </lable>
-                      <div style={{color:'white'}}>Range slider here</div>
+                      <div style={{ color: "white" }}>Range slider here</div>
                     </div>
                     <div class="form-group">
                       <div class="br"> </div>

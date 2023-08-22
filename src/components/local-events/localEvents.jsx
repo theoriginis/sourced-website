@@ -95,6 +95,12 @@ class LocalEvents extends React.Component {
       this.props.history.push(`/performers-details/${artist_id}`);
     }
   };
+  onClickEvent=(eventId)=>{
+   
+    if(eventId){
+      this.props.history.push(`/event-details/${eventId}`)
+    }
+    }
   render() {
     return (
       <div>
@@ -116,7 +122,7 @@ class LocalEvents extends React.Component {
                 {this.state.searched_events_list &&
                   this.state.searched_events_list.map((event, index) => (
                     <div className="col-lg-6 pad10">
-                      <div className="event_box">
+                      <div className="event_box" onClick={()=>this.onClickEvent(event.id)}>
                       <div className="date">
                           <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}
                           <p> {moment(event.date.date).format("ddd")} </p>{" "}

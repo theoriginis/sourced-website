@@ -155,3 +155,41 @@ export async function TopShows() {
     return error;
   }
 }
+export async function EventInformation(event_id) {
+  try {
+    return axios({
+      method: "get",
+      url: `https://sandbox.tn-apis.com/catalog/v2/events/${event_id}?websiteConfigId=${websiteConfigId}&q=*&filter=defaultCategory%2Ftext%2Fname%20eq%20'MUSICAL%20%2F%20PLAY'&page=1&perPage=5`,
+      // params: {
+      //   performerFilter: salesRankOptions,
+      //          page: "1",
+      //          perPage: "8",
+      //       },
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  } catch (error) {
+    return error;
+  }
+}
+export async function ViewMap(event_id) {
+  try {
+    return axios({
+      method: "get",
+      url: `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=12498`,
+      // params: {
+      //   performerFilter: salesRankOptions,
+      //          page: "1",
+      //          perPage: "8",
+      //       },
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  } catch (error) {
+    return error;
+  }
+}
+
+
