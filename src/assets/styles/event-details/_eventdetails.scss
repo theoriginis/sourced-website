@@ -141,8 +141,8 @@ body {
 #products button {
   background-color: #7d5fd2;
   color: #fff;
-  padding: 15px;
-  width: 100%;
+  // padding: 15px;
+  // width: 100%;
   border: 1px solid #7d5fd2;
   border-radius: 10px;
   font-size: 15px;
@@ -255,12 +255,13 @@ body {
   }
 }
 
-div#map-list-holder {
-  background-color: #211e32 !important;
+div#map-list-holder,
+div#venue-ticket-list {
+  background-color: #1b182b !important;
 }
 
 tr.Sea-TicketRow.venue-ticket-list-row.venue-ticket-list-row-height.venue-ticket-list-row-js.venue-ticket-list-mark-col-align-top {
-  background-color: #2c293c !important;
+  background-color: #211e32 !important;
 }
 td.venue-ticket-list-section-qty-col {
   color: #fff !important;
@@ -286,7 +287,8 @@ span.venue-ticket-list-quantity.venue-ticket-list-quantity-js {
 .venue-ticket-list-row {
   border-bottom: 1px solid #2c293c;
 }
-legend#sea-precheckout-qty-selection-text {
+legend#sea-precheckout-qty-selection-text,
+legend.filters-type-label.sea-filter-text {
   color: #fff;
 }
 
@@ -298,6 +300,14 @@ button.slick-prev.cm-left-arrow.slick-arrow {
   background-color: "none" !important;
   padding: 0px !important;
   font-size: 10px !important;
+}
+
+button.sea-accessible-button.sea-ticket-list-default-cta.sea-ticket-list-default-cta-js {
+  border-radius: 6px;
+  border: 1px solid #333043 !important;
+  background: #272438 !important;
+  padding: 10px 5px;
+  margin-right: 10px;
 }
 
 .loader {
@@ -313,6 +323,26 @@ button.slick-prev.cm-left-arrow.slick-arrow {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
+}
+
+button#sea-quantity-warning-modal-close,
+button#event-info-guarantee-close {
+  width: 25px !important;
+  height: 25px !important;
+  background-color: "#211e32" !important;
+  padding: 0px !important;
+  font-size: 16px !important;
+}
+
+button#sort-label,
+div#sort-cntr {
+  border-radius: 0px !important;
+  border: "none" !important;
+  button {
+    border-radius: 0px !important;
+    background-color: #fff !important;
+    color: #333043 !important;
+  }
 }
 
 /* Safari */
