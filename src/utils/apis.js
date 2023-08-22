@@ -183,9 +183,7 @@ export async function ViewMap(event_id) {
       //          page: "1",
       //          perPage: "8",
       //       },
-      headers: {
-        Authorization: "Bearer " + token,
-      },
+    
     });
   } catch (error) {
     return error;

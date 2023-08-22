@@ -26,7 +26,6 @@ class EventDetails extends Component {
     let event_id = url_segment["2"];
     if (event_id) {
       EventInformation(event_id).then((eventInfo) => {
-        console.log("response", eventInfo);
         if (eventInfo.data) {
           this.setState({
             event_details: eventInfo.data.data,
@@ -36,6 +35,16 @@ class EventDetails extends Component {
         }
       });
     }
+    const seaticsScript = document.createElement("script");
+    ViewMap(event_id).then((response) => {
+      console.log("sdfsdfdsfdsf", response);
+      if (response) {
+        seaticsScript.innerHTML = response.data;
+        seaticsScript.async = true;
+
+        document.body.appendChild(seaticsScript);
+      }
+    });
   }
 
   // componentDidUpdate(prevProps) {
@@ -98,217 +107,13 @@ class EventDetails extends Component {
           <section class="section events search_results" id="products">
             <div class="container">
               <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 wow slideInLeft">
-                  <div class="product_left">
-                    <h3>
-                      {" "}
-                      Back to tickets{" "}
-                      <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    </h3>
-                    <h2> Jake Paul vs Tom Furry </h2>
-                    <p> T-Mobile Arena </p>
-                    <div class="flex">
-                      <div class="date_1">
-                        {" "}
-                        <p class="t2">
-                          {" "}
-                          <img
-                            src={require("../../assets/images/newimages/calender.png")}
-                            alt="sourced"
-                          />{" "}
-                          March 16{" "}
-                        </p>{" "}
-                      </div>
-                      <div class="time">
-                        {" "}
-                        <p class="t1">
-                          {" "}
-                          <img
-                            src={require("../../assets/images/newimages/time.png")}
-                            alt="sourced"
-                          />{" "}
-                          3: 00 PM{" "}
-                        </p>{" "}
-                      </div>
-                    </div>
-                    <ul>
-                      <li>
-                        <div class="ticket_left">
-                          <h5> Upper Level 321 - Row 6 </h5>
-                          <p> 2 tickets </p>
-                        </div>
-                        <div class="tick_price">
-                          <h6>
-                            $58 <span>ea</span>{" "}
-                          </h6>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="ticket_left">
-                          <h5> Upper Level 321 - Row 6 </h5>
-                          <p> 2 tickets </p>
-                        </div>
-                        <div class="tick_price">
-                          <h6>
-                            $58 <span>ea</span>{" "}
-                          </h6>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="ticket_left">
-                          <h5> Upper Level 321 - Row 6 </h5>
-                          <p> 2 tickets </p>
-                        </div>
-                        <div class="tick_price">
-                          <h6>
-                            $58 <span>ea</span>{" "}
-                          </h6>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="ticket_left">
-                          <h5> Upper Level 321 - Row 6 </h5>
-                          <p> 2 tickets </p>
-                        </div>
-                        <div class="tick_price">
-                          <h6>
-                            $58 <span>ea</span>{" "}
-                          </h6>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="ticket_left">
-                          <h5> Upper Level 321 - Row 6 </h5>
-                          <p> 2 tickets </p>
-                        </div>
-                        <div class="tick_price">
-                          <h6>
-                            $58 <span>ea</span>{" "}
-                          </h6>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="ticket_left">
-                          <h5> Upper Level 321 - Row 6 </h5>
-                          <p> 2 tickets </p>
-                        </div>
-                        <div class="tick_price">
-                          <h6>
-                            $58 <span>ea</span>{" "}
-                          </h6>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="ticket_left">
-                          <h5> Upper Level 321 - Row 6 </h5>
-                          <p> 2 tickets </p>
-                        </div>
-                        <div class="tick_price">
-                          <h6>
-                            $58 <span>ea</span>{" "}
-                          </h6>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="ticket_left">
-                          <h5> Upper Level 321 - Row 6 </h5>
-                          <p> 2 tickets </p>
-                        </div>
-                        <div class="tick_price">
-                          <h6>
-                            $58 <span>ea</span>{" "}
-                          </h6>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="ticket_left">
-                          <h5> Upper Level 321 - Row 6 </h5>
-                          <p> 2 tickets </p>
-                        </div>
-                        <div class="tick_price">
-                          <h6>
-                            $58 <span>ea</span>{" "}
-                          </h6>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="ticket_left">
-                          <h5> Upper Level 321 - Row 6 </h5>
-                          <p> 2 tickets </p>
-                        </div>
-                        <div class="tick_price">
-                          <h6>
-                            $58 <span>ea</span>{" "}
-                          </h6>
-                        </div>
-                      </li>
-                    </ul>
-
-                    <div class="form-group">
-                      <select>
-                        <option> $58 ea 2 Tickets </option>
-                        <option> Short by Price </option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <button> Purchase </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 wow slideInLeft">
-                  <div class="ticket_plat">
-                    <h3>
-                      {" "}
-                      Back to tickets{" "}
-                      <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    </h3>
-                    {/* <img
-                      src="http://mapwidget3.seatics.com/mobile/html?eventId=5086733&websiteConfigId=12497&userAgent=something&includeBootstrap=false
-                      "
-                      class="img_tick"
-                    /> */}
-                    <Helmet>
-                      <script
-                        src="https://mapwidget3-sandbox.seatics.com/js?eventId=5086733&websiteConfigId=12498"
-                        async
-                        defer
-                      ></script>
-                    </Helmet>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12  wow slideInLeft">
-                  <div class="product_filter">
-                    <h1> Filter Results</h1>
-                    <div class="form-group">
-                      <select>
-                        <option> Short by Price </option>
-                        <option> Short by Price </option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <lable>Number of Tickets </lable>
-                      <ul>
-                        <li> 1</li>
-                        <li class="active"> 2</li>
-                        <li> 3</li>
-                        <li> 4</li>
-                        <li> 5</li>
-                        <li> 6</li>
-                        <li> 7</li>
-                        <li> 8+</li>
-                      </ul>
-                    </div>
-                    <div class="form-group">
-                      <lable>Price Per Ticket </lable>
-                      <div style={{ color: "white" }}>Range slider here</div>
-                    </div>
-                    <div class="form-group">
-                      <div class="br"> </div>
-                    </div>
-                    <div class="form-group">
-                      <button> Filter Results </button>
-                    </div>
-                  </div>
+                <div
+                  id="tn-maps"
+                  role="main"
+                  className="seatics"
+                  style={{ height: "800px" }}
+                >
+                  {/* The Seatics map widget will be rendered here */}
                 </div>
               </div>
             </div>
