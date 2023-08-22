@@ -111,8 +111,13 @@ class EventDetails extends Component {
                   id="tn-maps"
                   role="main"
                   className="seatics"
-                  style={{ height: "800px" }}
+                  style={{
+                    height: "1200px",
+                    backgroundColor: "#211e32",
+                    overflow: "auto",
+                  }}
                 >
+                  <div class="loader"></div>
                   {/* The Seatics map widget will be rendered here */}
                 </div>
               </div>
