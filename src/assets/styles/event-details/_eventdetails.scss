@@ -262,6 +262,13 @@ div#venue-ticket-list {
 
 tr.Sea-TicketRow.venue-ticket-list-row.venue-ticket-list-row-height.venue-ticket-list-row-js.venue-ticket-list-mark-col-align-top {
   background-color: #211e32 !important;
+  .venue-ticket-list-section-row-text {
+    color: #fff;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
 }
 td.venue-ticket-list-section-qty-col {
   color: #fff !important;
@@ -343,6 +350,167 @@ div#sort-cntr {
     background-color: #fff !important;
     color: #333043 !important;
   }
+}
+
+.filters-qty-filter.filters-qty-filter-cnt.sea-hidden-radio-buttons {
+  .btn {
+    // background-color: #a78cf2, #7d5fd2;
+    margin: 10px;
+    color: #7b7794;
+    width: 65px;
+    height: 40px;
+    border-radius: 9px;
+    border: 1px solid #302d40;
+    background: #272438;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 0px;
+  }
+}
+label.btn.sea-btn.qty-filter-opt-label-js.active {
+  // background-color: #a78cf2, #7d5fd2;
+  margin: 10px;
+  color: #fff;
+  width: 65px;
+  height: 40px;
+  border: 1px solid #7d5fd2 !important;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #a78cf2 0%, #7d5fd2 100%), #272438;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 0px;
+}
+
+div#sea-filterCard-parent {
+  border: 1px solid #2c293c;
+  background: #211e32;
+  border-radius: 10px;
+}
+
+input#price-filter-min,
+input#price-filter-max {
+  border-radius: 9px;
+  border: 1px solid #302d40;
+  background: #272438;
+  width: 127px;
+  height: 40px;
+  flex-shrink: 0;
+  color: #7b7794;
+  font-family: Poppins;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+div#sort-cntr {
+  border-radius: 9px !important;
+  border-color: #302d40 !important;
+  background-color: #272438 !important;
+  height: 40px;
+  button {
+    background-color: #272438 !important;
+    border-color: #302d40 !important;
+    color: #7b7794 !important;
+  }
+  button#sort-label {
+    span#sort-type-label,
+    span.sort-label-arrow.cm-down-arrow {
+      color: #7b7794 !important;
+    }
+  }
+}
+
+div#sea-filterCardTitle {
+  color: #fff;
+  font-size: 20px !important;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.sea-filterCard-header,
+legend.filters-type-label.sea-filter-text {
+  border-color: #2c293c !important;
+}
+
+button#sea-filters-back-to-list {
+  display: none !important;
+}
+
+.slick-track {
+  li.slick-slide {
+    margin: 10px;
+    color: #7b7794;
+    width: 65px;
+    height: 40px;
+    border-radius: 9px;
+    border: 1px solid #302d40;
+    background: #272438;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 0px;
+  }
+  li.slick-slide.slick-current.slick-active.sea-selected,
+  li.slick-slide.sea-selected {
+    margin: 10px;
+    color: #fff;
+    width: 65px;
+    height: 40px;
+    border: 1px solid #7d5fd2 !important;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #a78cf2 0%, #7d5fd2 100%), #272438;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 0px;
+  }
+}
+button#pre-checkout-back-to-list {
+  background-color: #272438 !important;
+  border-color: #272438;
+}
+div#precheckout-parent,
+div#event-info-area {
+  background-color: #1b182b !important;
+}
+
+div#sea-inventory-slider-with-filterBtn {
+  background-color: #211e32 !important;
+}
+
+.event-info-place {
+  color: #7b7794;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: "8px";
+}
+
+.event-info-date {
+  border-radius: 3px;
+  background: rgba(169, 146, 255, 0.2);
+  .event-info-date-date.event-info-date-loc,
+  .event-info-date-time.event-info-date-loc {
+    color: #a992ff;
+  }
+}
+
+button#sea-all-in-pricing-toggle-btn,
+button.slider.round.sea-delivery-type-option-js,
+button.slider.round.sea-delivery-type-option-js {
+  background-color: #211e32 !important;
+  border-color: #a78cf2 !important;
+}
+#sea-filterCard-wrapper .switch.active .slider:before {
+  background-color: #a78cf2 !important;
+}
+
+.dropdown-default.sea-dropdown-default-js,
+div#venue-map-zoom-controls,
+div#venue-map-reset-ctn {
+  background-color: #a992ff !important;
+  border-color: #a992ff !important;
 }
 
 /* Safari */
