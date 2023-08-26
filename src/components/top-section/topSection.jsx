@@ -6,6 +6,7 @@ import {
   TopPerformerList,
   TopShowsList,
 } from "../../redux/top-performers/action.js";
+import Loader from "../../components/spinner/spinner.jsx";
 class TopSection extends React.Component {
   constructor(props) {
     super(props);
@@ -42,9 +43,18 @@ class TopSection extends React.Component {
       }
     }
   }
-
+  onClickArtist = (performerName) => {
+    if (performerName) {
+      this.props.history.push(`/events-results/performer/${performerName}`);
+    }
+  };
+  onClickEvent = (eventId) => {
+    if (eventId) {
+      this.props.history.push(`/event-details/${eventId}`);
+    }
+  };
   render() {
-    console.log("props.......", this.state.top_shows);
+    
     return (
       <div>
         <section class="section events" id="artists">
@@ -59,9 +69,11 @@ class TopSection extends React.Component {
                   style={{ animationDuration: "2s" }}
                 >
                   <h1> Artists</h1>
-                  {this.state.performer_list &&
+                  {this.props.top_performer_list.in_action_performer ?
+                   <div className="event_box no-records"><Loader /></div> :
+                   this.state.performer_list &&
                     this.state.performer_list.map((perfoermer, key) => (
-                      <div class="event_box" >
+                      <div class="event_box" onClick={()=>this.onClickArtist(perfoermer.text.name)} >
                         <div class="date">
                           {" "}
                           <h3>{key + 1}</h3>
@@ -71,7 +83,9 @@ class TopSection extends React.Component {
                           <h3>{perfoermer.text.name} </h3>
                         </div>
                       </div>
-                    ))}
+                    ))
+                }
+                  
                 </div>
 
                 <div
@@ -136,20 +150,23 @@ class TopSection extends React.Component {
                   style={{ animationDuration: "2s" }}
                 >
                   <h1>Top Shows</h1>
-
-                  {this.state.top_shows &&
-                    this.state.top_shows.map((shows, key) => (
-                      <div class="event_box">
-                        <div class="date">
-                          {" "}
-                          <h3>{key + 1}</h3>
-                        </div>
-                        <div class="Info">
-                          {" "}
-                          <h3>{shows.text.name} </h3>
-                        </div>
+                {this.props.top_shows_list.in_action_shows ?
+                <div className="event_box no-records"><Loader /></div> :
+                this.state.top_shows &&
+                  this.state.top_shows.map((shows, key) => (
+                    <div class="event_box" onClick={() => this.onClickEvent(shows.id)}>
+                      <div class="date">
+                        {" "}
+                        <h3>{key + 1}</h3>
                       </div>
-                    ))}
+                      <div class="Info">
+                        {" "}
+                        <h3>{shows.text.name} </h3>
+                      </div>
+                    </div>
+                  ))
+              }
+                  
                 </div>
               </div>
             </div>

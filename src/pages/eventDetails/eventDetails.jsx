@@ -39,7 +39,9 @@ class EventDetails extends Component {
     ViewMap(event_id).then((response) => {
       console.log("sdfsdfdsfdsf", response);
       if (response) {
+        
         seaticsScript.innerHTML = response.data;
+        
         seaticsScript.async = true;
 
         document.body.appendChild(seaticsScript);

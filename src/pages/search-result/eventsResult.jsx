@@ -82,8 +82,14 @@ class SearchResult extends Component {
     });
     this.props.mainSearch(data);
   };
+  onClickEvent=(eventId)=>{
+   
+    if(eventId){
+      this.props.history.push(`/event-details/${eventId}`)
+    }
+    }
   render() {
-    
+    console.log('checking props',this.props.performer_search)
     return (
       <>
         <main>
@@ -128,55 +134,60 @@ class SearchResult extends Component {
                     </li>
                   </ul>
                   <h5 className="eventes-heading"> All Events </h5>
-                  {this.state.search_results &&
-                  this.state.search_results.length > 0 ? (
-                    this.state.search_results.map((event, key) => (
-                      <div className="event_box">
-                        <div className="date">
-                          <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}
-                          <p> {moment(event.date.date).format("ddd")} </p>{" "}
-                        </div>
-                        <div className="Info">
-                          <h3>{event.text.name} </h3>
-                          <p> {event.venue.text.name}</p>
-                        </div>
-                        <div className="date_1">
-                          <p className="t2">
-                            <img
-                              src={require("../../assets/images/newimages/calender.png")}
-                              alt="sourced"
-                            />{" "}
-                            {moment(event.date.date).format("MMMM Do")}
-                          </p>{" "}
-                        </div>
-                        <div className="time">
-                          {" "}
-                          <p className="t1">
+                  {this.props.performer_search.in_action_performer
+                  ?
+                  <div className="event_box no-records"><Loader /></div> :
+                  this.state.search_results &&
+                    this.state.search_results.length > 0 ? (
+                      this.state.search_results.map((event, key) => (
+                        <div className="event_box" onClick={()=>this.onClickEvent(event.id)}>
+                          <div className="date">
+                            <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}
+                            <p> {moment(event.date.date).format("ddd")} </p>{" "}
+                          </div>
+                          <div className="Info">
+                            <h3>{event.text.name} </h3>
+                            <p> {event.venue.text.name}</p>
+                          </div>
+                          <div className="date_1">
+                            <p className="t2">
+                              <img
+                                src={require("../../assets/images/newimages/calender.png")}
+                                alt="sourced"
+                              />{" "}
+                              {moment(event.date.date).format("MMMM Do")}
+                            </p>{" "}
+                          </div>
+                          <div className="time">
                             {" "}
-                            <img
-                              src={require("../../assets/images/newimages/time.png")}
-                              alt="sourced"
-                            />{" "}
-                            {event.date.text.time}
-                          </p>{" "}
-                        </div>
-                        <div className="prices">
-                          {" "}
-                          <button>
-                            <a>
+                            <p className="t1">
                               {" "}
-                              {event.pricingInfo
-                                ? `From ${event.pricingInfo.lowPrice.text.formatted}`
-                                : "N/A"}{" "}
-                            </a>{" "}
-                          </button>
+                              <img
+                                src={require("../../assets/images/newimages/time.png")}
+                                alt="sourced"
+                              />{" "}
+                              {event.date.text.time}
+                            </p>{" "}
+                          </div>
+                          <div className="prices">
+                            {" "}
+                            <button>
+                              <a>
+                                {" "}
+                                {event.pricingInfo
+                                  ? `From ${event.pricingInfo.lowPrice.text.formatted}`
+                                  : "N/A"}{" "}
+                              </a>{" "}
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    ))
-                  ) : (
-                    // <div className="event_box no-records">No Records Found</div>
-                    <div className="event_box no-records"><Loader /></div>
-                  )}
+                      ))
+                    ) : (
+                      // <div className="event_box no-records">No Records Found</div>
+                      <div className="event_box no-records">No recors Found</div>
+                    )}
+                  
+                 
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ import moment from "moment";
 import { searchedEvent } from "../../redux/searched-events/action";
 
 import Geocode from "react-geocode";
+import Loader from "../../components/spinner/spinner.jsx";
 class LocalEvents extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,7 @@ class LocalEvents extends React.Component {
       searched_events_list: "",
       latitude: "",
       longitude: "",
-      city:""
+      city: "",
     };
   }
   componentDidUpdate(prevProps) {
@@ -21,7 +22,6 @@ class LocalEvents extends React.Component {
         this.props.searched_events &&
         this.props.searched_events.searched_events !== ""
       ) {
-     
         this.setState({
           searched_events_list: this.props.searched_events.searched_events,
         });
@@ -31,10 +31,9 @@ class LocalEvents extends React.Component {
 
   componentDidMount() {
     let data = {
-      salesRankOptions:{"interval":"30days","metric":"ticketVolume"}
-    }
+      salesRankOptions: { interval: "30days", metric: "ticketVolume" },
+    };
     this.props.searchedEvent(data);
-    
   }
   // Geolocation(lat, lng) {
   //   Geocode.setApiKey("AIzaSyC6l4iBNvQwIaPjoqKIoOBKJPxqqvXEYso");
@@ -83,7 +82,7 @@ class LocalEvents extends React.Component {
   //         };
   //         this.props.searchedEvent(searched_city);
   //       }
-   
+
   //     },
   //     (error) => {
   //       console.error(error);
@@ -95,70 +94,81 @@ class LocalEvents extends React.Component {
       this.props.history.push(`/performers-details/${artist_id}`);
     }
   };
-  onClickEvent=(eventId)=>{
-   
-    if(eventId){
-      this.props.history.push(`/event-details/${eventId}`)
+  onClickEvent = (eventId) => {
+    if (eventId) {
+      this.props.history.push(`/event-details/${eventId}`);
     }
-    }
+  };
   render() {
     return (
       <div>
         <section class="section events" id="events">
           <div class="container">
             <div class="row">
-            <div
+              <div
                 class="col-lg-12 wow slideInLeft"
-                style={{animationDuration: "3s"}}
+                style={{ animationDuration: "3s" }}
               >
                 <h2
                   class="wow slideInLeft section-heading"
-                  style={{animationDuration: "1s"}}
+                  style={{ animationDuration: "1s" }}
                 >
                   {" "}
                   <span>Trending</span> Features
                 </h2>
               </div>
-                {this.state.searched_events_list &&
-                  this.state.searched_events_list.map((event, index) => (
-                    <div className="col-lg-6 pad10">
-                      <div className="event_box" onClick={()=>this.onClickEvent(event.id)}>
+              {this.props.searched_events.in_action
+              ?
+              <div className="event_box no-records"><Loader /></div>
+              :
+              this.state.searched_events_list &&
+                this.state.searched_events_list.map((event, index) => (
+                  <div className="col-lg-6 pad10">
+                    <div
+                      className="event_box"
+                      onClick={() => this.onClickEvent(event.id)}
+                    >
                       <div className="date">
-                          <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}
-                          <p> {moment(event.date.date).format("ddd")} </p>{" "}
-                        </div>
-                        <div className="Info">
+                        <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}
+                        <p> {moment(event.date.date).format("ddd")} </p>{" "}
+                      </div>
+                      <div className="Info">
+                        {" "}
+                        <h3>{event.text.name}</h3>
+                      </div>
+                      <div className="time">
+                        {" "}
+                        <p className="t1">
                           {" "}
-                          <h3>{event.text.name}</h3>
-                        </div>
-                        <div className="time">
-                          {" "}
-                          <p className="t1">
+                          <img
+                            src={require("../../assets/images/newimages/time.png")}
+                            alt="sourced"
+                          />{" "}
+                          {new Date(event.date.datetime).toLocaleTimeString(
+                            "en-IT",
+                            {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            }
+                          )}{" "}
+                        </p>{" "}
+                      </div>
+                      <div className="prices">
+                        {" "}
+                        <button>
+                          <a>
                             {" "}
-                            <img
-                              src={require("../../assets/images/newimages/time.png")}
-                              alt="sourced"
-                            />{" "}
-                            {new Date(event.date.datetime).toLocaleTimeString(
-                              "en-IT",
-                              {
-                                hour: "2-digit",
-                                minute: "2-digit",
-                              }
-                            )}{" "}
-                          </p>{" "}
-                        </div>
-                        <div className="prices">
-                          {" "}
-                          <button>
-                          <a>  {event.pricingInfo ?`From ${ event.pricingInfo.lowPrice.text.formatted}`  :'N/A'} </a>{" "}
-                          </button>
-                        </div>
+                            {event.pricingInfo
+                              ? `From ${event.pricingInfo.lowPrice.text.formatted}`
+                              : "N/A"}{" "}
+                          </a>{" "}
+                        </button>
                       </div>
                     </div>
-                  ))}
-                 
+                  </div>
+                ))}
               
+             
             </div>
           </div>
         </section>

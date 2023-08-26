@@ -2,11 +2,10 @@ import {TopPerformer,TopShows} from "../../utils/apis.js";
 
 export const TopPerformerList = () => async (dispatch)=>{
 
-    //dispatch({type:"ACTION_INITIATED_ADD_USER"});
+    dispatch({type:"ACTION_INITIATED_TOP_PERFORMER"});
     try{
 
         const response = await TopPerformer();
-       console.log('response',response)
         if(response.status <=201){
             dispatch({
                 type: "SUCCESS_TOP_PERFORMER",
@@ -25,17 +24,16 @@ export const TopPerformerList = () => async (dispatch)=>{
         });
     }
     dispatch({
-        type: "ACTION_COMPLETED_ADD_USER",
+        type: "ACTION_COMPLETED_TOP_PERFORMER",
         payload:'performer not found '
     });
 }
 export const TopShowsList = () => async (dispatch)=>{
 
-    //dispatch({type:"ACTION_INITIATED_ADD_USER"});
+    dispatch({type:"ACTION_INITIATED_TOP_SHOWS"});
     try{
 
         const response = await TopShows();
-       console.log('responseTopShowsList',response)
         if(response.status <=201){
             dispatch({
                 type: "SUCCESS_TOP_SHOWS",
@@ -54,7 +52,7 @@ export const TopShowsList = () => async (dispatch)=>{
         });
     }
     dispatch({
-        type: "ACTION_COMPLETED_SHOWS",
+        type: "ACTION_COMPLETED_TOP_SHOWS",
         payload:'performer not found '
     });
 }
