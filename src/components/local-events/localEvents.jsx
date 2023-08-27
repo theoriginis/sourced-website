@@ -127,6 +127,7 @@ class LocalEvents extends React.Component {
                     <div
                       className="event_box"
                       onClick={() => this.onClickEvent(event.id)}
+                    
                     >
                       <div className="date">
                         <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}

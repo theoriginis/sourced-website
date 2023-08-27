@@ -167,6 +167,7 @@ export async function EventInformation(event_id) {
       //       },
       headers: {
         Authorization: "Bearer " + token,
+        "Access-Control-Allow-Origin":'*'
       },
     });
   } catch (error) {
@@ -177,12 +178,13 @@ export async function ViewMap(event_id) {
   try {
     return axios({
       method: "get",
-      url: `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=12498&useDarkTheme=true&includeBootstrap=false`,
+      url: `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=12498&useDarkTheme=true&includeBootstrap=true`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
       //          perPage: "8",
       //       },
+      
     });
   } catch (error) {
     return error;
