@@ -24,18 +24,29 @@ class EventDetails extends Component {
   componentDidMount() {
     let url_segment = this.props.location.pathname.split("/");
     let event_id = url_segment["2"];
+    // const seaticsScript = document.createElement("script");
+    // ViewMap(event_id).then((response) => {
+    //   if (response) {
+    //     seaticsScript.innerHTML = response.data;
+
+    //     seaticsScript.async = true;
+
+    //     document.body.appendChild(seaticsScript);
+    //   }
+    // });
     const seaticsScript = document.createElement("script");
-    ViewMap(event_id).then((response) => {
-      if (response) {
-        seaticsScript.innerHTML = response.data;
-        
-        seaticsScript.async = true;
+    seaticsScript.setAttribute(
+      "src",
+      `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=12498&useDarkTheme=true&includeBootstrap=true`
+    );
+    seaticsScript.async = true;
 
-        document.body.appendChild(seaticsScript);
-      }
-    });
+    document.body.appendChild(seaticsScript);
+    // let text = document.getElementById("tn-maps").innerHTML;
+    // let result = text + `Seatics.config.smallScreenMapLayout =
+    // Seatics.SmallScreenMapOptions.FullyHidden;`
+    // document.getElementById("tn-maps").innerHTML = result;
   }
-
 
   openEvent = async (event_id) => {
     if (event_id !== "") {
@@ -57,12 +68,11 @@ class EventDetails extends Component {
                   className="seatics"
                   style={{
                     height: "1200px",
-                    backgroundColor: "#211e32",
+                    backgroundColor: "#211E32",
                     overflow: "auto",
                   }}
                 >
                   <div class="loader"></div>
-                 
                 </div>
               </div>
             </div>
@@ -73,9 +83,5 @@ class EventDetails extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-
-});
-export default withRouter(
-  connect(mapStateToProps, {  })(EventDetails)
-);
+const mapStateToProps = (state) => ({});
+export default withRouter(connect(mapStateToProps, {})(EventDetails));

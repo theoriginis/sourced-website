@@ -178,7 +178,7 @@ export async function ViewMap(event_id) {
   try {
     return axios({
       method: "get",
-      url: `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=12498&useDarkTheme=true&includeBootstrap=true`,
+      url: `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=27217&useDarkTheme=true&includeBootstrap=true`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
