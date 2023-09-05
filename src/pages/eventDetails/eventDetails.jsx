@@ -37,15 +37,14 @@ class EventDetails extends Component {
     const seaticsScript = document.createElement("script");
     seaticsScript.setAttribute(
       "src",
-      `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=12498&useDarkTheme=true&includeBootstrap=true`
+      `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=12498&useDarkTheme=true&includeBootstrap=true&checkoutUrl=checkout.tickettransaction.com`
     );
     seaticsScript.async = true;
-
+    console.log('sscript',seaticsScript)
     document.body.appendChild(seaticsScript);
-    // let text = document.getElementById("tn-maps").innerHTML;
-    // let result = text + `Seatics.config.smallScreenMapLayout =
-    // Seatics.SmallScreenMapOptions.FullyHidden;`
-    // document.getElementById("tn-maps").innerHTML = result;
+    Seatics.config.c3CheckoutDomain = "checkout.tickettransaction.com";
+    Seatics.config.c3CurrencyCode = "USD";
+    Seatics.config.useC3 = true;
   }
 
   openEvent = async (event_id) => {
