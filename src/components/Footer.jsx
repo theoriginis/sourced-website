@@ -6,7 +6,7 @@ class Footer extends React.Component {
     this.props.history.push("/terms-and-conditions");
   };
   openPrivacyPolicies = () => {
-    this.props.history.push("/privacy-policies");
+    this.props.history.push("/policies");
   };
   openContactUs = () => {
     this.props.history.push("/contact-us");
@@ -57,7 +57,7 @@ class Footer extends React.Component {
         <footer id="footer">
           <div className="footer-top">
             <div className="container">
-              <div className="row">
+              <div className="row footer-row">
                 <div
                   className="col-lg-5 col-md-5 col-sm-12 col-xs-12 footer-contact wow slideInLeft"
                   style={{animationDuration: "3.5s"}}
@@ -67,7 +67,7 @@ class Footer extends React.Component {
                 </div>
 
                 <div
-                  className="col-lg-7 col-md-7 col-sm-12 col-xs-12 footer-links wow slideInLeft"
+                  className="col-lg-3 col-md-3 col-sm-12 col-xs-12 footer-links wow slideInLeft"
                   style={{animationDuration: "3.5s"}}
                 >
                   <h3> RESOURCES </h3>
@@ -88,12 +88,21 @@ class Footer extends React.Component {
                         Contact Us{" "}
                       </a>
                     </li>
-                    <li>
-                      {" "}
-                      <a href="#" target="blank">
-                        Contact Us{" "}
+                   
+                  </ul>
+                </div>
+                <div
+                  className="col-lg-4 col-md-4 footer-links"
+                  style={{animationDuration: "3.5s"}}
+                >
+                  <h3> Policies </h3>
+                  <ul>
+                    <li onClick={this.openPrivacyPolicies}>
+                      <a  target="blank">
+                        Policies
                       </a>
                     </li>
+                   
                   </ul>
                 </div>
               </div>

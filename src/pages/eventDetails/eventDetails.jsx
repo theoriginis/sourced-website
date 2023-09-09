@@ -40,10 +40,11 @@ class EventDetails extends Component {
       `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=12498&useDarkTheme=true&includeBootstrap=true&checkoutUrl=checkout.tickettransaction.com`
     );
     seaticsScript.async = true;
-    console.log('sscript',seaticsScript)
     document.body.appendChild(seaticsScript);
     Seatics.config.c3CheckoutDomain = "checkout.tickettransaction.com";
     Seatics.config.c3CurrencyCode = "USD";
+    Seatics.config.currencyIntl = {};
+    
     Seatics.config.useC3 = true;
   }
 
