@@ -97,8 +97,8 @@ class Footer extends React.Component {
                 >
                   <h3> Policies </h3>
                   <ul>
-                    <li onClick={this.openPrivacyPolicies}>
-                      <a  target="blank">
+                    <li  onClick={this.openPrivacyPolicies}>
+                      <a  target="blank" className="open-policies">
                         Policies
                       </a>
                     </li>
