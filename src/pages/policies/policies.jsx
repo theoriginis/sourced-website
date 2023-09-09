@@ -18,64 +18,58 @@ class Policies extends Component {
   }
   componentDidMount() {
     // Create a script element
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'http://tickettransaction.com/?bid=13217&sitenumber=0&tid=600';
+    const script = document.createElement("script");
+    script.setAttribute(
+      "src",
+      `https://tickettransaction.com/?bid=13217&sitenumber=0&tid=600`
+    );
 
-    // Append the script element to the document's head
+    console.log("script", script);
+    script.onload = () => {
+      // The script has loaded successfully; check for TN_Policy_Maker and call the function
+      if (
+        typeof TN_Policy_Maker !== "undefined" &&
+        typeof TN_Policy_Maker.PrintPolicies === "function"
+      ) {
+        const rawHtml = TN_Policy_Maker.PrintPolicies();
+        this.setState({ rawHtml, error: null });
+      } else {
+        // TN_Policy_Maker or TN_Policy_Maker.PrintPolicies is not defined
+        this.setState({
+          error:
+            "TN_Policy_Maker or TN_Policy_Maker.PrintPolicies is not defined",
+        });
+      }
+    };
+
+    script.onerror = () => {
+      // Handle script loading error
+      this.setState({ error: "Error loading the script" });
+    };
+
     document.head.appendChild(script);
-
-    // Check if the script has already loaded or not and handle both cases accordingly
-    if (script.readyState) {
-      // IE support
-      script.onreadystatechange = () => {
-        if (script.readyState === 'loaded' || script.readyState === 'complete') {
-          script.onreadystatechange = null;
-          this.callPrintPolicies(); // Call the function when the script is ready
-        }
-      };
-    } else {
-      // Other browsers
-      script.onload = () => {
-        this.callPrintPolicies(); // Call the function when the script is ready
-      };
-    }
+    // Append the script element to the document's head
   }
-  componentWillUnmount() {
-    // Cleanup: Remove the script element when the component unmounts
-    const script = document.querySelector('script[src="http://tickettransaction.com/?bid=13217&sitenumber=0&tid=600"]');
-    if (script) {
-      document.head.removeChild(script);
-    }
-  }
-  callPrintPolicies = () => {
-    if (typeof TN_Policy_Maker !== 'undefined' && typeof TN_Policy_Maker.PrintPolicies === 'function') {
-      // Call TN_Policy_Maker.PrintPolicies() to generate the raw HTML
-      const rawHtml = TN_Policy_Maker.PrintPolicies();
 
-      // Now, `rawHtml` contains the generated HTML
-
-      // Set `rawHtml` in the component's state
-      this.setState({ rawHtml });
-    } else {
-      // Handle the case where TN_Policy_Maker or TN_Policy_Maker.PrintPolicies is not defined
-      console.error('TN_Policy_Maker or TN_Policy_Maker.PrintPolicies is not defined');
-    }
-  };
   render() {
     window.scrollTo(0, 0);
-    const { rawHtml } = this.state;
+    const { rawHtml, error } = this.state;
     return (
       <>
         <main>
           <section class="section events search_results">
             <div class="container">
               <div class="row policy-page">
-                {rawHtml !== null ? (
-                  <div dangerouslySetInnerHTML={{ __html: rawHtml }} />
-                ) : (
-                  <p>Loading...</p>
-                )}
+                <div>
+                  {error ? (
+                    <p>Error: {error}</p>
+                  ) : rawHtml ? (
+                    <div dangerouslySetInnerHTML={{ __html: rawHtml }} />
+                  ) : (
+                    <p>Loading...</p>
+                  )}
+                  {/* Your React component content */}
+                </div>
                 {/* Your React component content */}
               </div>
             </div>

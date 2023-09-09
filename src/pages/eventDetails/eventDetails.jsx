@@ -24,16 +24,7 @@ class EventDetails extends Component {
   componentDidMount() {
     let url_segment = this.props.location.pathname.split("/");
     let event_id = url_segment["2"];
-    // const seaticsScript = document.createElement("script");
-    // ViewMap(event_id).then((response) => {
-    //   if (response) {
-    //     seaticsScript.innerHTML = response.data;
 
-    //     seaticsScript.async = true;
-
-    //     document.body.appendChild(seaticsScript);
-    //   }
-    // });
     const seaticsScript = document.createElement("script");
     seaticsScript.setAttribute(
       "src",
