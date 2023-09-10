@@ -60,7 +60,7 @@ class Policies extends Component {
           <section class="section events search_results">
             <div class="container">
               <div class="row policy-page">
-                <div>
+                <div class="policy_overflow">
                   {error ? (
                     <p>Error: {error}</p>
                   ) : rawHtml ? (
