@@ -1,6 +1,7 @@
 import axios from "axios";
-let token = "03879e2f-6b87-3611-a366-9cdcc3821a6e";
-let websiteConfigId = "12498";
+//let token = "03879e2f-6b87-3611-a366-9cdcc3821a6e"; //sandbox
+let token = "df7fc454-4735-3935-95e1-dfe1cf2cc9bf" //live
+let websiteConfigId = "21217";
 export async function signupUser(data) {
   if (data !== " ") {
     let email = data.email;
@@ -48,7 +49,7 @@ export async function SearchEvent(data) {
     let salesRankOptions = data.salesRankOptions;
     return axios({
       method: "get",
-      url: `https://sandbox.tn-apis.com/catalog/v2/events?websiteConfigId=${websiteConfigId}`,
+      url: `https://www.tn-apis.com/catalog/v2/events?websiteConfigId=${websiteConfigId}`,
       params: {
         salesRankOptions: salesRankOptions,
         page: "1",
@@ -67,7 +68,7 @@ export async function SearchPerformer(data) {
     let performer_name = data.performer_name;
     return axios({
       method: "get",
-      url: `https://sandbox.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text/name eq %27${performer_name}%27`,
+      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text/name eq %27${performer_name}%27`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
@@ -86,7 +87,7 @@ export async function EventSearch(data) {
     let performer_name = data.performer_name;
     return axios({
       method: "get",
-      url: `https://sandbox.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=text/name eq %27${performer_name}%27`,
+      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=text/name eq %27${performer_name}%27`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
@@ -105,7 +106,7 @@ export async function Searchvenue(data) {
     let performer_name = data.performer_name;
     return axios({
       method: "get",
-      url: `https://sandbox.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=venue/text/name eq %27${performer_name}%27`,
+      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=venue/text/name eq %27${performer_name}%27`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
@@ -123,7 +124,7 @@ export async function TopPerformer() {
   try {
     return axios({
       method: "get",
-      url: `https://sandbox.tn-apis.com/catalog/v2/performers?websiteConfigId=${websiteConfigId}&page=1&perPage=5`,
+      url: `https://www.tn-apis.com/catalog/v2/performers?websiteConfigId=${websiteConfigId}&page=1&perPage=5`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
@@ -141,7 +142,7 @@ export async function TopShows() {
   try {
     return axios({
       method: "get",
-      url: `https://sandbox.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=defaultCategory%2Ftext%2Fname%20eq%20'MUSICAL%20%2F%20PLAY'&page=1&perPage=5`,
+      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=defaultCategory%2Ftext%2Fname%20eq%20'MUSICAL%20%2F%20PLAY'&page=1&perPage=5`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
@@ -159,7 +160,7 @@ export async function EventInformation(event_id) {
   try {
     return axios({
       method: "get",
-      url: `https://sandbox.tn-apis.com/catalog/v2/events/${event_id}?websiteConfigId=${websiteConfigId}&q=*&filter=defaultCategory%2Ftext%2Fname%20eq%20'MUSICAL%20%2F%20PLAY'&page=1&perPage=5`,
+      url: `https://www.tn-apis.com/catalog/v2/events/${event_id}?websiteConfigId=${websiteConfigId}&q=*&filter=defaultCategory%2Ftext%2Fname%20eq%20'MUSICAL%20%2F%20PLAY'&page=1&perPage=5`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
