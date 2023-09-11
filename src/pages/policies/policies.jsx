@@ -21,7 +21,7 @@ class Policies extends Component {
     const script = document.createElement("script");
     script.setAttribute(
       "src",
-      `https://tickettransaction.com/?bid=13217&sitenumber=0&tid=600`
+      `https://tickettransaction.com/?bid=13214&sitenumber=0&tid=600`
     );
 
     console.log("script", script);
