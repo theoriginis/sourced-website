@@ -1,7 +1,6 @@
 import axios from "axios";
-//let token = "03879e2f-6b87-3611-a366-9cdcc3821a6e"; //sandbox
-let token = "df7fc454-4735-3935-95e1-dfe1cf2cc9bf" //live
-let websiteConfigId = "21217";
+let token = "bbf464bd-5b86-3648-af93-08cab2590fdf";
+let websiteConfigId = "27217";
 export async function signupUser(data) {
   if (data !== " ") {
     let email = data.email;
@@ -175,19 +174,4 @@ export async function EventInformation(event_id) {
     return error;
   }
 }
-export async function ViewMap(event_id) {
-  try {
-    return axios({
-      method: "get",
-      url: `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=27217&useDarkTheme=true&includeBootstrap=true`,
-      // params: {
-      //   performerFilter: salesRankOptions,
-      //          page: "1",
-      //          perPage: "8",
-      //       },
-      
-    });
-  } catch (error) {
-    return error;
-  }
-}
+

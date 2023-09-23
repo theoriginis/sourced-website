@@ -28,14 +28,14 @@ class EventDetails extends Component {
     const seaticsScript = document.createElement("script");
     seaticsScript.setAttribute(
       "src",
-      `https://mapwidget3-sandbox.seatics.com/js?eventId=${event_id}&websiteConfigId=12498&useDarkTheme=true&includeBootstrap=true&checkoutUrl=checkout.tickettransaction.com`
+      `https://mapwidget3.seatics.com/js?eventId=${event_id}&websiteConfigId=27217&useDarkTheme=true&includeBootstrap=true`
     );
     seaticsScript.async = true;
     document.body.appendChild(seaticsScript);
-    Seatics.config.c3CheckoutDomain = "checkout.tickettransaction.com";
+    Seatics.config.c3CheckoutDomain = "checkout.sourcedtickets.com";
     Seatics.config.c3CurrencyCode = "USD";
     Seatics.config.currencyIntl = {};
-    
+
     Seatics.config.useC3 = true;
   }
 
