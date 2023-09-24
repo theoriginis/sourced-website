@@ -48,8 +48,12 @@ export async function SearchEvent(data) {
     let salesRankOptions = data.salesRankOptions;
     return axios({
       method: "get",
-      url: `https://www.tn-apis.com/catalog/v2/events/suggest?websiteConfigId=${websiteConfigId}&q=*&numberOfSuggestions=8`,
-      
+      url: `https://www.tn-apis.com/catalog/v2/events?websiteConfigId=${websiteConfigId}`,
+       params: {
+       
+               page: "1",
+               perPage: "8",
+            },
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -63,7 +67,8 @@ export async function SearchPerformer(data) {
     let performer_name = data.performer_name;
     return axios({
       method: "get",
-      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text/name eq %27${performer_name}%27`,
+      //url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text/name eq %27${performer_name}%27`,
+      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=contains(text%2Fname%2C '${performer_name}')`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",

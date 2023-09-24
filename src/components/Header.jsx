@@ -12,9 +12,32 @@ class Header extends Component {
     this.state = {
       showLoginForm: false,
       user_information: JSON.parse(localStorage.getItem("user_info")),
+      inputValue: "",
+      suggestions: [],
     };
+    this.dummySuggestions = [
+      "Google",
+      "Facebook",
+      "Amazon",
+      "Apple",
+      "Microsoft",
+    ];
   }
+  handleInputChange = (e) => {
+    const value = e.target.value;
+    this.setState({ inputValue: value });
 
+    // Filter suggestions based on user input
+    const filteredSuggestions = this.dummySuggestions.filter((suggestion) =>
+      suggestion.toLowerCase().includes(value.toLowerCase())
+    );
+
+    this.setState({ suggestions: filteredSuggestions });
+  };
+
+  handleSuggestionClick = (suggestion) => {
+    this.setState({ inputValue: suggestion, suggestions: [] });
+  };
   loginForm = () => {
     this.setState({
       showLoginForm: true,
@@ -40,23 +63,23 @@ class Header extends Component {
     window.location.href = "/";
   };
   goToLogin = (event) => {
-    if(event.target.innerHTML === 'Logout'){
+    if (event.target.innerHTML === "Logout") {
       localStorage.clear();
       window.location.href = "/";
-    }else{
+    } else {
       this.props.history.push("/login");
     }
     //this.props.history.push("/login");
   };
   render() {
-
+    const { inputValue, suggestions } = this.state;
     return (
       <div>
         <nav className="navbar navbar-expand-md main-nav navigation fixed-top sidebar-left wow">
           <div className="container">
             <div className="collapse navbar-collapse" id="main-navbar">
               <div className="wdith50">
-                <a  className="navbar-brand" onClick={()=>this.goToHome()}>
+                <a className="navbar-brand" onClick={() => this.goToHome()}>
                   <img
                     src={require("../assets/images/newimages/logo.png")}
                     alt=""
@@ -70,18 +93,30 @@ class Header extends Component {
                       alt="sourced"
                     />{" "}
                   </div>
-                  <div className="search-div">
+                  <div className="search-div auto-suggest">
                     <input
                       type="text"
                       placeholder="Search For Artist, Team, Event or Venue"
+                      value={inputValue}
+                      onChange={this.handleInputChange}
                     />
+                    <ul className="suggestions">
+                      {suggestions.map((suggestion, index) => (
+                        <li
+                          key={index}
+                          onClick={() => this.handleSuggestionClick(suggestion)}
+                        >
+                          {suggestion}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
               <div className="wdith50">
                 <div className="float-right header-btn">
-                  <div className="button_zal login"  onClick={this.goToLogin} >
-                 {this.state.user_information ? 'Logout' : 'Login'} 
+                  <div className="button_zal login" onClick={this.goToLogin}>
+                    {this.state.user_information ? "Logout" : "Login"}
                   </div>
                 </div>
               </div>

@@ -135,7 +135,7 @@ class LocalEvents extends React.Component {
                       </div>
                       <div className="Info">
                         {" "}
-                        <h3>{event.name}</h3>
+                        <h3>{event.text.name}</h3>
                       </div>
                       <div className="time">
                         {" "}
@@ -145,14 +145,13 @@ class LocalEvents extends React.Component {
                             src={require("../../assets/images/newimages/time.png")}
                             alt="sourced"
                           />{" "}
-                          {/* {new Date(event.time).toLocaleTimeString(
+                          {new Date(event.date.datetime).toLocaleTimeString(
                             "en-IT",
                             {
                               hour: "2-digit",
                               minute: "2-digit",
                             }
-                          )} */}
-                         {event.time}
+                          )}{" "}
                         </p>{" "}
                       </div>
                       <div className="prices">
