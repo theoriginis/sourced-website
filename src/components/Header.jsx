@@ -133,6 +133,16 @@ class Header extends Component {
                    
                     {this.state.search_results.length > 0 ? (
                       <ul className="suggestions ">
+                         <li
+                          
+                              className="suggestion-list-items"
+                            >
+                              <div className="suggestion_box">
+                                <div className="suggestion_name">
+                                  <h2> Suggested Results </h2>
+                                </div>
+                              </div>
+                            </li>
                         {this.state.search_results.length > 0 &&
                           this.state.search_results.map((suggestion, index) => (
                             <li
