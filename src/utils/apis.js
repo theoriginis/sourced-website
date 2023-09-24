@@ -48,12 +48,8 @@ export async function SearchEvent(data) {
     let salesRankOptions = data.salesRankOptions;
     return axios({
       method: "get",
-      url: `https://www.tn-apis.com/catalog/v2/events?websiteConfigId=${websiteConfigId}`,
-      params: {
-        salesRankOptions: salesRankOptions,
-        page: "1",
-        perPage: "8",
-      },
+      url: `https://www.tn-apis.com/catalog/v2/events/suggest?websiteConfigId=${websiteConfigId}&q=*&numberOfSuggestions=8`,
+      
       headers: {
         Authorization: "Bearer " + token,
       },
