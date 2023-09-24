@@ -100,7 +100,7 @@ class Header extends Component {
                       value={inputValue}
                       onChange={this.handleInputChange}
                     />
-                    <ul className="suggestions">
+                    <ul className="suggestions ">
                       {suggestions.map((suggestion, index) => (
                         <li
                           key={index}
