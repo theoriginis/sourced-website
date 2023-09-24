@@ -67,3 +67,38 @@ export const searchedPerformer = (data, type) => async (dispatch) => {
     payload: "performer list not found ",
   });
 };
+export const searchedPerformerHeader = (data, type) => async (dispatch) => {
+  dispatch({ type: "ACTION_INITIATED_SEARCH_PERFORMER" });
+  try {
+    console.log("Type", type);
+    let response = "";
+    if (type == "performer") {
+      response = await SearchPerformer(data);
+    } else if (type == "events") {
+      response = await EventSearch(data);
+    } else {
+      response = await Searchvenue(data);
+    }
+    console.log("response", response);
+    if (response.status <= 201) {
+      dispatch({
+        type: "SEARCH_PERFORMER_HEADER",
+        payload: response.data.results,
+      });
+    } else {
+      dispatch({
+        type: "SEARCH_PERFORMER_FAILURE_HEADER",
+        payload: "performer list not found ",
+      });
+    }
+  } catch (error) {
+    dispatch({
+      type: "SEARCH_PERFORMER_FAILURE_HEADER",
+      payload: "performer list not found ",
+    });
+  }
+  dispatch({
+    type: "ACTION_COMPLETED_PERFORMER_SEARCH_HEADER",
+    payload: "performer list not found ",
+  });
+};

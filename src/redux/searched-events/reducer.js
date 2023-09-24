@@ -3,8 +3,11 @@ const INIT_STATE = {
   in_action: false,
   searched_events: "",
   performer_search: "",
+  performer_search_header:"",
   error_performer_search: "",
   in_action_performer: false,
+  error_performer_search_header: "",
+  in_action_performer_header: false,
 };
 
 export default (state = INIT_STATE, action) => {
@@ -43,17 +46,35 @@ export default (state = INIT_STATE, action) => {
         performer_search: action.payload,
         in_action_performer: false,
       };
+      case "SEARCH_PERFORMER_HEADER":
+      return {
+        ...state,
+        performer_search_header: action.payload,
+        in_action_performer: false,
+      };
     case "SEARCH_PERFORMER_FAILURE":
       return {
         ...state,
         error_performer_search: action.payload,
         in_action_performer: false,
       };
+      case "SEARCH_PERFORMER_FAILURE_HEADER":
+        return {
+          ...state,
+          error_performer_search_header: action.payload,
+          in_action_performer: false,
+        };
     case "ACTION_COMPLETED_PERFORMER_LIST":
       return {
         ...state,
 
         in_action_artist: false,
+      };
+      case "ACTION_COMPLETED_PERFORMER_SEARCH_HEADER":
+      return {
+        ...state,
+
+        in_action_performer_header: false,
       };
 
     default:

@@ -212,4 +212,43 @@ nav .container {
 max-height:2500px;
 overflow:auto;
 }
+.suggestion_box{
+  background-color: #211e32;
+  border: 1px solid #2C293C;
 
+  padding: 12px;
+  display: flex;
+  cursor: pointer;
+}
+.suggestion_name
+{
+
+margin-right: 3%;
+color: #E1DFEE;
+}
+
+.suggestions {
+  list-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: #6d8de1 #19181d;
+}
+ul.suggestions {
+  max-height: 400px;
+  /* scroll-behavior: auto; */
+  list-style: none;
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 379px;
+  top: 69px;
+ 
+}
+.searhbar-icons {
+  display: flex;
+}
+.cross-icon {
+  font-size: 16px !important;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+}

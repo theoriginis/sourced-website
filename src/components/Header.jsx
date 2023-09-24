@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
+import { searchedPerformerHeader } from "../redux/searched-events/action.js";
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -13,28 +14,43 @@ class Header extends Component {
       showLoginForm: false,
       user_information: JSON.parse(localStorage.getItem("user_info")),
       inputValue: "",
-      suggestions: [],
+      search_results: [],
     };
-    this.dummySuggestions = [
-      "Google",
-      "Facebook",
-      "Amazon",
-      "Apple",
-      "Microsoft",
-    ];
   }
   handleInputChange = (e) => {
     const value = e.target.value;
-    this.setState({ inputValue: value });
+    if (e.target) this.setState({ inputValue: value });
 
     // Filter suggestions based on user input
-    const filteredSuggestions = this.dummySuggestions.filter((suggestion) =>
-      suggestion.toLowerCase().includes(value.toLowerCase())
-    );
+    if (value !== "") {
+      let data = {
+        performer_name: value,
+      };
+      this.props.searchedPerformerHeader(data, "performer");
+    } else {
+      this.setState({
+        search_results: [],
+      });
+    }
 
-    this.setState({ suggestions: filteredSuggestions });
+    // const filteredSuggestions = this.dummySuggestions.filter((suggestion) =>
+    //   suggestion.toLowerCase().includes(value.toLowerCase())
+    // );
+
+    // this.setState({ suggestions: filteredSuggestions });
   };
-
+  componentDidUpdate(prevProps) {
+    if (prevProps.performer_search_header !== this.props.performer_search_header) {
+      if (
+        this.props.performer_search_header &&
+        this.props.performer_search_header.performer_search_header !== ""
+      ) {
+        this.setState({
+          search_results: this.props.performer_search_header.performer_search_header,
+        });
+      }
+    }
+  }
   handleSuggestionClick = (suggestion) => {
     this.setState({ inputValue: suggestion, suggestions: [] });
   };
@@ -54,7 +70,6 @@ class Header extends Component {
       user_information: JSON.parse(localStorage.getItem("user_info")),
     });
   }
-  componentDidUpdate() {}
   logOut = () => {
     localStorage.clear();
     window.location.href = "/";
@@ -71,6 +86,15 @@ class Header extends Component {
     }
     //this.props.history.push("/login");
   };
+  handleClearClick = () => {
+    this.setState({ inputValue: "", search_results: [] });
+  };
+  onClickEvent=(eventId)=>{
+   
+    if(eventId){
+      this.props.history.push(`/event-details/${eventId}`)
+    }
+    }
   render() {
     const { inputValue, suggestions } = this.state;
     return (
@@ -94,22 +118,39 @@ class Header extends Component {
                     />{" "}
                   </div>
                   <div className="search-div auto-suggest">
+                    <span className="searhbar-icons">
                     <input
                       type="text"
                       placeholder="Search For Artist, Team, Event or Venue"
                       value={inputValue}
                       onChange={this.handleInputChange}
                     />
-                    <ul className="suggestions ">
-                      {suggestions.map((suggestion, index) => (
-                        <li
-                          key={index}
-                          onClick={() => this.handleSuggestionClick(suggestion)}
-                        >
-                          {suggestion}
-                        </li>
-                      ))}
-                    </ul>
+                    {inputValue && (
+                     <i class="fa fa-times cross-icon" aria-hidden="true" onClick={this.handleClearClick}></i>
+                     
+                    )}
+                    </span>
+                   
+                    {this.state.search_results.length > 0 ? (
+                      <ul className="suggestions ">
+                        {this.state.search_results.length > 0 &&
+                          this.state.search_results.map((suggestion, index) => (
+                            <li
+                              key={index}
+                              onClick={()=>this.onClickEvent(suggestion.id)}
+                              className="suggestion-list-items"
+                            >
+                              <div className="suggestion_box">
+                                <div className="suggestion_name">
+                                  <h5> {suggestion.text.name} </h5>
+                                </div>
+                              </div>
+                            </li>
+                          ))}
+                      </ul>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>
@@ -131,5 +172,8 @@ class Header extends Component {
 const mapStateToProps = (state) => ({
   user_info: state.user_info,
   user_added: state.user_added,
+  performer_search_header: state.performer_search_header,
 });
-export default withRouter(connect(mapStateToProps, {})(Header));
+export default withRouter(
+  connect(mapStateToProps, { searchedPerformerHeader })(Header)
+);
