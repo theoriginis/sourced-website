@@ -93,6 +93,7 @@ class Header extends Component {
    
     if(eventId){
       this.props.history.push(`/event-details/${eventId}`)
+      this.handleClearClick()
     }
     }
   render() {
@@ -153,6 +154,7 @@ class Header extends Component {
                               <div className="suggestion_box">
                                 <div className="suggestion_name">
                                   <h5> {suggestion.text.name} </h5>
+                                  <h6 className="search-city-name"> {suggestion.city.text.name} - {suggestion.stateProvince.text.name}  </h6>
                                 </div>
                               </div>
                             </li>

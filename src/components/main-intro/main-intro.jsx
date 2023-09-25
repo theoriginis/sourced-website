@@ -7,6 +7,7 @@ import Loader from "../spinner/spinner";
 import moment from "moment";
 import Tooltip from "react-simple-tooltip";
 import { css } from "styled-components";
+import { searchedPerformeMain } from "../../redux/searched-events/action.js";
 class MainIntro extends React.Component {
   constructor(props) {
     super(props);
@@ -17,88 +18,79 @@ class MainIntro extends React.Component {
       event_limit: 8,
       isMouseInside: false,
       activeItem: -1,
-      search_box: "",
-      search_box_error: false,
+      inputValue: "",
+      search_results_main: [],
+      inputValue_error: false,
     };
   }
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.event_list !== this.props.event_list) {
-  //     if (this.props.event_list && this.props.event_list.event_list !== "") {
-  //       //let firstEight = this.props.event_list.event_list.slice(0, 8);
-  //       this.setState({
-  //         events_lits: this.props.event_list.event_list,
-  //       });
-  //     }
-  //   }
-  // }
-  // componentDidMount = async () => {
-  //   let data = {
-  //     limit: this.state.event_limit,
-  //     page: this.state.currentPage,
-  //     type: "upcoming",
-  //   };
-  //   await this.props.upcomingEvent(data);
-  //   if (this.props.event_list && this.props.event_list.event_list !== "") {
-  //     //let firstEight = this.props.event_list.event_list.slice(0, 8);
+  componentDidUpdate(prevProps) {
+    if (prevProps.performer_search_main !== this.props.performer_search_main) {
+      if (
+        this.props.performer_search_main &&
+        this.props.performer_search_main.performer_search_main !== ""
+      ) {
+        this.setState({
+          search_results_main: this.props.performer_search_main.performer_search_main,
+        });
+      }
+    }
+  }
+   handleInputChange = (e) => {
+    const value = e.target.value;
+    if (e.target) this.setState({ inputValue: value });
 
-  //     this.setState({
-  //       events_lits: this.props.event_list.event_list,
-  //     });
-  //   }
-  // };
-  // openEvent = async (event_id) => {
-  //   if (event_id !== "") {
-  //     await this.props.evenDetails(event_id);
-  //   }
-  //   if (this.props.event_details.event_details) {
-  //     this.props.history.push(`/event-details/${event_id}`);
-  //   }
-  // };
-  // viewAllevent() {
-  //   this.props.history.push("/all-events");
-  // }
-  // mouseEnter = (index) => {
-  //   this.setState({
-  //     activeItem: index,
-  //   });
-  // };
-  // mouseLeave = (index) => {
-  //   this.setState({
-  //     activeItem: -1,
-  //   });
-  // };
-  handleInput = (evt) => {
-    this.setState({ search_box: evt.target.value });
-  };
-  searchPerformer = () => {
-    if (this.state.search_box) {
-      this.props.history.push(`/events-results/performer/${this.state.search_box}`);
+    // Filter suggestions based on user input
+    if (value !== "") {
+      let data = {
+        performer_name: value,
+      };
+      this.props.searchedPerformeMain(data, "performer");
     } else {
       this.setState({
-        search_box_error: true,
+        search_results_main: [],
+      });
+    }
+  }
+  searchPerformer = () => {
+    if (this.state.inputValue) {
+      this.props.history.push(`/events-results/performer/${this.state.inputValue}`);
+    } else {
+      this.setState({
+        inputValue_error: true,
       });
     }
    
   };
   searchEvent = () => {
-    if (this.state.search_box) {
-      this.props.history.push(`/events-results/events/${this.state.search_box}`);
+    if (this.state.inputValue) {
+      this.props.history.push(`/events-results/events/${this.state.inputValue}`);
     } else {
       this.setState({
-        search_box_error: true,
+        inputValue_error: true,
       });
     }
   };
   seachVenue = ()=>{
-    if (this.state.search_box) {
-      this.props.history.push(`/events-results/venue/${this.state.search_box}`);
+    if (this.state.inputValue) {
+      this.props.history.push(`/events-results/venue/${this.state.inputValue}`);
     } else {
       this.setState({
-        search_box_error: true,
+        inputValue_error: true,
       });
     }
   }
+  handleClearClick = () => {
+    this.setState({ inputValue: "", search_results_main: [] });
+  };
+  onClickEvent=(eventId)=>{
+   
+    if(eventId){
+      this.props.history.push(`/event-details/${eventId}`)
+      this.handleClearClick()
+    }
+    }
   render() {
+    const { inputValue, suggestions } = this.state;
     return (
       <div>
         <header class="header alter1-header section text-contrast" id="home">
@@ -139,13 +131,49 @@ class MainIntro extends React.Component {
                         />{" "}
                       </div>
                       <div class="search-div">
-                        <input
-                          type="text"
-                          placeholder="Search For Artist, Team,  or Performer"
-                          name="search_box"
-                          state={this.state.search_box}
-                          onChange={this.handleInput}
-                        />
+                      <span className="searhbar-icons">
+                    <input
+                      type="text"
+                      placeholder="Search For Artist, Team, Event or Venue"
+                      value={inputValue}
+                      onChange={this.handleInputChange}
+                    />
+                    {inputValue && (
+                     <i class="fa fa-times cross-main" aria-hidden="true" onClick={this.handleClearClick}></i>
+                     
+                    )}
+                    </span>
+                    {this.state.search_results_main.length > 0 ? (
+                      <ul className="suggestions-main ">
+                         <li
+                          
+                              className="suggestion-list-items"
+                            >
+                              <div className="suggestion_box-main">
+                                <div className="suggestion_name-main">
+                                  <h2> Suggested Results </h2>
+                                </div>
+                              </div>
+                            </li>
+                        {this.state.search_results_main.length > 0 &&
+                          this.state.search_results_main.map((suggestion, index) => (
+                            <li
+                              key={index}
+                              onClick={()=>this.onClickEvent(suggestion.id)}
+                              className="suggestion-list-items-main"
+                            >
+                              <div className="suggestion_box-main">
+                                <div className="suggestion_name-main">
+                                  <h5> {suggestion.text.name} </h5>
+                                  <h6 className="search-city-name-main"> {suggestion.city.text.name} - {suggestion.stateProvince.text.name}  </h6>
+                                </div>
+                              </div>
+                            </li>
+                          ))}
+                      </ul>
+                    ) : (
+                      ""
+                    )}
                       </div>
                     </div>
                   </div>
@@ -163,73 +191,7 @@ class MainIntro extends React.Component {
                   </div>
                 </div>
 
-                <div className="main-search-bar">
-                  <div className="main-search-bar-inner-one">
-                    <div class="search-box main-intro">
-                      <div class="search-img">
-                        <img
-                          src={require("../../assets/images/newimages/search.png")}
-                          alt="sourced"
-                        />{" "}
-                      </div>
-                      <div class="search-div">
-                        <input
-                          type="text"
-                          placeholder="Search For Specific Event"
-                          name="search_box"
-                          state={this.state.search_box}
-                          onChange={this.handleInput}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <nav class="nav purchase_btn" onClick={this.searchEvent}>
-                      <span class="button_zal">
-                        {" "}
-                        Search{" "}
-                        <img
-                          src={require("../../assets/images/newimages/arrow-right.png")}
-                          alt="sourced"
-                        />{" "}
-                      </span>
-                    </nav>
-                  </div>
-                </div>
-
-                <div className="main-search-bar">
-                  <div className="main-search-bar-inner-one">
-                    <div class="search-box main-intro">
-                      <div class="search-img">
-                        <img
-                          src={require("../../assets/images/newimages/search.png")}
-                          alt="sourced"
-                        />{" "}
-                      </div>
-                      <div class="search-div">
-                        <input
-                          type="text"
-                          placeholder="Search For Specific Venue"
-                          name="search_box"
-                          state={this.state.search_box}
-                          onChange={this.handleInput}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <nav class="nav purchase_btn" onClick={this.seachVenue}>
-                      <span class="button_zal">
-                        {" "}
-                        Search{" "}
-                        <img
-                          src={require("../../assets/images/newimages/arrow-right.png")}
-                          alt="sourced"
-                        />{" "}
-                      </span>
-                    </nav>
-                  </div>
-                </div>
+               
               </div>
               <div
                 class="col-md-6 col-lg-6 col-sm-12 col-xs-12 hero-right wow  center z-index-12"
@@ -264,5 +226,7 @@ class MainIntro extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({});
-export default withRouter(connect(mapStateToProps, {})(MainIntro));
+const mapStateToProps = (state) => ({
+  performer_search_main: state.performer_search_main,
+});
+export default withRouter(connect(mapStateToProps, {searchedPerformeMain})(MainIntro));

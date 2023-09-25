@@ -8,6 +8,9 @@ const INIT_STATE = {
   in_action_performer: false,
   error_performer_search_header: "",
   in_action_performer_header: false,
+  performer_search_main:"",
+  error_performer_search_main: "",
+  in_action_performer_main: false,
 };
 
 export default (state = INIT_STATE, action) => {
@@ -52,6 +55,12 @@ export default (state = INIT_STATE, action) => {
         performer_search_header: action.payload,
         in_action_performer: false,
       };
+      case "SEARCH_PERFORMER_MAIN":
+      return {
+        ...state,
+        performer_search_main: action.payload,
+        in_action_performer_main: false,
+      };
     case "SEARCH_PERFORMER_FAILURE":
       return {
         ...state,
@@ -63,6 +72,12 @@ export default (state = INIT_STATE, action) => {
           ...state,
           error_performer_search_header: action.payload,
           in_action_performer: false,
+        };
+        case "SEARCH_PERFORMER_FAILURE_MAIN":
+        return {
+          ...state,
+          error_performer_search_main: action.payload,
+          in_action_performer_main: false,
         };
     case "ACTION_COMPLETED_PERFORMER_LIST":
       return {
