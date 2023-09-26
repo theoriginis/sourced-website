@@ -3,6 +3,7 @@ import {
   SearchPerformer,
   EventSearch,
   Searchvenue,
+  SearchEventsByPerformer
 } from "../../utils/apis.js";
 
 export const searchedEvent = (data) => async (dispatch) => {
@@ -67,6 +68,7 @@ export const searchedPerformer = (data, type) => async (dispatch) => {
     payload: "performer list not found ",
   });
 };
+/**Header Performer search */
 export const searchedPerformerHeader = (data, type) => async (dispatch) => {
   dispatch({ type: "ACTION_INITIATED_SEARCH_PERFORMER" });
   try {
@@ -102,6 +104,10 @@ export const searchedPerformerHeader = (data, type) => async (dispatch) => {
     payload: "performer list not found ",
   });
 };
+
+
+
+
 export const searchedPerformeMain = (data, type) => async (dispatch) => {
   dispatch({ type: "ACTION_INITIATED_SEARCH_PERFORMER" });
   try {
@@ -134,6 +140,37 @@ export const searchedPerformeMain = (data, type) => async (dispatch) => {
   }
   dispatch({
     type: "ACTION_COMPLETED_PERFORMER_SEARCH_MAIN",
+    payload: "performer list not found ",
+  });
+};
+
+
+
+/**Event list on the basis of Performer name */
+export const searchedEventByPerformer = (data) => async (dispatch) => {
+  dispatch({ type: "ACTION_INITIATED_SEARCH_EVENT_BYPERFORMER" });
+  try {
+    const response = await SearchEventsByPerformer(data);
+    console.log("api response seacrhed ", response);
+    if (response.status <= 201) {
+      dispatch({
+        type: "SEARCH_EVENT_EVENT_BYPERFORMER",
+        payload: response.data.results,
+      });
+    } else {
+      dispatch({
+        type: "SEARCH_EVENT_FAILURE_EVENT_BYPERFORMER",
+        payload: "performer list not found ",
+      });
+    }
+  } catch (error) {
+    dispatch({
+      type: "SEARCH_EVENT_FAILURE_EVENT_BYPERFORMER",
+      payload: "performer list not found ",
+    });
+  }
+  dispatch({
+    type: "ACTION_COMPLETED_SEARCH_EVENT_EVENT_BYPERFORMER",
     payload: "performer list not found ",
   });
 };

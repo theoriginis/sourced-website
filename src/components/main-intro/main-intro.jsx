@@ -54,6 +54,7 @@ class MainIntro extends React.Component {
   searchPerformer = () => {
     if (this.state.inputValue) {
       this.props.history.push(`/events-results/performer/${this.state.inputValue}`);
+      //this.props.history.push(`/events-results/performer/${eventId}`);
     } else {
       this.setState({
         inputValue_error: true,
@@ -85,7 +86,8 @@ class MainIntro extends React.Component {
   onClickEvent=(eventId)=>{
    
     if(eventId){
-      this.props.history.push(`/event-details/${eventId}`)
+     //this.props.history.push(`/event-details/${eventId}`)
+     this.props.history.push(`/events-results/performer/${eventId}`);
       this.handleClearClick()
     }
     }
@@ -159,13 +161,13 @@ class MainIntro extends React.Component {
                           this.state.search_results_main.map((suggestion, index) => (
                             <li
                               key={index}
-                              onClick={()=>this.onClickEvent(suggestion.id)}
+                              onClick={()=>this.onClickEvent(suggestion.name)}
                               className="suggestion-list-items-main"
                             >
                               <div className="suggestion_box-main">
                                 <div className="suggestion_name-main">
-                                  <h5> {suggestion.text.name} </h5>
-                                  <h6 className="search-city-name-main"> {suggestion.city.text.name} - {suggestion.stateProvince.text.name}  </h6>
+                                  <h5> {suggestion.name} </h5>
+                                  {/* <h6 className="search-city-name-main"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
                                 </div>
                               </div>
                             </li>

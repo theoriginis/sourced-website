@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import { searchedPerformerHeader } from "../redux/searched-events/action.js";
+import moment from "moment";
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -92,7 +93,8 @@ class Header extends Component {
   onClickEvent=(eventId)=>{
    
     if(eventId){
-      this.props.history.push(`/event-details/${eventId}`)
+      //this.props.history.push(`/event-details/${eventId}`)
+      this.props.history.push(`/events-results/performer/${eventId}`);
       this.handleClearClick()
     }
     }
@@ -148,13 +150,13 @@ class Header extends Component {
                           this.state.search_results.map((suggestion, index) => (
                             <li
                               key={index}
-                              onClick={()=>this.onClickEvent(suggestion.id)}
+                              onClick={()=>this.onClickEvent(suggestion.name)}
                               className="suggestion-list-items"
                             >
                               <div className="suggestion_box">
                                 <div className="suggestion_name">
-                                  <h5> {suggestion.text.name} </h5>
-                                  <h6 className="search-city-name"> {suggestion.city.text.name} - {suggestion.stateProvince.text.name}  </h6>
+                                  <h5> {suggestion.name} </h5>
+                                  {/* <h6 className="search-city-name"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
                                 </div>
                               </div>
                             </li>

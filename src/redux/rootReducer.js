@@ -10,6 +10,7 @@ import top_shows_list from "../redux/top-performers/reducer";
 import searched_events from "../redux/searched-events/reducer";
 import performer_search_header from "../redux/searched-events/reducer";
 import performer_search_main from "../redux/searched-events/reducer";
+import searched_events_by_performer from "../redux/searched-events/reducer"
 
 const appReducer = combineReducers ({
     user_added,
@@ -20,7 +21,8 @@ const appReducer = combineReducers ({
     top_performer_list,
     top_shows_list,
     performer_search_header,
-    performer_search_main
+    performer_search_main,
+    searched_events_by_performer
 });
 
 const root_reducer = (state,action)=>{

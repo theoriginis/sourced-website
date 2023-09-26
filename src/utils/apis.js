@@ -68,7 +68,27 @@ export async function SearchPerformer(data) {
     return axios({
       method: "get",
       //url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text/name eq %27${performer_name}%27`,
-      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=contains(text%2Fname%2C '${performer_name}')`,
+      url: `https://www.tn-apis.com/catalog/v2/performers/suggest?websiteConfigId=${websiteConfigId}&q=*&filter=contains(text%2Fname%2C '${performer_name}')`,
+      // params: {
+      //   performerFilter: salesRankOptions,
+      //          page: "1",
+      //          perPage: "8",
+      //       },
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  } catch (error) {
+    return error;
+  }
+}
+export async function SearchEventsByPerformer(data) {
+  try {
+    let performer_name = data.performer_name;
+    return axios({
+      method: "get",
+      //url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text/name eq %27${performer_name}%27`,
+      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text%2Fname%20eq%20'${performer_name}'`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",

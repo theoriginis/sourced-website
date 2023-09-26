@@ -11,6 +11,8 @@ const INIT_STATE = {
   performer_search_main:"",
   error_performer_search_main: "",
   in_action_performer_main: false,
+  in_action_search_by_performer:false,
+  searched_events_by_performer:""
 };
 
 export default (state = INIT_STATE, action) => {
@@ -20,12 +22,23 @@ export default (state = INIT_STATE, action) => {
         ...state,
         in_action: true,
       };
+      case "ACTION_INITIATED_SEARCH_EVENT_BYPERFORMER":
+      return {
+        ...state,
+        in_action_search_by_performer: true,
+      };
     case "SEARCH_EVENT":
       return {
         ...state,
         searched_events: action.payload,
         in_action: false,
       };
+      case "SEARCH_EVENT_EVENT_BYPERFORMER":
+        return {
+          ...state,
+          searched_events_by_performer: action.payload,
+          in_action_search_by_performer: false,
+        };
 
     case "SEARCH_EVENT_FAILURE":
       return {
@@ -33,10 +46,21 @@ export default (state = INIT_STATE, action) => {
         error: action.payload,
         in_action: false,
       };
+      case "SEARCH_EVENT_FAILURE_EVENT_BYPERFORMER":
+        return {
+          ...state,
+          error: action.payload,
+          in_action_search_by_performer: false,
+        };
     case "ACTION_COMPLETED_SEARCH_EVENT":
       return {
         ...state,
         in_action: false,
+      };
+      case "ACTION_COMPLETED_SEARCH_EVENT_EVENT_BYPERFORMER":
+      return {
+        ...state,
+        in_action_search_by_performer: false,
       };
     case "ACTION_INITIATED_SEARCH_PERFORMER":
       return {
