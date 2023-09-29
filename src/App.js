@@ -16,6 +16,8 @@ import history from "./history";
 import SearchResult from "./pages/search-result/eventsResult";
 import EventDetails from "./pages/eventDetails/eventDetails";
 import Policies from "./pages/policies/policies";
+import Login  from "./pages/login/login";
+import Signup from "./pages/signup/signup"
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -45,6 +47,8 @@ export class App extends Component {
                 path={"/policies"}
                 component={Policies}
               />
+              <Route path={"/login"} component={Login} />
+              <Route path={"/sign-up"} component={Signup} />
               {/* <Route path={"/about"} component={About} />
               <Route path={"/contact"} component={Contact} />
               <Route path={"/login"} component={Login} />

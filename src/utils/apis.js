@@ -48,7 +48,7 @@ export async function SearchEvent(data) {
     let salesRankOptions = data.salesRankOptions;
     return axios({
       method: "get",
-      url: `https://www.tn-apis.com/catalog/v2/events?websiteConfigId=${websiteConfigId}`,
+      url: `https://www.tn-apis.com/catalog/v2/events?websiteConfigId=${websiteConfigId}&filter=_metadata%2FticketCount%20ge%2010`,
        params: {
        
                page: "1",
@@ -88,7 +88,7 @@ export async function SearchEventsByPerformer(data) {
     return axios({
       method: "get",
       //url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text/name eq %27${performer_name}%27`,
-      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text%2Fname%20eq%20'${performer_name}'`,
+      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text%2Fname%20eq%20'${performer_name}'&_metadata%2FticketCount%20ge%2010`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
@@ -107,7 +107,7 @@ export async function EventSearch(data) {
     let performer_name = data.performer_name;
     return axios({
       method: "get",
-      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=text/name eq %27${performer_name}%27`,
+      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=text/name eq %27${performer_name}%27&_metadata%2FticketCount%20ge%2010`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
@@ -162,7 +162,7 @@ export async function TopShows() {
   try {
     return axios({
       method: "get",
-      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&filter=defaultCategory%2Ftext%2Fname%20eq%20'MUSICAL%20%2F%20PLAY'&page=1&perPage=5`,
+      url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=27217&q=*&filter=_metadata%2FticketCount%20ge%2010%20and%20defaultCategory%2Ftext%2Fname%20eq%20'MUSICAL%20%2F%20PLAY'&page=1&perPage=5`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",

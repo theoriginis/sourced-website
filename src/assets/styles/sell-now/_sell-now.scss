@@ -53,5 +53,20 @@
   #sell button a{
   color: #1B182B;
   text-decoration: none;
+  font-weight: 700;
   }
+  .hiden_quantity{
+    .purchase_btn{
+      justify-content: center;
+      .button_zal {
+        color: #000 !important;
+        background-color: #fff;
+        .fa-arrow-right{
+          padding: 3px;
+        }
+         
+        
+      }
+    }
 
+  }

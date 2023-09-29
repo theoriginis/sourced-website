@@ -41,15 +41,15 @@ class Header extends Component {
     // this.setState({ suggestions: filteredSuggestions });
   };
   componentDidUpdate(prevProps) {
-    if (prevProps.performer_search_header !== this.props.performer_search_header) {
-      if (
-        this.props.performer_search_header &&
-        this.props.performer_search_header.performer_search_header !== ""
-      ) {
+    if (
+      prevProps.performer_search_header !== this.props.performer_search_header
+    ) {
+     
         this.setState({
-          search_results: this.props.performer_search_header.performer_search_header,
+          search_results:
+            this.props.performer_search_header,
         });
-      }
+      
     }
   }
   handleSuggestionClick = (suggestion) => {
@@ -67,10 +67,27 @@ class Header extends Component {
     });
   };
   componentDidMount() {
+    document.addEventListener("click", this.handleDocumentClick);
     this.setState({
       user_information: JSON.parse(localStorage.getItem("user_info")),
     });
   }
+  componentWillUnmount() {
+    // Remove the click event listener when the component unmounts
+    document.removeEventListener("click", this.handleDocumentClick);
+  }
+  handleDocumentClick = (event) => {
+    const inputElement = event.target.outerHTML.includes("header-search-bar");
+
+    if (!inputElement) {
+      // An input element was found within the clicked element
+      console.log("Found an input element:", inputElement);
+      this.handleClearClick();
+    } else {
+      // No input element was found within the clicked element
+      console.log("No input element found within the clicked element.");
+    }
+  };
   logOut = () => {
     localStorage.clear();
     window.location.href = "/";
@@ -90,15 +107,15 @@ class Header extends Component {
   handleClearClick = () => {
     this.setState({ inputValue: "", search_results: [] });
   };
-  onClickEvent=(eventId)=>{
-   
-    if(eventId){
+  onClickEvent = (eventId) => {
+    if (eventId) {
       //this.props.history.push(`/event-details/${eventId}`)
       this.props.history.push(`/events-results/performer/${eventId}`);
-      this.handleClearClick()
+      this.handleClearClick();
     }
-    }
+  };
   render() {
+    console.log('heade state',this.state.search_results)
     const { inputValue, suggestions } = this.state;
     return (
       <div>
@@ -122,35 +139,36 @@ class Header extends Component {
                   </div>
                   <div className="search-div auto-suggest">
                     <span className="searhbar-icons">
-                    <input
-                      type="text"
-                      placeholder="Search For Artist, Team, Event or Venue"
-                      value={inputValue}
-                      onChange={this.handleInputChange}
-                    />
-                    {inputValue && (
-                     <i class="fa fa-times cross-icon" aria-hidden="true" onClick={this.handleClearClick}></i>
-                     
-                    )}
+                      <input
+                        type="text"
+                        placeholder="Search for Artist, Team, or Performer"
+                        value={inputValue}
+                        onChange={this.handleInputChange}
+                        className="header-search-bar"
+                      />
+                      {inputValue && (
+                        <i
+                          class="fa fa-times cross-icon"
+                          aria-hidden="true"
+                          onClick={this.handleClearClick}
+                        ></i>
+                      )}
                     </span>
-                   
+
                     {this.state.search_results.length > 0 ? (
                       <ul className="suggestions ">
-                         <li
-                          
-                              className="suggestion-list-items"
-                            >
-                              <div className="suggestion_box">
-                                <div className="suggestion_name">
-                                  <h2> Suggested Results </h2>
-                                </div>
-                              </div>
-                            </li>
+                        <li className="suggestion-list-items">
+                          <div className="suggestion_box">
+                            <div className="suggestion_name">
+                              <h2> Suggested Results </h2>
+                            </div>
+                          </div>
+                        </li>
                         {this.state.search_results.length > 0 &&
                           this.state.search_results.map((suggestion, index) => (
                             <li
                               key={index}
-                              onClick={()=>this.onClickEvent(suggestion.name)}
+                              onClick={() => this.onClickEvent(suggestion.name)}
                               className="suggestion-list-items"
                             >
                               <div className="suggestion_box">
@@ -169,9 +187,12 @@ class Header extends Component {
                 </div>
               </div>
               <div className="wdith50">
-                <div className="float-right header-btn">
+                <div className="float-right header-btn flex">
+                  <div className="login_btn" onClick={this.goToLogin}>
+                    {this.state.user_information ? "Log Out" : "Log In"}
+                  </div>
                   <div className="button_zal login" onClick={this.goToLogin}>
-                    {this.state.user_information ? "Logout" : "Login"}
+                    Sign Up
                   </div>
                 </div>
               </div>
@@ -186,7 +207,7 @@ class Header extends Component {
 const mapStateToProps = (state) => ({
   user_info: state.user_info,
   user_added: state.user_added,
-  performer_search_header: state.performer_search_header,
+  performer_search_header: state.performer_search_header.performer_search_header,
 });
 export default withRouter(
   connect(mapStateToProps, { searchedPerformerHeader })(Header)

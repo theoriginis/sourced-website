@@ -68,7 +68,7 @@ class TopSection extends React.Component {
                   class="col-lg-4 pad10 wow slideUp"
                   style={{ animationDuration: "2s" }}
                 >
-                  <h1> Artists</h1>
+                  <h1>Top Artists</h1>
                   {this.props.top_performer_list.in_action_performer ?
                    <div className="event_box no-records"><Loader /></div> :
                    this.state.performer_list &&

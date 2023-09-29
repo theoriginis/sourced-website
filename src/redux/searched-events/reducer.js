@@ -17,22 +17,37 @@ const INIT_STATE = {
 
 export default (state = INIT_STATE, action) => {
   switch (action.type) {
+    //Search Events Action
     case "ACTION_INITIATED_SEARCH_EVENT":
       return {
         ...state,
         in_action: true,
       };
-      case "ACTION_INITIATED_SEARCH_EVENT_BYPERFORMER":
-      return {
-        ...state,
-        in_action_search_by_performer: true,
-      };
-    case "SEARCH_EVENT":
+      case "SEARCH_EVENT":
       return {
         ...state,
         searched_events: action.payload,
         in_action: false,
       };
+      case "SEARCH_EVENT_FAILURE":
+        return {
+          ...state,
+          error: action.payload,
+          in_action: false,
+        };
+        case "ACTION_COMPLETED_SEARCH_EVENT":
+          return {
+            ...state,
+            in_action: false,
+          };
+
+        // Search Events By performer
+      case "ACTION_INITIATED_SEARCH_EVENT_BYPERFORMER":
+      return {
+        ...state,
+        in_action_search_by_performer: true,
+      };
+    
       case "SEARCH_EVENT_EVENT_BYPERFORMER":
         return {
           ...state,
@@ -40,28 +55,21 @@ export default (state = INIT_STATE, action) => {
           in_action_search_by_performer: false,
         };
 
-    case "SEARCH_EVENT_FAILURE":
-      return {
-        ...state,
-        error: action.payload,
-        in_action: false,
-      };
+   
       case "SEARCH_EVENT_FAILURE_EVENT_BYPERFORMER":
         return {
           ...state,
           error: action.payload,
           in_action_search_by_performer: false,
         };
-    case "ACTION_COMPLETED_SEARCH_EVENT":
-      return {
-        ...state,
-        in_action: false,
-      };
+   
       case "ACTION_COMPLETED_SEARCH_EVENT_EVENT_BYPERFORMER":
       return {
         ...state,
         in_action_search_by_performer: false,
       };
+
+      // Search Performer
     case "ACTION_INITIATED_SEARCH_PERFORMER":
       return {
         ...state,
@@ -73,22 +81,18 @@ export default (state = INIT_STATE, action) => {
         performer_search: action.payload,
         in_action_performer: false,
       };
+      case "SEARCH_PERFORMER_FAILURE":
+      return {
+        ...state,
+        error_performer_search: action.payload,
+        in_action_performer: false,
+      };
+
+      // Search Performer from Header
       case "SEARCH_PERFORMER_HEADER":
       return {
         ...state,
         performer_search_header: action.payload,
-        in_action_performer: false,
-      };
-      case "SEARCH_PERFORMER_MAIN":
-      return {
-        ...state,
-        performer_search_main: action.payload,
-        in_action_performer_main: false,
-      };
-    case "SEARCH_PERFORMER_FAILURE":
-      return {
-        ...state,
-        error_performer_search: action.payload,
         in_action_performer: false,
       };
       case "SEARCH_PERFORMER_FAILURE_HEADER":
@@ -97,24 +101,30 @@ export default (state = INIT_STATE, action) => {
           error_performer_search_header: action.payload,
           in_action_performer: false,
         };
-        case "SEARCH_PERFORMER_FAILURE_MAIN":
+        
+        case "ACTION_COMPLETED_PERFORMER_SEARCH_HEADER":
+          return {
+            ...state,
+    
+            in_action_performer_header: false,
+          };
+
+
+          //Search bar on main intro component
+      case "SEARCH_PERFORMER_MAIN":
+      return {
+        ...state,
+        performer_search_main: action.payload,
+        in_action_performer_main: false,
+      };
+      case "SEARCH_PERFORMER_FAILURE_MAIN":
         return {
           ...state,
           error_performer_search_main: action.payload,
           in_action_performer_main: false,
         };
-    case "ACTION_COMPLETED_PERFORMER_LIST":
-      return {
-        ...state,
-
-        in_action_artist: false,
-      };
-      case "ACTION_COMPLETED_PERFORMER_SEARCH_HEADER":
-      return {
-        ...state,
-
-        in_action_performer_header: false,
-      };
+      
+        
 
     default:
       return state;

@@ -30,11 +30,13 @@ class LocalEvents extends React.Component {
   }
 
   componentDidMount() {
+
     let data = {
       salesRankOptions: { interval: "90days", metric: "ticketVolume" },
     };
     this.props.searchedEvent(data);
   }
+ 
   // Geolocation(lat, lng) {
   //   Geocode.setApiKey("AIzaSyC6l4iBNvQwIaPjoqKIoOBKJPxqqvXEYso");
   //   Geocode.enableDebug();
@@ -110,11 +112,11 @@ class LocalEvents extends React.Component {
                 style={{ animationDuration: "3s" }}
               >
                 <h2
-                  class="wow slideInLeft section-heading"
+                  class="wow section-heading"
                   style={{ animationDuration: "1s" }}
                 >
                   {" "}
-                  <span>Trending</span> Features
+                  <span>Trending</span> Events  
                 </h2>
               </div>
               {this.props.searched_events.in_action
@@ -136,7 +138,7 @@ class LocalEvents extends React.Component {
                       <div className="Info">
                         {" "}
                         <h3>{event.text.name}</h3>
-                        <h5 className="search-city-name-trending">{event.venue.text.name} • {event.city.text.name},{event.stateProvince.text.name}</h5>
+                        <h5 className="search-city-name-trending">{event.city.text.name},{event.stateProvince.text.name}</h5>
                       </div>
                       <div className="time">
                         {" "}
