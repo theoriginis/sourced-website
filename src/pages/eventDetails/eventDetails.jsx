@@ -22,8 +22,9 @@ class EventDetails extends Component {
     };
   }
   componentDidMount() {
+    
     let url_segment = this.props.location.pathname.split("/");
-    let event_id = url_segment["2"];
+    let event_id = url_segment["3"];
 
     const seaticsScript = document.createElement("script");
     seaticsScript.setAttribute(
@@ -39,11 +40,8 @@ class EventDetails extends Component {
     Seatics.config.useC3 = true;
   }
 
-  openEvent = async (event_id) => {
-    if (event_id !== "") {
-      this.props.history.push(`/event-details/${event_id}`);
-    }
-  };
+
+  
 
   render() {
     window.scrollTo(0, 0);

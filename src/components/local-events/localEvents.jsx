@@ -30,12 +30,19 @@ class LocalEvents extends React.Component {
   }
 
   componentDidMount() {
-
+    window.addEventListener('popstate', this.handlePopState);
     let data = {
       salesRankOptions: { interval: "90days", metric: "ticketVolume" },
     };
     this.props.searchedEvent(data);
   }
+  handlePopState = (event) => {
+    if (this.props.location.pathname === '/') {
+      // Reload the window to refresh the home page
+      window.location.reload();
+    }
+  };
+ 
  
   // Geolocation(lat, lng) {
   //   Geocode.setApiKey("AIzaSyC6l4iBNvQwIaPjoqKIoOBKJPxqqvXEYso");
@@ -91,11 +98,7 @@ class LocalEvents extends React.Component {
   //     }
   //   );
   // }
-  openEvent = async (artist_id) => {
-    if (artist_id !== "") {
-      this.props.history.push(`/performers-details/${artist_id}`);
-    }
-  };
+ 
   onClickEvent = (eventId) => {
     if (eventId) {
       this.props.history.push(`/event-details/${eventId}`);
@@ -128,7 +131,7 @@ class LocalEvents extends React.Component {
                   <div className="col-lg-6 pad10">
                     <div
                       className="event_box"
-                      onClick={() => this.onClickEvent(event.id)}
+                      onClick={() => this.onClickEvent(`${event.text.name}-tickets-${event.city.text.name}-${event.date.date}/${event.id}`)}
                     
                     >
                       <div className="date">

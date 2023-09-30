@@ -8,7 +8,9 @@ import LocalEvents from "../components/local-events/localEvents";
 import TopSection from "../components/top-section/topSection";
 import SellNow from "../components/sell-now/sellNow";
 class Home extends Component {
+  
   render() {
+    
     return (
       <>
         <title>Source Home</title>

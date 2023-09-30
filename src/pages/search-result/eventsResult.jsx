@@ -143,7 +143,7 @@ class SearchResult extends Component {
                     this.state.search_results.map((event, key) => (
                       <div
                         className="event_box"
-                        onClick={() => this.onClickEvent(event.id)}
+                        onClick={() => this.onClickEvent(`${event.text.name}-tickets-${event.city.text.name}-${event.date.date}/${event.id}`)}
                       >
                         <div className="date">
                           <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}

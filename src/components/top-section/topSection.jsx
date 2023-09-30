@@ -154,7 +154,7 @@ class TopSection extends React.Component {
                 <div className="event_box no-records"><Loader /></div> :
                 this.state.top_shows &&
                   this.state.top_shows.map((shows, key) => (
-                    <div class="event_box" onClick={() => this.onClickEvent(shows.id)}>
+                    <div class="event_box" onClick={() => this.onClickEvent(`${shows.text.name}-tickets-${shows.city.text.name}-${shows.date.date}/${shows.id}`)}>
                       <div class="date">
                         {" "}
                         <h3>{key + 1}</h3>

@@ -34,7 +34,7 @@ export class App extends Component {
           <div>
             <Header />
             <Switch>
-              <Route path={"/"} exact component={Home} />
+              <Route path={"/"} exact render={(props) => <Home key="home" {...props} />}/>
               <Route
                 path={"/events-results/:search"}
                 component={SearchResult}

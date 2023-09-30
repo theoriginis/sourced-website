@@ -81,7 +81,7 @@ class Header extends Component {
 
     if (!inputElement) {
       // An input element was found within the clicked element
-      console.log("Found an input element:", inputElement);
+    
       this.handleClearClick();
     } else {
       // No input element was found within the clicked element
@@ -115,7 +115,7 @@ class Header extends Component {
     }
   };
   render() {
-    console.log('heade state',this.state.search_results)
+
     const { inputValue, suggestions } = this.state;
     return (
       <div>

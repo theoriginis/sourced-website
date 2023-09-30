@@ -24,16 +24,10 @@ class MainIntro extends React.Component {
     };
   }
   componentDidUpdate(prevProps) {
-    console.log('in the main prevProps ',prevProps.performer_search_main)
-    console.log('in the main new ',this.props.performer_search_main)
     if (prevProps.performer_search_main !== this.props.performer_search_main) {
-     
-        console.log('in the main intradasdasdo ')
-        this.setState({
-          search_results_main:
-            this.props.performer_search_main,
-        });
-     
+      this.setState({
+        search_results_main: this.props.performer_search_main,
+      });
     }
   }
   componentDidMount() {
@@ -80,7 +74,9 @@ class MainIntro extends React.Component {
   };
   seachVenue = () => {
     if (this.state.inputValueMain) {
-      this.props.history.push(`/events-results/venue/${this.state.inputValueMain}`);
+      this.props.history.push(
+        `/events-results/venue/${this.state.inputValueMain}`
+      );
     } else {
       this.setState({
         inputValueMain_error: true,
@@ -98,6 +94,7 @@ class MainIntro extends React.Component {
     }
   };
   handleDocumentClick = (event) => {
+    console.log("selected element", event.target.outerHTML);
     const inputElement = event.target.outerHTML.includes(
       "main-intro-search-bar"
     );
@@ -117,8 +114,7 @@ class MainIntro extends React.Component {
   }
 
   render() {
-
-    const { inputValueMain, } = this.state;
+    const { inputValueMain } = this.state;
     return (
       <div>
         <header class="header alter1-header section text-contrast" id="home">
