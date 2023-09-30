@@ -229,6 +229,9 @@ overflow:auto;
 
 margin-right: 3%;
 color: #E1DFEE;
+h5{
+  font-size: 16px;
+}
 }
 
 .suggestions {
@@ -237,7 +240,7 @@ color: #E1DFEE;
   scrollbar-color: #6d8de1 #19181d;
 }
 ul.suggestions {
-  max-height: 400px;
+  max-height: 250px;
   /* scroll-behavior: auto; */
   list-style: none;
   position: absolute;
