@@ -114,7 +114,7 @@ class SearchResult extends Component {
                       />{" "}
                       location{" "}
                     </li>
-                    <li>
+                    {/* <li>
                       {" "}
                       <img
                         src={require("../../assets/images/newimages/wallet.png")}
@@ -129,7 +129,7 @@ class SearchResult extends Component {
                         alt="sourced"
                       />{" "}
                       Date{" "}
-                    </li>
+                    </li> */}
                   </ul>
                   <h5 className="eventes-heading"> All Events </h5>
                   {

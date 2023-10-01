@@ -52,7 +52,7 @@ class MainIntro extends React.Component {
   searchPerformer = () => {
     if (this.state.inputValueMain) {
       this.props.history.push(
-        `/events-results/performer/${this.state.inputValueMain}`
+        `/events-results/performer-tickets/${this.state.inputValueMain}`
       );
       //this.props.history.push(`/events-results/performer/${eventId}`);
     } else {
@@ -89,7 +89,7 @@ class MainIntro extends React.Component {
   onClickEvent = (eventId) => {
     if (eventId) {
       //this.props.history.push(`/event-details/${eventId}`)
-      this.props.history.push(`/events-results/performer/${eventId}`);
+      this.props.history.push(`/events-results/performer-tickets/${eventId}`);
       this.handleClearClick();
     }
   };

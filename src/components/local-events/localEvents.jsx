@@ -30,20 +30,19 @@ class LocalEvents extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('popstate', this.handlePopState);
+    window.addEventListener("popstate", this.handlePopState);
     let data = {
       salesRankOptions: { interval: "90days", metric: "ticketVolume" },
     };
     this.props.searchedEvent(data);
   }
   handlePopState = (event) => {
-    if (this.props.location.pathname === '/') {
+    if (this.props.location.pathname === "/") {
       // Reload the window to refresh the home page
       window.location.reload();
     }
   };
- 
- 
+
   // Geolocation(lat, lng) {
   //   Geocode.setApiKey("AIzaSyC6l4iBNvQwIaPjoqKIoOBKJPxqqvXEYso");
   //   Geocode.enableDebug();
@@ -98,7 +97,7 @@ class LocalEvents extends React.Component {
   //     }
   //   );
   // }
- 
+
   onClickEvent = (eventId) => {
     if (eventId) {
       this.props.history.push(`/event-details/${eventId}`);
@@ -119,20 +118,30 @@ class LocalEvents extends React.Component {
                   style={{ animationDuration: "1s" }}
                 >
                   {" "}
-                  <span>Trending</span> Events  
+                  <span>Trending</span> Events
                 </h2>
               </div>
-              {this.props.searched_events.in_action
-              ?
-              <div className="event_box no-records"><Loader /></div>
-              :
-              this.state.searched_events_list &&
+              {this.props.searched_events.in_action ? (
+                <div className="event_box no-records">
+                  <Loader />
+                </div>
+              ) : (
+                this.state.searched_events_list &&
                 this.state.searched_events_list.map((event, index) => (
                   <div className="col-lg-6 pad10">
                     <div
                       className="event_box"
-                      onClick={() => this.onClickEvent(`${event.text.name}-tickets-${event.city.text.name}-${event.date.date}/${event.id}`)}
-                    
+                      onClick={() =>
+                        this.onClickEvent(
+                          `${event.text.name.replace(
+                            /\s+/g,
+                            "-"
+                          )}-tickets-${event.city.text.name.replace(
+                            /\s+/g,
+                            "-"
+                          )}-${event.date.date}/${event.id}`
+                        )
+                      }
                     >
                       <div className="date">
                         <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}
@@ -141,7 +150,9 @@ class LocalEvents extends React.Component {
                       <div className="Info">
                         {" "}
                         <h3>{event.text.name}</h3>
-                        <h5 className="search-city-name-trending">{event.city.text.name},{event.stateProvince.text.name}</h5>
+                        <h5 className="search-city-name-trending">
+                          {event.city.text.name},{event.stateProvince.text.name}
+                        </h5>
                       </div>
                       <div className="time">
                         {" "}
@@ -173,9 +184,8 @@ class LocalEvents extends React.Component {
                       </div>
                     </div>
                   </div>
-                ))}
-              
-             
+                ))
+              )}
             </div>
           </div>
         </section>
