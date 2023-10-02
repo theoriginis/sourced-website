@@ -49,18 +49,7 @@ class MainIntro extends React.Component {
       });
     }
   };
-  searchPerformer = () => {
-    if (this.state.inputValueMain) {
-      this.props.history.push(
-        `/events-results/performer-tickets/${this.state.inputValueMain}`
-      );
-      //this.props.history.push(`/events-results/performer/${eventId}`);
-    } else {
-      this.setState({
-        inputValueMain_error: true,
-      });
-    }
-  };
+ 
   searchEvent = () => {
     if (this.state.inputValueMain) {
       this.props.history.push(
@@ -89,7 +78,7 @@ class MainIntro extends React.Component {
   onClickEvent = (eventId) => {
     if (eventId) {
       //this.props.history.push(`/event-details/${eventId}`)
-      this.props.history.push(`/events-results/performer-tickets/${eventId}`);
+      this.props.history.push(`/events-results/performer-tickets/${(eventId).replace(/\s+/g, '-')}`);
       this.handleClearClick();
     }
   };
