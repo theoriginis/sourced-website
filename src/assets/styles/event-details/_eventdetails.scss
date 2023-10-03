@@ -223,7 +223,8 @@ body {
   }
 
   .float-right {
-    float: none;
+    float: right;
+    padding-right: 15px;
   }
 
   .login {
@@ -553,4 +554,8 @@ div#venue-map-reset-ctn {
 }
 .suggestions::-webkit-scrollbar{
   width: 4px !important; 
+}
+
+.navbar-collapse{
+  box-shadow: none !important;
 }

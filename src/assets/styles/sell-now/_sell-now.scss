@@ -70,3 +70,24 @@
     }
 
   }
+
+  @media (max-width:768px)
+  {
+    #sell h2{
+      line-height: 25px;
+      font-size: 21px;
+    }
+
+    #sell h2 strong{
+  font-size: 30px;
+  position: relative;
+  top: 20px;  
+    }
+
+    #sell p{
+      font-weight: 600;
+      margin-top: 40px;
+    }
+  }
+
+

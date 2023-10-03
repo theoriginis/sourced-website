@@ -218,8 +218,7 @@ class MainIntro extends React.Component {
                   </div> */}
                 </div>
               </div>
-              <div
-                class="col-md-6 col-lg-6 col-sm-12 col-xs-12 hero-right wow  center z-index-12"
+              <div  class="col-md-6 col-lg-6 col-sm-12 col-xs-12 hero-right wow  center z-index-12"
                 style={{ visibility: "visible", animationName: "slideInRight" }}
               >
                 <div class="icons">

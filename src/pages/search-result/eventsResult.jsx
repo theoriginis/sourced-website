@@ -189,7 +189,42 @@ class SearchResult extends Component {
                   ) : (
                     // <div className="event_box no-records">No Records Found</div>
                     <div className="event_box no-records">No recors Found</div>
+
                   )}
+
+                  <div className="unviel_infor"> 
+                    <h1>  Unveil the Magic of Live Events with Sourced Tickets </h1>
+                    <p> Embark on a journey through the live action of <span>Team Name</span>, a sensation that has captured hearts across the globe. </p>
+                    <h1>Secure Your <span>Team Name</span> Tickets with Sourced Tickets </h1>
+                    <h1>Don't miss the chance to witness <span>Team Name</span> live. Follow these steps to secure your tickets: </h1>
+                   
+                    <p> Explore <span>Team Name</span> upcoming events on Sourced Tickets to find an event near you.</p>
+                    <p>  Click the "Tickets" button next to your chosen event to proceed.</p>
+                    <p>  Utilize the interactive seating chart to select your desired seats and price range.</p>
+                    <p> Finalize your order by clicking "Buy" and entering your payment and shipping details.</p>
+                    <p> Rest assured that your <span>Team Name</span>  tickets from Sourced Tickets will arrive in time for the event.
+                    </p>
+
+                    <h1> Accessible <span>Team Name </span>Tickets at Sourced Tickets:</h1>
+                    <p> Whether you're on a budget or seeking premium experiences, Sourced Tickets offers an array of<span> Team Name</span> ticket options.
+Revel in <span>Team Name</span> captivating performances without compromising your budget.
+</p>
+
+                    <h1>Sourced Tickets: Your Trusted Source for <span>Team Name</span> Tickets: </h1>
+                    <p>With Sourced Tickets, you're guaranteed access to <span>Team Name</span> tickets, even for highly anticipated events.
+Secure your <span>Team Name</span>  tickets through Sourced Tickets.
+ </p>
+                     
+                    <p> Uncover the excitement of live events with <span>Team Name</span> captivating performances, brought to you by Sourced Tickets.</p>
+                     
+                    <p> Stay tuned for updates on <span>Team Name</span> events for today and beyond. Visit our website to explore our  full range of <span>Team Name</span> tickets and secure your spot in the crowd.
+
+</p>
+                     
+                    <p> Enjoy peace of mind with our 100% Buyer Guarantee, ensuring the authenticity and timely delivery of your <span>Team Name </span>tickets.
+
+</p>
+                  </div>
                 </div>
               </div>
             </div>

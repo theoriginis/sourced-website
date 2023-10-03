@@ -59,7 +59,7 @@ class Footer extends React.Component {
             <div className="container">
               <div className="row footer-row">
                 <div
-                  className="col-lg-5 col-md-5 col-sm-12 col-xs-12 footer-contact wow slideInLeft"
+                  className="col-lg-4 col-md-4 col-sm-12 col-xs-12 footer-contact wow slideInLeft"
                   style={{animationDuration: "3.5s"}}
                 >
                   <img src={require("../assets/images/newimages/logo.png")} className="Zaltol_footer" />
@@ -67,44 +67,74 @@ class Footer extends React.Component {
                 </div>
 
                 <div
-                  className="col-lg-3 col-md-3 col-sm-12 col-xs-12 footer-links wow slideInLeft"
+                  className="col-lg-2 col-md-2 col-sm-4 col-xs-4 footer-links wow slideInLeft"
                   style={{animationDuration: "3.5s"}}
                 >
-                  <h3> RESOURCES </h3>
+                  <h3> Browse </h3>
                   <ul>
                     <li>
                       <a href="#" target="blank">
-                        Instagram
+                      Concerts
                       </a>
                     </li>
                     <li>
                       <a href="#" target="blank">
-                        Twitter
+                      Sports
                       </a>
                     </li>
                     <li>
                       {" "}
                       <a href="#" target="blank">
-                        Contact Us{" "}
+                      Shows{" "}
                       </a>
                     </li>
                    
                   </ul>
                 </div>
-                <div
-                  className="col-lg-4 col-md-4 footer-links"
-                  style={{animationDuration: "3.5s"}}
-                >
-                  <h3> Policies </h3>
+                <div className="col-lg-2 col-md-2 col-sm-4 col-xs-4 footer-links" style={{animationDuration: "3.5s"}}>
+                  <h3> RESOURCES </h3>
                   <ul>
-                    <li  onClick={this.openPrivacyPolicies}>
-                      <a  target="blank" className="open-policies">
-                        Policies
+                    <li>
+                      <a href="#" target="blank">
+                      Contact Us
                       </a>
                     </li>
-                   
+                    <li>
+                      <a href="#" target="blank">
+                      Login
+                      </a>
+                    </li>
+                    <li>
+                      {" "}
+                      <a href="#" target="blank">
+                      Signup{" "}
+                      </a>
+                    </li>
+                    <li>
+                      {" "}
+                      <a href="#" target="blank">
+                      Policies{" "}
+                      </a>
+                    </li>
                   </ul>
                 </div>
+
+                 <div className="col-lg-2 col-md-2 col-sm-4 col-xs-4 footer-links" style={{animationDuration: "3.5s"}}>
+                  <h3> Connect </h3>
+                  <ul>
+                    <li>
+                      <a href="#" target="blank">
+                      Instagram
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" target="blank">
+                      Twitter
+                      </a>
+                    </li> 
+                  </ul>
+                </div>
+
               </div>
             </div>
           </div>

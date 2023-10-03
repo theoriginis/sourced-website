@@ -2,6 +2,15 @@
   background-color: #2C293C;
   border-radius: 0;
 }
+
+::-ms-input-placeholder { /* Edge 12-18 */
+  color:#fff !important;
+}
+
+::placeholder {
+  color:#fff !important;
+}
+
 .container {
   padding-left: 0;
   padding-right: 0;
@@ -42,7 +51,7 @@
 
 .navbar-brand {
   height: 50px;
-  padding: 0;
+  padding: 0 5px !important; 
   font-size: 18px;
   line-height: 11px;
   width:23%;
@@ -105,7 +114,7 @@ padding: 1rem;
   font-weight: 600;
   border: none;
   background: #7d5fd2;
-  margin-top: 3px;
+  margin-top:-10px;
 }
 
 .button_zal a {
@@ -136,7 +145,7 @@ padding: 1rem;
 }
 
 .search-div{
-  padding: 6px;
+  padding: 7px;
   width: 100%;
 }
 
@@ -150,10 +159,10 @@ padding: 1rem;
 }
 
 .search-img {
-  border-right: 1px solid #7B7794;
-  width: 11%;
+  border-right: none;
+  width: 8%;
   height: 23px;
-  margin-top: 6px;
+  margin-top: 9px;
   text-align: center;
   img{
     padding-top: 3px;
@@ -162,12 +171,12 @@ padding: 1rem;
 
 .search-div input{
   width: 100%;
-  color: #7B7794 !important;
+  color: #fff !important;
   background-color: transparent;
   border: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  padding-left: 10px;
+  padding-left: 0;
 }
 
 .search-div input:hover ,   .search-div input:focus {
@@ -179,13 +188,13 @@ padding: 1rem;
 }
 
 nav .search-box{
-  border: 1px solid #434055;
-  width: 50%;
+  border: 1px solid #fff; 
+  width: 55%;
   background-color: transparent;
   border-radius: 5px;
   height: 45px;
-  display:flex;
-  padding: 3px 1px;
+  display: flex;
+  padding: 3px 10px;
 }
 .header-btn{
   cursor: pointer;
@@ -265,5 +274,100 @@ ul.suggestions {
 .login_btn{
   color: #FFFFFF;
   font-size: 15px;
-  padding: 18px 32px 0 0;
+  padding:0 32px 0 0;
+}
+
+
+
+@media (max-width: 1000px)
+{
+  .navbar  .search-box {
+  display: none !important;
+}
+
+.navbar-brand {
+  width: auto;
+}
+
+.navbar {
+  padding: 20px;
+}
+
+.login{
+  padding: 7px 15px !important;
+  font-size: 15px!important;
+  font-weight: 700!important;
+  text-transform: capitalize!important;
+  margin-top: 8px!important;
+}
+
+.login_btn{
+  padding: 14px 20px 0 0;
+  font-weight: 700;
+}
+
+.header{
+  padding-top:50px !important;
+}
+
+#home h2{
+  line-height: 35px!important;
+  font-size: 26px!important;
+  text-align: center!important;
+}
+
+#home h5{
+  font-size: 15px!important;
+  font-weight: 600!important;
+  color: rgb(238, 236, 236)!important;
+  text-align: center!important;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px!important;
+  text-transform: none!important;
+}
+
+#home h3{
+  font-size: 17px!important;
+  font-weight: 600!important;
+  text-align: center;
+}
+
+#home h3 img
+{
+width: 25px;
+margin-right: 4px;
+}
+
+.main-search-bar-inner-one {
+  width: 100% !important;
+}
+
+.search-img{
+  border-right: 0 !important;
+}
+
+.search-box{
+  box-shadow: 0px 0px 8px #7B7794;
+}
+
+.main-search-bar .search-div input{
+  font-size: 13px !important;
+  font-weight: 700 !important; 
+  padding-left: 0 !important;
+}
+
+.icon2 img , .icon3 img, .icon1 img {
+  width: 50px !important;
+}
+
+::-ms-input-placeholder { /* Edge 12-18 */
+  color:#fff !important;
+}
+
+::placeholder {
+  color:#fff !important;
+}
+
+
 }

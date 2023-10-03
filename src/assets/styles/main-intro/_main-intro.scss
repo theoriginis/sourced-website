@@ -61,7 +61,7 @@
     background: #7D5FD2;
     border: none;
     margin-right: 0%;
-    padding: 8px 11px 6px 14px;
+    padding:7px 10px 9px 10px;
     text-transform: capitalize;
     width: 164px;
     text-align: left;
@@ -202,4 +202,54 @@ li.suggestion-list-items-main {
   font-size: 16px !important;
   padding: 5;
   cursor: pointer;
+}
+
+@media (max-width:768px)
+{
+  .icons{
+    position: absolute;
+    width: 100%;
+  }
+
+  .icon2 {
+    left: 0;
+    top: -30em;
+    right: auto;
+  }
+
+  .icon3 {
+    right: 5%;
+    top: -32em;
+  }
+
+  .icon1 {
+    left: 21%;
+    top: 3em;
+  }
+}
+
+@media (max-width:768px)
+{
+.icon2 {
+  left: 4%;
+}
+.search-box{
+  width:100%;
+}
+
+.main-search-bar{
+  padding-left: 5%; 
+  padding-right: 5%;
+}
+}
+
+@media (max-width:428px)
+{
+.icon2 img, .icon3 img, .icon1 img {
+  width: 40px !important;
+}
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .login_btn , a, p, button, input, .purchase_btn .button_zal {
+  font-family: poppins !important;
 }

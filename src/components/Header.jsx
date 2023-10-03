@@ -127,7 +127,7 @@ class Header extends Component {
                   <img
                     src={require("../assets/images/newimages/logo.png")}
                     alt=""
-                    className="logo d-none d-md-block"
+                    className="logo d-md-block"
                   />
                 </a>
                 <div className="search-box flex">

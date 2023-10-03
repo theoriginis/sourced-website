@@ -93,17 +93,12 @@ padding-right: 6px;
 width:10%;
 }
 
-
-
-
 .search_results .prices {
 width: 12%;
 }
 
-
-
 .search_results .t2 {
-width: 137px;
+width: 140px;
 }
 
 .search_results h5{
@@ -156,3 +151,115 @@ padding-right: 8% !important;
 h5.eventes-heading {
   padding: 10px;
 }
+
+@media (max-width:1200px) {
+.search_results .time{
+  width: 23%;
+}
+
+.date h3, .Info h3
+{
+  font-size: 12px;
+}
+
+.date_1 {
+  width: 23%;
+}
+
+.search_results .prices {
+  width: 20%;
+}
+}
+
+@media (max-width:900px) {
+#events .container, #events .container-md, #events .container-sm {
+  max-width: 100%;
+}
+}
+
+@media (max-width:768px) {
+.events h2{
+  font-size: 25px;
+}
+ 
+.event_box{
+  flex-wrap: wrap;
+}
+
+.Info{
+  width: 87%;
+    margin-right: 0;
+    margin-bottom: 6px;
+}
+
+.time{
+  margin-right: 0%;
+  margin-left: 0% !important;
+  width: 50%;
+}
+
+.prices {
+  width: 50%;
+  text-align: right;
+}
+
+.prices button{
+  padding: 6px 10px;
+  font-weight: 700;
+  width: auto;
+}
+
+.t2, .t1{
+  padding: 4px 8px;
+  width: 95px !important
+}
+
+.date h3, .Info h3{
+  font-weight: 700;
+}
+
+.search_results .date {
+  width: 7%;
+}
+
+.search_results .Info {
+  width: 85%;
+  margin-bottom: 10px;
+}
+
+.date_1, .search_results .time, .search_results .prices {
+  width: 33%;
+}
+
+.search_results .t2 {
+  width: 145px !important;
+}
+}
+
+@media (max-width:570px) {
+.date_1
+{
+  width: 40%;
+}
+
+.search_results .date {
+  width: 10%;
+}
+
+.search_results .time, .search_results .prices {
+  width:30%;
+}
+}
+
+@media (max-width:470px) {
+  .t2, .t1{
+    font-size: 12px;
+  }
+
+  .search_results .t2 {
+    width: auto !important;
+    margin-right: 5px;
+  }
+}
+
+ 
