@@ -23,14 +23,15 @@ class SearchResult extends Component {
     let url_segment = this.props.location.pathname.split("/");
 
     let keyword_searched = url_segment["3"];
-    let search_type = url_segment["2"];
+
+    console.log('keyword_searched',(keyword_searched).replace(/-/g, ' '))
     this.setState({
       keyword_searched: keyword_searched,
     });
     let data = {
-      performer_name: keyword_searched,
+      performer_name: (keyword_searched).replace(/-/g, ' '),
     };
-    console.log("performer", data);
+    
     this.props.searchedEventByPerformer(data);
   }
   componentDidUpdate(prevProps, prevState) {
@@ -103,7 +104,7 @@ class SearchResult extends Component {
                     style={{ animationDuration: "1s" }}
                   >
                     Search Results for{" "}
-                    <span> '{this.state.keyword_searched}'</span>
+                    <span> '{(this.state.keyword_searched).replace(/-/g, ' ')}'</span>
                   </h2>
                   <ul className="tags">
                     <li>

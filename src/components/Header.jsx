@@ -110,7 +110,7 @@ class Header extends Component {
   onClickEvent = (eventId) => {
     if (eventId) {
       //this.props.history.push(`/event-details/${eventId}`)
-      this.props.history.push(`/events-results/performer-tickets/${eventId}`);
+      this.props.history.push(`/events-results/performer-tickets/${(eventId).replace(/\s+/g, '-')}`);
       this.handleClearClick();
     }
   };

@@ -45,7 +45,7 @@ class TopSection extends React.Component {
   }
   onClickArtist = (performerName) => {
     if (performerName) {
-      this.props.history.push(`/events-results/performer-tickets/${performerName}`);
+      this.props.history.push(`/events-results/performer-tickets/${(performerName).replace(/\s+/g, '-')}`);
     }
   };
   onClickEvent = (eventId) => {
