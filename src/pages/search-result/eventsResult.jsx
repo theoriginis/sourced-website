@@ -24,14 +24,13 @@ class SearchResult extends Component {
 
     let keyword_searched = url_segment["3"];
 
-    console.log('keyword_searched',(keyword_searched).replace(/-/g, ' '))
     this.setState({
       keyword_searched: keyword_searched,
     });
     let data = {
-      performer_name: (keyword_searched).replace(/-/g, ' '),
+      performer_name: keyword_searched.replace(/-/g, " "),
     };
-    
+
     this.props.searchedEventByPerformer(data);
   }
   componentDidUpdate(prevProps, prevState) {
@@ -49,9 +48,8 @@ class SearchResult extends Component {
         search_results: this.props.searched_events_by_performer,
       });
     }
-  
   }
- 
+
   // openEvent = async (event_id) => {
   //   if (event_id !== "") {
   //     this.props.history.push(`/event-details/${event_id}`);
@@ -104,7 +102,10 @@ class SearchResult extends Component {
                     style={{ animationDuration: "1s" }}
                   >
                     Search Results for{" "}
-                    <span> '{(this.state.keyword_searched).replace(/-/g, ' ')}'</span>
+                    <span>
+                      {" "}
+                      '{this.state.keyword_searched.replace(/-/g, " ")}'
+                    </span>
                   </h2>
                   <ul className="tags">
                     <li>
@@ -133,9 +134,7 @@ class SearchResult extends Component {
                     </li> */}
                   </ul>
                   <h5 className="eventes-heading"> All Events </h5>
-                  {
-                  this.props.in_action_search_by_performer
-                     ? (
+                  {this.props.in_action_search_by_performer ? (
                     <div className="event_box no-records">
                       <Loader />
                     </div>
@@ -144,7 +143,11 @@ class SearchResult extends Component {
                     this.state.search_results.map((event, key) => (
                       <div
                         className="event_box"
-                        onClick={() => this.onClickEvent(`${event.text.name}-tickets-${event.city.text.name}-${event.date.date}/${event.id}`)}
+                        onClick={() =>
+                          this.onClickEvent(
+                            `${(event.text.name).replace(/\s+/g, '-')}-tickets-${(event.city.text.name).replace(/\s+/g, '-')}-${event.date.date}/${event.id}`
+                          )
+                        }
                       >
                         <div className="date">
                           <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}
@@ -190,41 +193,102 @@ class SearchResult extends Component {
                   ) : (
                     // <div className="event_box no-records">No Records Found</div>
                     <div className="event_box no-records">No recors Found</div>
-
                   )}
 
-                  <div className="unviel_infor"> 
-                    <h1>  Unveil the Magic of Live Events with Sourced Tickets </h1>
-                    <p> Embark on a journey through the live action of <span>Team Name</span>, a sensation that has captured hearts across the globe. </p>
-                    <h1>Secure Your <span>Team Name</span> Tickets with Sourced Tickets </h1>
-                    <h1>Don't miss the chance to witness <span>Team Name</span> live. Follow these steps to secure your tickets: </h1>
-                   
-                    <p> Explore <span>Team Name</span> upcoming events on Sourced Tickets to find an event near you.</p>
-                    <p>  Click the "Tickets" button next to your chosen event to proceed.</p>
-                    <p>  Utilize the interactive seating chart to select your desired seats and price range.</p>
-                    <p> Finalize your order by clicking "Buy" and entering your payment and shipping details.</p>
-                    <p> Rest assured that your <span>Team Name</span>  tickets from Sourced Tickets will arrive in time for the event.
+                  <div className="unviel_infor">
+                    <h1>
+                      {" "}
+                      Unveil the Magic of Live Events with Sourced Tickets{" "}
+                    </h1>
+                    <p>
+                      {" "}
+                      Embark on a journey through the live action of{" "}
+                      <span>Team Name</span>, a sensation that has captured
+                      hearts across the globe.{" "}
+                    </p>
+                    <h1>
+                      Secure Your <span>Team Name</span> Tickets with Sourced
+                      Tickets{" "}
+                    </h1>
+                    <h1>
+                      Don't miss the chance to witness <span>Team Name</span>{" "}
+                      live. Follow these steps to secure your tickets:{" "}
+                    </h1>
+
+                    <p>
+                      {" "}
+                      Explore <span>Team Name</span> upcoming events on Sourced
+                      Tickets to find an event near you.
+                    </p>
+                    <p>
+                      {" "}
+                      Click the "Tickets" button next to your chosen event to
+                      proceed.
+                    </p>
+                    <p>
+                      {" "}
+                      Utilize the interactive seating chart to select your
+                      desired seats and price range.
+                    </p>
+                    <p>
+                      {" "}
+                      Finalize your order by clicking "Buy" and entering your
+                      payment and shipping details.
+                    </p>
+                    <p>
+                      {" "}
+                      Rest assured that your <span>Team Name</span> tickets from
+                      Sourced Tickets will arrive in time for the event.
                     </p>
 
-                    <h1> Accessible <span>Team Name </span>Tickets at Sourced Tickets:</h1>
-                    <p> Whether you're on a budget or seeking premium experiences, Sourced Tickets offers an array of<span> Team Name</span> ticket options.
-Revel in <span>Team Name</span> captivating performances without compromising your budget.
-</p>
+                    <h1>
+                      {" "}
+                      Accessible <span>Team Name </span>Tickets at Sourced
+                      Tickets:
+                    </h1>
+                    <p>
+                      {" "}
+                      Whether you're on a budget or seeking premium experiences,
+                      Sourced Tickets offers an array of<span>
+                        {" "}
+                        Team Name
+                      </span>{" "}
+                      ticket options. Revel in <span>Team Name</span>{" "}
+                      captivating performances without compromising your budget.
+                    </p>
 
-                    <h1>Sourced Tickets: Your Trusted Source for <span>Team Name</span> Tickets: </h1>
-                    <p>With Sourced Tickets, you're guaranteed access to <span>Team Name</span> tickets, even for highly anticipated events.
-Secure your <span>Team Name</span>  tickets through Sourced Tickets.
- </p>
-                     
-                    <p> Uncover the excitement of live events with <span>Team Name</span> captivating performances, brought to you by Sourced Tickets.</p>
-                     
-                    <p> Stay tuned for updates on <span>Team Name</span> events for today and beyond. Visit our website to explore our  full range of <span>Team Name</span> tickets and secure your spot in the crowd.
+                    <h1>
+                      Sourced Tickets: Your Trusted Source for{" "}
+                      <span>Team Name</span> Tickets:{" "}
+                    </h1>
+                    <p>
+                      With Sourced Tickets, you're guaranteed access to{" "}
+                      <span>Team Name</span> tickets, even for highly
+                      anticipated events. Secure your <span>Team Name</span>{" "}
+                      tickets through Sourced Tickets.
+                    </p>
 
-</p>
-                     
-                    <p> Enjoy peace of mind with our 100% Buyer Guarantee, ensuring the authenticity and timely delivery of your <span>Team Name </span>tickets.
+                    <p>
+                      {" "}
+                      Uncover the excitement of live events with{" "}
+                      <span>Team Name</span> captivating performances, brought
+                      to you by Sourced Tickets.
+                    </p>
 
-</p>
+                    <p>
+                      {" "}
+                      Stay tuned for updates on <span>Team Name</span> events
+                      for today and beyond. Visit our website to explore our
+                      full range of <span>Team Name</span> tickets and secure
+                      your spot in the crowd.
+                    </p>
+
+                    <p>
+                      {" "}
+                      Enjoy peace of mind with our 100% Buyer Guarantee,
+                      ensuring the authenticity and timely delivery of your{" "}
+                      <span>Team Name </span>tickets.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -239,8 +303,8 @@ Secure your <span>Team Name</span>  tickets through Sourced Tickets.
 const mapStateToProps = (state) => ({
   searched_events_by_performer:
     state.searched_events_by_performer.searched_events_by_performer,
-    in_action_search_by_performer:state.searched_events_by_performer.in_action_search_by_performer
-
+  in_action_search_by_performer:
+    state.searched_events_by_performer.in_action_search_by_performer,
 });
 export default withRouter(
   connect(mapStateToProps, { searchedEventByPerformer })(SearchResult)

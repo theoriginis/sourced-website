@@ -187,14 +187,14 @@ class Header extends Component {
                 </div>
               </div>
               <div className="wdith50">
-                <div className="float-right header-btn flex">
+                {/* <div className="float-right header-btn flex">
                   <div className="login_btn" onClick={this.goToLogin}>
                     {this.state.user_information ? "Log Out" : "Log In"}
                   </div>
                   <div className="button_zal login" onClick={this.goToLogin}>
                     Sign Up
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
