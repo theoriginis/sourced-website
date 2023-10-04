@@ -560,3 +560,29 @@ div#venue-map-reset-ctn {
 .navbar-collapse{
   box-shadow: none !important;
 }
+
+/*Event results page css*/
+.location-filter-box {
+  display: flex;
+  .header-search-bar {
+    width: 200px;
+    font-size: 14px;
+}
+
+}
+
+.filter-apply {
+  color: #fff;
+  padding: 2px 10px 0 10px;
+  font-size: 16px;
+  border: 1px solid;
+  border-radius: 10px;
+ 
+}
+.filter-clear {
+  color: #fff;
+  padding: 2px 10px 0 10px;
+  font-size: 16px;
+  border: 1px solid;
+  border-radius: 10px;
+}
