@@ -155,12 +155,14 @@ class Header extends Component {
                       )}
                     </span>
 
+                  </div>
+
                     {this.state.search_results.length > 0 ? (
                       <ul className="suggestions ">
                         <li className="suggestion-list-items">
                           <div className="suggestion_box">
                             <div className="suggestion_name">
-                              <h2> Suggested Results </h2>
+                              <h4> Suggested Results </h4>
                             </div>
                           </div>
                         </li>
@@ -173,7 +175,7 @@ class Header extends Component {
                             >
                               <div className="suggestion_box">
                                 <div className="suggestion_name">
-                                  <h5> {suggestion.name} </h5>
+                                  <h3> {suggestion.name} </h3>
                                   {/* <h6 className="search-city-name"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
                                 </div>
                               </div>
@@ -183,7 +185,9 @@ class Header extends Component {
                     ) : (
                       ""
                     )}
-                  </div>
+
+
+
                 </div>
               </div>
               <div className="wdith50">

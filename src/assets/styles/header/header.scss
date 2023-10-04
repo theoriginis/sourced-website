@@ -4,11 +4,22 @@
 }
 
 ::-ms-input-placeholder { /* Edge 12-18 */
-  color:#666 !important;
+  color:#fff;
+  opacity: 1;
 }
 
 ::placeholder {
-  color:#666 !important;
+  color:#fff;
+  opacity: 1;
+}
+
+.search-div input::-moz-placeholder{
+  color:#fff;
+}
+
+.search-div input::placeholder {
+  color:#fff;
+  opacity: 1;
 }
 
 .container {
@@ -293,6 +304,7 @@ ul.suggestions {
   padding: 20px;
 }
 
+
 .login{
   padding: 7px 15px !important;
   font-size: 15px!important;
@@ -318,17 +330,19 @@ ul.suggestions {
 
 #home h5{
   font-size: 15px!important;
-  font-weight: 600!important;
+  font-weight: 500!important;
   color: rgb(238, 236, 236)!important;
   text-align: center!important;
   margin-left: auto;
   margin-right: auto;
-  max-width: 400px!important;
+  max-width: 390px!important;
+  margin-top: 10px!important;
   text-transform: none!important;
+  margin-bottom: 1em
 }
 
 #home h3{
-  font-size: 17px!important;
+  font-size: 14px!important;
   font-weight: 600!important;
   text-align: center;
 }
@@ -337,6 +351,10 @@ ul.suggestions {
 {
 width: 25px;
 margin-right: 4px;
+}
+
+.suggestion_name-main h3{ 
+  text-align: left !important;
 }
 
 .main-search-bar-inner-one {

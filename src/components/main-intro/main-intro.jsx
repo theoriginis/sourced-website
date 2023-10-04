@@ -165,7 +165,7 @@ class MainIntro extends React.Component {
                             <li className="suggestion-list-items">
                               <div className="suggestion_box-main">
                                 <div className="suggestion_name-main">
-                                  <h2> Suggested Results </h2>
+                                  <h4> Suggested Results </h4>
                                 </div>
                               </div>
                             </li>
@@ -181,7 +181,7 @@ class MainIntro extends React.Component {
                                   >
                                     <div className="suggestion_box-main">
                                       <div className="suggestion_name-main">
-                                        <h5> {suggestion.name} </h5>
+                                        <h3> {suggestion.name} </h3>
                                         {/* <h6 className="search-city-name-main"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
                                       </div>
                                     </div>

@@ -151,7 +151,7 @@ class LocalEvents extends React.Component {
                         {" "}
                         <h3>{event.text.name}</h3>
                         <h5 className="search-city-name-trending">
-                          {event.city.text.name},{event.stateProvince.text.name}
+                          {event.city.text.name},   {event.stateProvince.text.name}
                         </h5>
                       </div>
                       <div className="time">
