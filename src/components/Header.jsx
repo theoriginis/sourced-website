@@ -122,7 +122,7 @@ class Header extends Component {
         <nav className="navbar navbar-expand-md main-nav navigation fixed-top sidebar-left wow">
           <div className="container">
             <div className="collapse navbar-collapse" id="main-navbar">
-              <div className="wdith50">
+              <div className="width100">
                 <a className="navbar-brand" onClick={() => this.goToHome()}>
                   <img
                     src={require("../assets/images/newimages/logo.png")}
@@ -158,11 +158,12 @@ class Header extends Component {
                   </div>
 
                     {this.state.search_results.length > 0 ? (
-                      <ul className="suggestions ">
+                    <div className="suggestions">
+                      <ul>
                         <li className="suggestion-list-items">
                           <div className="suggestion_box">
-                            <div className="suggestion_name">
-                              <h4> Suggested Results </h4>
+                            <div className="suggestion_name suggest_h2">
+                               Suggested Results 
                             </div>
                           </div>
                         </li>
@@ -174,14 +175,15 @@ class Header extends Component {
                               className="suggestion-list-items"
                             >
                               <div className="suggestion_box">
-                                <div className="suggestion_name">
-                                  <h3> {suggestion.name} </h3>
+                                <div className="suggestion_name suggest_h3">
+                                    {suggestion.name}  
                                   {/* <h6 className="search-city-name"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
                                 </div>
                               </div>
                             </li>
                           ))}
                       </ul>
+                      </div>
                     ) : (
                       ""
                     )}

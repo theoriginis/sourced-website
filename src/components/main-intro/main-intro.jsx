@@ -161,7 +161,8 @@ class MainIntro extends React.Component {
                           )}
                         </span>
                         {this.state.search_results_main.length > 0 ? (
-                          <ul className="suggestions-main ">
+                          <div className="suggestions-main">
+                          <ul>
                             <li className="suggestion-list-items">
                               <div className="suggestion_box-main">
                                 <div className="suggestion_name-main">
@@ -189,6 +190,7 @@ class MainIntro extends React.Component {
                                 )
                               )}
                           </ul>
+                          </div>
                         ) : (
                           ""
                         )}
