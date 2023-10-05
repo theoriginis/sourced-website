@@ -20,8 +20,21 @@ class SearchResult extends Component {
     };
   }
   componentDidMount() {
+    console.log('gggg',this.props.location.pathname)
+    window.addEventListener("popstate", this.handlePopState);
     this.getEventByPerformer();
   }
+  componentWillUnmount() {
+    // Remove the click event listener when the component unmounts
+//document.removeEventListener("click", this.handleDocumentClick);
+  }
+  handlePopState = (event) => {
+    
+    if (this.props.location.pathname.includes("/events-results")) {
+      // Reload the window to refresh the home page
+      window.location.reload();
+    }
+  };
   getEventByPerformer() {
     let url_segment = this.props.location.pathname.split("/");
 

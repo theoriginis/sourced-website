@@ -30,9 +30,13 @@ class MainIntro extends React.Component {
       });
     }
   }
-  componentDidMount() {
-    document.addEventListener("click", this.handleDocumentClick);
-  }
+  handlePopState = (event) => {
+    
+    if (this.props.location.pathname === "/event-details") {
+      // Reload the window to refresh the home page
+      window.location.reload();
+    }
+  };
   handleInputChange = (e) => {
     const value = e.target.value;
     if (e.target) this.setState({ inputValueMain: value });
@@ -83,7 +87,7 @@ class MainIntro extends React.Component {
     }
   };
   handleDocumentClick = (event) => {
-    console.log("selected element", event.target.outerHTML);
+
     const inputElement = event.target.outerHTML.includes(
       "main-intro-search-bar"
     );
@@ -97,10 +101,6 @@ class MainIntro extends React.Component {
       console.log("No input element found within the clicked element.");
     }
   };
-  componentWillUnmount() {
-    // Remove the click event listener when the component unmounts
-    document.removeEventListener("click", this.handleDocumentClick);
-  }
 
   render() {
     const { inputValueMain } = this.state;
