@@ -51,11 +51,7 @@ class EventDetails extends Component {
           <section class="section events search_results" id="products">
             <div class="container">
               <div class="row">
-                <div
-                  id="tn-maps"
-                  role="main"
-                  className="seatics"
-                  style={{
+                <div id="tn-maps"  role="main"  className="seatics" style={{
                     height: "1200px",
                     backgroundColor: "#211E32",
                     overflow: "auto",

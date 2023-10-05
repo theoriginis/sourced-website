@@ -32,14 +32,14 @@ class SellNow extends React.Component {
                   </h2>
                   <p>100% customer satisfaction</p>
                   <div class="hiden_quantity">
-                  <nav class="nav purchase_btn" onClick={this.goToSignUp}>
+                  {/* <nav class="nav purchase_btn" onClick={this.goToSignUp}>
                       <span class="button_zal">
                         {" "}
                         Create Account{" "}
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
 
                       </span>
-                    </nav>
+                    </nav> */}
                   </div>
                 </div>
               </div>

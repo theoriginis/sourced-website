@@ -30,9 +30,13 @@ class MainIntro extends React.Component {
       });
     }
   }
-  componentDidMount() {
-    document.addEventListener("click", this.handleDocumentClick);
-  }
+  handlePopState = (event) => {
+    
+    if (this.props.location.pathname === "/event-details") {
+      // Reload the window to refresh the home page
+      window.location.reload();
+    }
+  };
   handleInputChange = (e) => {
     const value = e.target.value;
     if (e.target) this.setState({ inputValueMain: value });
@@ -83,7 +87,7 @@ class MainIntro extends React.Component {
     }
   };
   handleDocumentClick = (event) => {
-    console.log("selected element", event.target.outerHTML);
+
     const inputElement = event.target.outerHTML.includes(
       "main-intro-search-bar"
     );
@@ -97,10 +101,6 @@ class MainIntro extends React.Component {
       console.log("No input element found within the clicked element.");
     }
   };
-  componentWillUnmount() {
-    // Remove the click event listener when the component unmounts
-    document.removeEventListener("click", this.handleDocumentClick);
-  }
 
   render() {
     const { inputValueMain } = this.state;
@@ -159,43 +159,46 @@ class MainIntro extends React.Component {
                               onClick={this.handleClearClick}
                             ></i>
                           )}
-                        </span>
-                        {this.state.search_results_main.length > 0 ? (
-                          <div className="suggestions-main">
-                          <ul>
-                            <li className="suggestion-list-items">
-                              <div className="suggestion_box-main">
-                                <div className="suggestion_name-main">
-                                  <h4> Suggested Results </h4>
-                                </div>
-                              </div>
-                            </li>
-                            {this.state.search_results_main.length > 0 &&
-                              this.state.search_results_main.map(
-                                (suggestion, index) => (
-                                  <li
-                                    key={index}
-                                    onClick={() =>
-                                      this.onClickEvent(suggestion.name)
-                                    }
-                                    className="suggestion-list-items-main"
-                                  >
-                                    <div className="suggestion_box-main">
-                                      <div className="suggestion_name-main">
-                                        <h3> {suggestion.name} </h3>
-                                        {/* <h6 className="search-city-name-main"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
-                                      </div>
-                                    </div>
-                                  </li>
-                                )
-                              )}
-                          </ul>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-                      </div>
+                        </span> 
+                      </div> 
                     </div>
+
+ {this.state.search_results_main.length > 0 ? (
+                      <div className="suggestions-main">
+                      <ul>
+                        <li className="suggestion-list-items">
+                          <div className="suggestion_box-main">
+                            <div className="suggestion_name-main">
+                              <h4> Suggested Results </h4>
+                            </div>
+                          </div>
+                        </li>
+                        {this.state.search_results_main.length > 0 &&
+                          this.state.search_results_main.map(
+                            (suggestion, index) => (
+                              <li
+                                key={index}
+                                onClick={() =>
+                                  this.onClickEvent(suggestion.name)
+                                }
+                                className="suggestion-list-items-main"
+                              >
+                                <div className="suggestion_box-main">
+                                  <div className="suggestion_name-main">
+                                    <h3> {suggestion.name} </h3>
+                                    {/* <h6 className="search-city-name-main"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
+                                  </div>
+                                </div>
+                              </li>
+                            )
+                          )}
+                      </ul>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+
+
                   </div>
                   {/* <div>
                     <nav class="nav purchase_btn" onClick={this.searchPerformer}>

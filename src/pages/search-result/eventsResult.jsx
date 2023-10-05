@@ -11,14 +11,30 @@ class SearchResult extends Component {
     super(props);
     this.state = {
       search_results: "",
+      original_results:"",
       currentPage: 1,
       event_limit: 10,
       keyword_searched: "",
+      opneFilterBox:false,
+      inputValueFilter:""
     };
   }
   componentDidMount() {
+    console.log('gggg',this.props.location.pathname)
+    window.addEventListener("popstate", this.handlePopState);
     this.getEventByPerformer();
   }
+  componentWillUnmount() {
+    // Remove the click event listener when the component unmounts
+//document.removeEventListener("click", this.handleDocumentClick);
+  }
+  handlePopState = (event) => {
+    
+    if (this.props.location.pathname.includes("/events-results")) {
+      // Reload the window to refresh the home page
+      window.location.reload();
+    }
+  };
   getEventByPerformer() {
     let url_segment = this.props.location.pathname.split("/");
 
@@ -46,47 +62,39 @@ class SearchResult extends Component {
 
       this.setState({
         search_results: this.props.searched_events_by_performer,
+        original_results:this.props.searched_events_by_performer
       });
     }
   }
-
-  // openEvent = async (event_id) => {
-  //   if (event_id !== "") {
-  //     this.props.history.push(`/event-details/${event_id}`);
-  //   }
-  // };
-  // goNextPage = () => {
-  //   let url_segment = this.props.location.pathname.split("/");
-  //   let keyword_searched = url_segment["2"];
-  //   let data = {
-  //     search: keyword_searched,
-  //     limit: this.state.event_limit,
-  //     page: this.state.currentPage + 1,
-  //   };
-  //   this.setState({
-  //     currentPage: this.state.currentPage + 1,
-  //   });
-  //   this.props.mainSearch(data);
-  // };
-  // gotPreviousPage = () => {
-  //   let url_segment = this.props.location.pathname.split("/");
-  //   let keyword_searched = url_segment["2"];
-  //   let data = {
-  //     search: keyword_searched,
-  //     limit: this.state.event_limit,
-  //     page: this.state.currentPage - 1,
-  //   };
-  //   this.setState({
-  //     currentPage: this.state.currentPage - 1,
-  //   });
-  //   this.props.mainSearch(data);
-  // };
+  openLocationFilter(){
+    this.setState({
+      opneFilterBox:!this.state.opneFilterBox
+    })
+  }
+  handleInputChangeFilter = (e) => {
+    const value = e.target.value;
+    this.setState({
+      inputValueFilter:value
+    })
+  };
+  fliterEventsByLocation=()=>{
+      const filteredArray = this.state.original_results.filter((item) =>
+        item.city.text.name.toLowerCase().includes(this.state.inputValueFilter.toLowerCase())|| item.stateProvince.text.name.toLowerCase().includes(this.state.inputValueFilter.toLowerCase())
+      );
+      // Set the filtered array in the component's state
+      this.setState({ search_results: filteredArray});
+    
+  }
+  removeFilter = ()=>{
+    this.setState({ search_results: this.state.original_results,inputValueFilter:''});
+  }
   onClickEvent = (eventId) => {
     if (eventId) {
       this.props.history.push(`/event-details/${eventId}`);
     }
   };
   render() {
+    const { inputValueFilter, filteredArray } = this.state;
     return (
       <>
         <main>
@@ -108,30 +116,27 @@ class SearchResult extends Component {
                     </span>
                   </h2>
                   <ul className="tags">
-                    <li>
+                    <li onClick={()=>this.openLocationFilter()}>
                       {" "}
                       <img
                         src={require("../../assets/images/newimages/c1.png")}
                         alt="sourced"
                       />{" "}
                       location{" "}
+                      
                     </li>
-                    {/* <li>
-                      {" "}
-                      <img
-                        src={require("../../assets/images/newimages/wallet.png")}
-                        alt="sourced"
-                      />{" "}
-                      Price{" "}
-                    </li>
-                    <li>
-                      {" "}
-                      <img
-                        src={require("../../assets/images/newimages/scan.png")}
-                        alt="sourced"
-                      />{" "}
-                      Date{" "}
-                    </li> */}
+                    {this.state.opneFilterBox ?
+                      <div className="location-filter-box">
+                        <input
+                        type="text"
+                        placeholder="Search By Location"
+                        value={inputValueFilter}
+                        onChange={this.handleInputChangeFilter}
+                        className="header-search-bar"
+                      />
+                      <div  class="filter-apply" onClick={() => this.fliterEventsByLocation()}>Apply</div>
+                      <div class="filter-clear"onClick={() => this.removeFilter()}>Clear</div>
+                        </div>:''}
                   </ul>
                   <h5 className="eventes-heading"> All Events </h5>
                   {this.props.in_action_search_by_performer ? (
@@ -155,7 +160,7 @@ class SearchResult extends Component {
                         </div>
                         <div className="Info">
                           <h3>{event.text.name} </h3>
-                          <p> {event.venue.text.name}</p>
+                          <p> {event.city.text.name}, {event.stateProvince.text.name}</p>
                         </div>
                         <div className="date_1">
                           <p className="t2">
@@ -163,7 +168,7 @@ class SearchResult extends Component {
                               src={require("../../assets/images/newimages/calender.png")}
                               alt="sourced"
                             />{" "}
-                            {moment(event.date.date).format("MMMM Do")}
+                            {moment(event.date.date).format("MMM Do")}
                           </p>{" "}
                         </div>
                         <div className="time">

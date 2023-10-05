@@ -160,9 +160,11 @@
 }
 .main-search-bar-inner-one {
   width: 83%;
+  position: relative;
 }
 .main-intro{
   display: flex;
+  flex-wrap: wrap;
   input::placeholder {
     color: #00000078;
   }
@@ -170,14 +172,14 @@
 
 .suggestions-main {
   background: #fff;
-  border-radius:12px;
-  top: 20px;
-  position: relative;
+  border-radius: 12px;
+  top: 55px;
+  position: absolute;
   padding: 10px !important;
   list-style: none;
   width: 419px;
-  transition: all cubic-bezier(.86,0,.07,1) 1s;
-  left: -36px;
+  transition: all cubic-bezier(0.86, 0, 0.07, 1) 1s;
+  left: 0;
   z-index: 9;
 }
 
@@ -200,14 +202,15 @@
 
 .suggestion_name-main h4{
   color: #000;
-  font-size: 23px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight:600;
 }
 .suggestion_name-main h3{
   color: #7B7794 !important;
   margin-bottom: 0;
+  font-weight: 500 !important;
   margin-top: 0;
-  font-size: 15px !important;
+  font-size: 14px !important;
   
 }
 
@@ -251,11 +254,18 @@ li.suggestion-list-items-main {
 
 @media (max-width:768px)
 {
+  .suggestions-main{
+    width:100%;
+  }
+}
+
+@media (max-width:768px)
+{
   .icons{
     position: absolute;
     width: 100%;
   }
-  
+   
   #home .container{
     padding-top: 7%;
     
@@ -283,10 +293,7 @@ li.suggestion-list-items-main {
 .icon2 {
   left: 4%;
 }
-.search-box{
-  width:100%;
-}
-
+ 
 .main-search-bar{
   padding-left: 5%; 
   padding-right: 5%;
@@ -304,7 +311,6 @@ li.suggestion-list-items-main {
 }
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .login_btn , a, p, button, input, .purchase_btn .button_zal ,
- .suggest_h2, .suggest_h3 {
-  font-family: poppins !important;
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .login_btn , a, p, button, input, .purchase_btn .button_zal {
+  font-family: Poppins !important;
 }
