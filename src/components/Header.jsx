@@ -19,7 +19,9 @@ class Header extends Component {
     };
   }
   handleInputChange = (e) => {
+   
     const value = e.target.value;
+    console.log('value',e.target.value)
     if (e.target) this.setState({ inputValue: value });
 
     // Filter suggestions based on user input
@@ -44,12 +46,9 @@ class Header extends Component {
     if (
       prevProps.performer_search_header !== this.props.performer_search_header
     ) {
-     
-        this.setState({
-          search_results:
-            this.props.performer_search_header,
-        });
-      
+      this.setState({
+        search_results: this.props.performer_search_header,
+      });
     }
   }
   handleSuggestionClick = (suggestion) => {
@@ -81,7 +80,7 @@ class Header extends Component {
 
     if (!inputElement) {
       // An input element was found within the clicked element
-    
+
       this.handleClearClick();
     } else {
       // No input element was found within the clicked element
@@ -110,12 +109,13 @@ class Header extends Component {
   onClickEvent = (eventId) => {
     if (eventId) {
       //this.props.history.push(`/event-details/${eventId}`)
-      this.props.history.push(`/events-results/performer-tickets/${(eventId).replace(/\s+/g, '-')}`);
+      this.props.history.push(
+        `/events-results/performer-tickets/${eventId.replace(/\s+/g, "-")}`
+      );
       this.handleClearClick();
     }
   };
   render() {
-
     const { inputValue, suggestions } = this.state;
     return (
       <div>
@@ -154,40 +154,36 @@ class Header extends Component {
                         ></i>
                       )}
                     </span>
-
                   </div>
 
-                    {this.state.search_results.length > 0 ? (
-                      <ul className="suggestions ">
-                        <li className="suggestion-list-items">
-                          <div className="suggestion_box">
-                            <div className="suggestion_name">
-                              <h4> Suggested Results </h4>
-                            </div>
+                  {this.state.search_results.length > 0 ? (
+                    <ul className="suggestions ">
+                      <li className="suggestion-list-items">
+                        <div className="suggestion_box">
+                          <div className="suggestion_name">
+                            <h4> Suggested Results </h4>
                           </div>
-                        </li>
-                        {this.state.search_results.length > 0 &&
-                          this.state.search_results.map((suggestion, index) => (
-                            <li
-                              key={index}
-                              onClick={() => this.onClickEvent(suggestion.name)}
-                              className="suggestion-list-items"
-                            >
-                              <div className="suggestion_box">
-                                <div className="suggestion_name">
-                                  <h3> {suggestion.name} </h3>
-                                  {/* <h6 className="search-city-name"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
-                                </div>
+                        </div>
+                      </li>
+                      {this.state.search_results.length > 0 &&
+                        this.state.search_results.map((suggestion, index) => (
+                          <li
+                            key={index}
+                            onClick={() => this.onClickEvent(suggestion.name)}
+                            className="suggestion-list-items"
+                          >
+                            <div className="suggestion_box">
+                              <div className="suggestion_name">
+                                <h3> {suggestion.name} </h3>
+                                {/* <h6 className="search-city-name"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
                               </div>
-                            </li>
-                          ))}
-                      </ul>
-                    ) : (
-                      ""
-                    )}
-
-
-
+                            </div>
+                          </li>
+                        ))}
+                    </ul>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
               <div className="wdith50">
@@ -211,7 +207,8 @@ class Header extends Component {
 const mapStateToProps = (state) => ({
   user_info: state.user_info,
   user_added: state.user_added,
-  performer_search_header: state.performer_search_header.performer_search_header,
+  performer_search_header:
+    state.performer_search_header.performer_search_header,
 });
 export default withRouter(
   connect(mapStateToProps, { searchedPerformerHeader })(Header)

@@ -6,6 +6,7 @@ import { searchedEvent } from "../../redux/searched-events/action";
 
 import Geocode from "react-geocode";
 import Loader from "../../components/spinner/spinner.jsx";
+import { Redirect } from "react-router-dom";
 class LocalEvents extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +31,7 @@ class LocalEvents extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener("popstate", this.handlePopState);
+    window.addEventListener("beforeunload", this.handlePopState);
     let data = {
       salesRankOptions: { interval: "90days", metric: "ticketVolume" },
     };
@@ -42,6 +43,11 @@ class LocalEvents extends React.Component {
       window.location.reload();
     }
   };
+ 
+  // componentWillUnmount() {
+  //   // Remove the popstate event listener when the component unmounts
+  //   window.removeEventListener('popstate', this.handlePopState);
+  // }
 
   // Geolocation(lat, lng) {
   //   Geocode.setApiKey("AIzaSyC6l4iBNvQwIaPjoqKIoOBKJPxqqvXEYso");
@@ -100,7 +106,8 @@ class LocalEvents extends React.Component {
 
   onClickEvent = (eventId) => {
     if (eventId) {
-      this.props.history.push(`/event-details/${eventId}`);
+      
+      window.location.href = `/event-details/${eventId}`
     }
   };
   render() {

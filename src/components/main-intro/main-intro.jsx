@@ -30,13 +30,7 @@ class MainIntro extends React.Component {
       });
     }
   }
-  handlePopState = (event) => {
-    
-    if (this.props.location.pathname === "/event-details") {
-      // Reload the window to refresh the home page
-      window.location.reload();
-    }
-  };
+ 
   handleInputChange = (e) => {
     const value = e.target.value;
     if (e.target) this.setState({ inputValueMain: value });

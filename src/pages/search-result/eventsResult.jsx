@@ -20,8 +20,7 @@ class SearchResult extends Component {
     };
   }
   componentDidMount() {
-    console.log('gggg',this.props.location.pathname)
-    window.addEventListener("popstate", this.handlePopState);
+    window.addEventListener("beforeunload", this.handlePopState);
     this.getEventByPerformer();
   }
   componentWillUnmount() {
@@ -29,12 +28,16 @@ class SearchResult extends Component {
 //document.removeEventListener("click", this.handleDocumentClick);
   }
   handlePopState = (event) => {
-    
+    console.log('in the event results')
     if (this.props.location.pathname.includes("/events-results")) {
       // Reload the window to refresh the home page
       window.location.reload();
     }
   };
+  // componentWillUnmount() {
+  //   // Remove the popstate event listener when the component unmounts
+  //   window.removeEventListener('beforeunload', this.handlePopState);
+  // }
   getEventByPerformer() {
     let url_segment = this.props.location.pathname.split("/");
 
@@ -90,7 +93,8 @@ class SearchResult extends Component {
   }
   onClickEvent = (eventId) => {
     if (eventId) {
-      this.props.history.push(`/event-details/${eventId}`);
+      //this.props.history.push(`/event-details/${eventId}`);
+      window.location.href = `/event-details/${eventId}`
     }
   };
   render() {

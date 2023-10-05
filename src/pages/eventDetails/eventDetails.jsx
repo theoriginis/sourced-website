@@ -22,7 +22,7 @@ class EventDetails extends Component {
     };
   }
   componentDidMount() {
-    
+    window.addEventListener("beforeunload", this.handlePopState);
     let url_segment = this.props.location.pathname.split("/");
     let event_id = url_segment["3"];
 
@@ -39,9 +39,18 @@ class EventDetails extends Component {
 
     Seatics.config.useC3 = true;
   }
+  handlePopState = (event) => {
+    
+    if (this.props.location.pathname.includes("/event-details")) {
+      // Reload the window to refresh the home page
+      window.location.reload();
+    }
+  };
 
-
-  
+  // componentWillUnmount() {
+  //   // Remove the popstate event listener when the component unmounts
+  //   window.removeEventListener('popstate', this.handlePopState);
+  // }
 
   render() {
     window.scrollTo(0, 0);
