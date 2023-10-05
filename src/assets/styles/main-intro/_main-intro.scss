@@ -160,39 +160,66 @@
 }
 .main-search-bar-inner-one {
   width: 83%;
+  position: relative;
 }
 .main-intro{
   display: flex;
+  flex-wrap: wrap;
   input::placeholder {
     color: #00000078;
   }
 }
-ul.suggestions-main {
+
+.suggestions-main {
   background: #fff;
-  border-radius: 9px;
-  top: 20px;
-  position: relative;
+  border-radius: 12px;
+  top: 55px;
+  position: absolute;
   padding: 10px !important;
   list-style: none;
-  max-height: 200px;
-  overflow-y: auto;
-  overflow-x: hidden;
   width: 419px;
-  transition: all cubic-bezier(.86,0,.07,1) 1s;
-  left: -36px;
+  transition: all cubic-bezier(0.86, 0, 0.07, 1) 1s;
+  left: 0;
   z-index: 9;
 }
+
+.suggestions-main ul
+{
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.suggestions ul{
+  margin:0;
+  padding:0;
+}
+
+.suggestions-main ul li{
+  list-style-type: none;
+}
+
 .suggestion_name-main h4{
   color: #000;
   font-size: 20px;
-  font-weight: 600;
+  font-weight:600;
 }
 .suggestion_name-main h3{
   color: #7B7794 !important;
   margin-bottom: 0;
+  font-weight: 500 !important;
   margin-top: 0;
-  font-size: 15px !important;
+  font-size: 14px !important;
   
+}
+
+.suggest_h2{
+  font-size: 19px !important;
+}
+ 
+.suggest_h3{
+  font-size: 15px !important;
 }
 
 .suggestion_name-main{
@@ -217,15 +244,31 @@ li.suggestion-list-items-main {
   cursor: pointer;
 }
 
+@media (max-width:990px)
+{
+#home .container{
+  width: 90%;
+}
+}
+
+
+@media (max-width:768px)
+{
+  .suggestions-main{
+    width:100%;
+  }
+}
+
 @media (max-width:768px)
 {
   .icons{
     position: absolute;
     width: 100%;
   }
-  
+   
   #home .container{
     padding-top: 7%;
+    
   }
 
   .icon2 {
@@ -250,10 +293,7 @@ li.suggestion-list-items-main {
 .icon2 {
   left: 4%;
 }
-.search-box{
-  width:100%;
-}
-
+ 
 .main-search-bar{
   padding-left: 5%; 
   padding-right: 5%;
@@ -262,7 +302,6 @@ li.suggestion-list-items-main {
 .header{
   background-image: url("../../newimages/mobile_hero.png");
 }
-
 }
 
 @media (max-width:428px)

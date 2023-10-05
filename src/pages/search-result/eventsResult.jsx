@@ -172,7 +172,7 @@ class SearchResult extends Component {
                               src={require("../../assets/images/newimages/calender.png")}
                               alt="sourced"
                             />{" "}
-                            {moment(event.date.date).format("MMMM Do")}
+                            {moment(event.date.date).format("MMM Do")}
                           </p>{" "}
                         </div>
                         <div className="time">

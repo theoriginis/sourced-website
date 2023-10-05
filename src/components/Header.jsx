@@ -19,9 +19,7 @@ class Header extends Component {
     };
   }
   handleInputChange = (e) => {
-   
     const value = e.target.value;
-    console.log('value',e.target.value)
     if (e.target) this.setState({ inputValue: value });
 
     // Filter suggestions based on user input
@@ -29,6 +27,7 @@ class Header extends Component {
       let data = {
         performer_name: value,
       };
+      console.log('data',data)
       this.props.searchedPerformerHeader(data, "performer");
     } else {
       this.setState({
@@ -46,9 +45,12 @@ class Header extends Component {
     if (
       prevProps.performer_search_header !== this.props.performer_search_header
     ) {
-      this.setState({
-        search_results: this.props.performer_search_header,
-      });
+     
+        this.setState({
+          search_results:
+            this.props.performer_search_header,
+        });
+      
     }
   }
   handleSuggestionClick = (suggestion) => {
@@ -80,7 +82,7 @@ class Header extends Component {
 
     if (!inputElement) {
       // An input element was found within the clicked element
-
+    
       this.handleClearClick();
     } else {
       // No input element was found within the clicked element
@@ -109,20 +111,19 @@ class Header extends Component {
   onClickEvent = (eventId) => {
     if (eventId) {
       //this.props.history.push(`/event-details/${eventId}`)
-      this.props.history.push(
-        `/events-results/performer-tickets/${eventId.replace(/\s+/g, "-")}`
-      );
+      this.props.history.push(`/events-results/performer-tickets/${(eventId).replace(/\s+/g, '-')}`);
       this.handleClearClick();
     }
   };
   render() {
+
     const { inputValue, suggestions } = this.state;
     return (
       <div>
         <nav className="navbar navbar-expand-md main-nav navigation fixed-top sidebar-left wow">
           <div className="container">
             <div className="collapse navbar-collapse" id="main-navbar">
-              <div className="wdith50">
+              <div className="width100">
                 <a className="navbar-brand" onClick={() => this.goToHome()}>
                   <img
                     src={require("../assets/images/newimages/logo.png")}
@@ -154,36 +155,42 @@ class Header extends Component {
                         ></i>
                       )}
                     </span>
+
                   </div>
 
-                  {this.state.search_results.length > 0 ? (
-                    <ul className="suggestions ">
-                      <li className="suggestion-list-items">
-                        <div className="suggestion_box">
-                          <div className="suggestion_name">
-                            <h4> Suggested Results </h4>
-                          </div>
-                        </div>
-                      </li>
-                      {this.state.search_results.length > 0 &&
-                        this.state.search_results.map((suggestion, index) => (
-                          <li
-                            key={index}
-                            onClick={() => this.onClickEvent(suggestion.name)}
-                            className="suggestion-list-items"
-                          >
-                            <div className="suggestion_box">
-                              <div className="suggestion_name">
-                                <h3> {suggestion.name} </h3>
-                                {/* <h6 className="search-city-name"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
-                              </div>
+                    {this.state.search_results.length > 0 ? (
+                    <div className="suggestions">
+                      <ul>
+                        <li className="suggestion-list-items">
+                          <div className="suggestion_box">
+                            <div className="suggestion_name suggest_h2">
+                               Suggested Results 
                             </div>
-                          </li>
-                        ))}
-                    </ul>
-                  ) : (
-                    ""
-                  )}
+                          </div>
+                        </li>
+                        {this.state.search_results.length > 0 &&
+                          this.state.search_results.map((suggestion, index) => (
+                            <li
+                              key={index}
+                              onClick={() => this.onClickEvent(suggestion.name)}
+                              className="suggestion-list-items"
+                            >
+                              <div className="suggestion_box">
+                                <div className="suggestion_name suggest_h3">
+                                    {suggestion.name}  
+                                  {/* <h6 className="search-city-name"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
+                                </div>
+                              </div>
+                            </li>
+                          ))}
+                      </ul>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+
+
+
                 </div>
               </div>
               <div className="wdith50">
@@ -207,8 +214,7 @@ class Header extends Component {
 const mapStateToProps = (state) => ({
   user_info: state.user_info,
   user_added: state.user_added,
-  performer_search_header:
-    state.performer_search_header.performer_search_header,
+  performer_search_header: state.performer_search_header.performer_search_header,
 });
 export default withRouter(
   connect(mapStateToProps, { searchedPerformerHeader })(Header)

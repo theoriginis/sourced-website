@@ -1,6 +1,6 @@
 #products {
   background-color: #1b182b;
-  margin-top: 9em;
+  margin-top: 7em;
   padding-top: 3em;
 }
 
@@ -49,7 +49,7 @@ body {
 
 .t2,
 .t1 {
-  width: 84px;
+  width:90px;
 }
 
 .time {
@@ -208,20 +208,37 @@ body {
   .time {
     margin-top: 0 !important;
   }
+
+  #list-ctn{
+    margin-top: 30px;
+  }
+
+  #products{
+    margin-top:30px !important;
+  }
+
+  .navbar-brand{
+    width:100%!important;
+    float: none!important;
+    line-height: 0px!important;
+  }
+
+  .navigation .logo{
+    margin:auto!important;
+  }
+
+   .search-box{
+    width: 100%!important;
+    margin-top: 7px;
+  }
 }
 
 @media (max-width: 1000px) {
   .navigation.fixed-top .navbar-collapse {
     display: block !important;
   }
-
-  .wdith50 {
-    width: 100%;
-  }
-
-  nav .search-box {
-    width: 100%;
-  }
+ 
+ 
 
   .float-right {
     float: right;
@@ -238,7 +255,7 @@ body {
   }
 
   .navigation.fixed-top .navbar-collapse {
-    padding: 0 !important;
+    padding:10px !important;
   }
 
   .navbar-brand {
@@ -247,14 +264,14 @@ body {
   }
 
   #products {
-    margin-top: 10em;
-    padding-top: 6em;
-  }
+    margin-top: 0;
+    padding-top: 0;
+  } 
 }
 
 @media (max-width: 1330px) {
   .navbar-brand {
-    width: 30%;
+    width: 23%;
   }
 }
 
@@ -585,4 +602,8 @@ div#venue-map-reset-ctn {
   font-size: 16px;
   border: 1px solid;
   border-radius: 10px;
+}
+
+.seatics *{
+  cursor: pointer;
 }

@@ -64,7 +64,7 @@ export async function SearchEvent(data) {
 }
 export async function SearchPerformer(data) {
   try {
-    let performer_name = data.performer_name;
+    let performer_name = encodeURIComponent(data.performer_name);
     return axios({
       method: "get",
       //url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text/name eq %27${performer_name}%27`,
