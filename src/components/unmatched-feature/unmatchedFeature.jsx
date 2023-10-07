@@ -65,7 +65,7 @@ class UnmatchedFeature extends React.Component {
                 style={{animationDuration: "3s"}}
               >
                 <div class="feat_box">
-                  <h2> 100% Buyer <br/>Satisfaction</h2>
+                  <h2> 100% Buyer Satisfaction</h2>
                   <p>
                     Our number one priority is to make your ticket buying
                     experience easy and hassle-free, saving you time and money.
@@ -77,7 +77,7 @@ class UnmatchedFeature extends React.Component {
                 style={{animationDuration: "3s"}}
               >
                 <div class="feat_box">
-                  <h2> Lowest Fees<br/> Guaranteed</h2>
+                  <h2> Lowest Fees Guaranteed</h2>
                   <p>
                     Discover the industry's lowest fees at Sourced Tickets,
                     where saving you money is our top priority.

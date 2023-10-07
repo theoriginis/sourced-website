@@ -201,8 +201,9 @@ class SearchResult extends Component {
                     ))
                   ) : (
                     // <div className="event_box no-records">No Records Found</div>
-                    <div className="event_box no-records">No recors Found</div>
+                    <div className="event_box no-records">Sorry. There are currently no events matching this criteria.</div>
                   )}
+
 
                   <div className="unviel_infor">
                     <h1>

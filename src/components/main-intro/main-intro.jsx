@@ -111,22 +111,34 @@ class MainIntro extends React.Component {
                   Experience More. <br />
                   Spend Less.
                 </h2>
-                <h5>
-                  {" "}
-                  Sourced Tickets is the only ticket-selling marketplace whose
-                  #1 priority is you. We strive to make your ticket-buying
-                  experience as quick and hassle-free as possible. With the
-                  lowest fees in the industry, we can guarantee no surprises at
-                  checkout!
-                </h5>
+                
                 <h3>
                   {" "}
                   <img
                     src={require("../../assets/images/newimages/tick.png")}
                     alt="sourced"
                   />{" "}
-                  Best Price guaranteed{" "}
+                  Lowest Fees Guaranteed{" "}
                 </h3>
+
+                    <h3>
+                  {" "}
+                  <img
+                    src={require("../../assets/images/newimages/tick.png")}
+                    alt="sourced"
+                  />{" "}
+                  No Surprises at Checkout{" "}
+                </h3>
+
+                    <h3>
+                  {" "}
+                  <img
+                    src={require("../../assets/images/newimages/tick.png")}
+                    alt="sourced"
+                  />{" "}
+                  Quick, Hassle-Free Purchasing{" "}
+                </h3>
+
 
                 <div className="main-search-bar">
                   <div className="main-search-bar-inner-one">

@@ -13,7 +13,7 @@ class Home extends Component {
     
     return (
       <>
-        <title>Source Home</title>
+        <title>Sourced Tickets</title>
 
         <div>
           <MainIntro />
