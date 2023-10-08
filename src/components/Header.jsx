@@ -123,15 +123,19 @@ class Header extends Component {
         <nav className="navbar navbar-expand-md main-nav navigation fixed-top sidebar-left wow">
           <div className="container">
             <div className="collapse navbar-collapse" id="main-navbar">
-              <div className="width100">
+              <div className="source_logo_left">
                 <a className="navbar-brand" onClick={() => this.goToHome()}>
                   <img
                     src={require("../assets/images/newimages/logo.png")}
                     alt=""
                     className="logo d-md-block"
                   />
-                </a>
-                <div className="search-box flex">
+                </a> 
+              </div>
+
+              <div className="search_bar_right text-right">
+                <div className="flex_profile">
+                 <div className="search-box flex">
                   <div className="search-img">
                     <img
                       src={require("../assets/images/newimages/search-nav.png")}
@@ -187,21 +191,15 @@ class Header extends Component {
                       </div>
                     ) : (
                       ""
-                    )}
+                    )} 
+                </div>
 
-
-
+                <div className="profile_div"> 
+                <a>
+                  <img src={require("../assets/images/profile.png")} alt=""/>
+                </a>
                 </div>
               </div>
-              <div className="wdith50">
-                {/* <div className="float-right header-btn flex">
-                  <div className="login_btn" onClick={this.goToLogin}>
-                    {this.state.user_information ? "Log Out" : "Log In"}
-                  </div>
-                  <div className="button_zal login" onClick={this.goToLogin}>
-                    Sign Up
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>

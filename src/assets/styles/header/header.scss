@@ -317,7 +317,29 @@ max-height: 250px;
   padding:0 32px 0 0;
 }
 
+.flex_profile {
+  display: flex;
+}
 
+.profile_div{
+  padding-left: 12%;
+}
+
+.profile_div a{
+  cursor: pointer;
+}
+
+.profile_div img{
+width: 21px;
+}
+
+.search_bar_right{
+  width:30%;
+}
+
+.source_logo_left {
+  width:70%;
+}
 
 @media (max-width: 1000px)
 {
@@ -418,8 +440,6 @@ margin-right: 4px;
 ::placeholder {
   color:#666 !important;
 }
-
-
 }
 
 

@@ -196,6 +196,11 @@
 }
 }
 
+/* Style the scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background:red;
+}
+
 .suggestions-main ul{
 /* Style the scrollbar handle */
 ::-webkit-scrollbar-thumb {
