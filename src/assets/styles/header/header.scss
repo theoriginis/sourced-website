@@ -24,6 +24,23 @@
   opacity: 1;
 }
 
+.main-intro-search-bar::placeholder {
+  color:blue;
+  opacity: 1;
+}
+
+.main-intro-search-bar::-webkit-input-placeholder {
+  color: blue !important;
+}
+.main-intro-search-bar:-moz-placeholder {
+  color: blue!important;
+}
+.main-intro-search-bar:-ms-input-placeholder{
+  color: blue!important;
+}
+
+ 
+
 .container {
   padding-left: 0;
   padding-right: 0;
@@ -51,7 +68,7 @@
 
 .navigation.fixed-top .navbar-collapse {
   height: auto;
-  padding: 13px 0px 0px 0px;
+  padding:0;
   position: relative;
   display: flex !important;
   flex-grow: 1;
@@ -168,11 +185,11 @@ padding: 1rem;
 }
 
 .search-box {
-  border: 1px solid #E1DFEE;
-  width: 420px;
+  border: 1px solid #D3D3DC;
+  width:370px;
   background-color: #fff;
-  border-radius: 5px;
-  height: 45px;
+  border-radius: 11px;
+  height: 46px;
   padding: 3px 10px;
 }
 
@@ -180,13 +197,24 @@ padding: 1rem;
   border-right: none;
   width:7%;
   height: 23px;
-  margin-top: 9px;
+  margin-top:12px;
   text-align: center;
+  position: relative;
   img{
-    padding-top: 3px;
+    padding-top: 0;
   }
 }
 
+.search-img::before{
+  content: "";
+  height: 18px;
+  width: 1px;
+  position: absolute;
+  right: -8px;
+  background-color: #1B182B;
+  top: 1px;
+  border-radius: 8px;
+}
 .search-div input{
   width: 100%;
   color: #fff !important;
@@ -323,6 +351,7 @@ max-height: 250px;
 
 .profile_div{
   padding-left: 12%;
+  padding-top: 10px;
 }
 
 .profile_div a{
@@ -339,11 +368,28 @@ width: 21px;
 
 .source_logo_left {
   width:70%;
+  padding-top: 15px;
+}
+
+.logo_mobile {
+  display: none !important;
+  width: 60px;
 }
 
 @media (max-width: 1000px)
 {
+.source_logo_left{
+  padding-top:0;
+  }
   
+  
+  .search_bar_right{
+    width: 45%;
+  }
+
+  .source_logo_left{
+    width: 55%;
+  }
 
 .navbar-brand {
   width: auto;
@@ -374,7 +420,7 @@ width: 21px;
 #home h2{
   line-height: 35px!important;
   font-size: 26px!important;
-  text-align: center!important;
+  text-align: left!important;
 }
 
 #home h5{
@@ -395,7 +441,7 @@ width: 21px;
   font-weight: 500 !important;
   text-align: left;
   padding-left: 0;
-  width: 300px;
+  width: auto;
   margin: auto;
   margin-bottom: auto;
   margin-bottom: 10px;
@@ -442,10 +488,87 @@ margin-right: 4px;
 }
 }
 
+.search_icons
+{
+  width: 100px;
+  border-right: 1px solid #A992FF;
+  padding-right: 30px;
+  padding-top: 7px;
+  height: 35px;
+  display:none;
+}
 
 @media (max-width:768px)
 {
+  #home .container{
+    padding-left: 0 !important;
+  }
+
+  .search_icons{
+    display: block;
+  }
+
+  #home h2{
+    text-align: center !important;
+  }
+
+  #home h3{
+    width: 280px;
+  }
+
+  .search_bar_right{
+    width: 30%;
+  }
+  
+  .source_logo_left{
+    width: 70%;
+  }
+
   .suggestions{
     width: 100%;
+  }
+
+  nav .search-box{ 
+    display: none !important;
+  }
+
+  .profile_div{
+    display: block;
+  }
+
+  .logo_mobile{
+    display: block !important;
+  }
+
+  .navbar-brand{
+    display: flex;
+  }
+
+  .navigation .logo{
+    width: 170px;
+  height: 33px;
+  margin-left: 15px;
+  margin-top: 10px;
+  }
+}
+
+
+@media (max-width:550px)
+{
+  .search_icons{
+    padding-right: 17px;
+  }
+
+  .icon1{
+    top: 21em;
+    left: 0%;
+  }
+
+  .search-img{
+    margin-top: 9px;
+  }
+
+  .main-search-bar {
+    padding-top: 37px;
   }
 }

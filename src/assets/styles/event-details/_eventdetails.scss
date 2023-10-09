@@ -222,11 +222,7 @@ body {
     float: none!important;
     line-height: 0px!important;
   }
-
-  .navigation .logo{
-    margin:auto!important;
-  }
-
+ 
    .search-box{
     width: 100%!important;
     margin-top: 7px;
@@ -234,12 +230,6 @@ body {
 }
 
 @media (max-width: 1000px) {
-  .navigation.fixed-top .navbar-collapse {
-    display: block !important;
-  }
- 
- 
-
   .float-right {
     float: right;
     padding-right: 15px;

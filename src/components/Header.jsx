@@ -125,11 +125,8 @@ class Header extends Component {
             <div className="collapse navbar-collapse" id="main-navbar">
               <div className="source_logo_left">
                 <a className="navbar-brand" onClick={() => this.goToHome()}>
-                  <img
-                    src={require("../assets/images/newimages/logo.png")}
-                    alt=""
-                    className="logo d-md-block"
-                  />
+                <img src={require("../assets/images/logo.png")} alt="" className="logo_mobile"/>
+                  <img src={require("../assets/images/newimages/logo.png")} alt=""  className="logo d-md-block"/>
                 </a> 
               </div>
 
@@ -193,7 +190,9 @@ class Header extends Component {
                       ""
                     )} 
                 </div>
-
+                <div className="search_icons"> 
+                <img src={require("../assets/images/search.png")} alt=""/>
+                </div>
                 <div className="profile_div"> 
                 <a>
                   <img src={require("../assets/images/profile.png")} alt=""/>

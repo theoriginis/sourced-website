@@ -104,7 +104,7 @@ class MainIntro extends React.Component {
           <div class="container">
             <div class="row">
               <div
-                class="col-md-6 col-lg-6 col-sm-12 col-xs-12 wow  center z-index-12"
+                class="col-md-12 col-lg-12 col-sm-12 col-xs-12 wow  center z-index-12"
                 style={{ visibility: "visible", animationName: "slideInRight" }}
               >
                 <h2>
@@ -218,9 +218,7 @@ class MainIntro extends React.Component {
                   </div> */}
                 </div>
               </div>
-              <div  class="col-md-6 col-lg-6 col-sm-12 col-xs-12 hero-right wow  center z-index-12"
-                style={{ visibility: "visible", animationName: "slideInRight" }}
-              >
+              
                 <div class="icons">
                   <div class="icon1">
                     <img
@@ -240,8 +238,7 @@ class MainIntro extends React.Component {
                       alt="sourced"
                     />
                   </div>
-                </div>
-              </div>
+                </div> 
             </div>
           </div>
         </header>
