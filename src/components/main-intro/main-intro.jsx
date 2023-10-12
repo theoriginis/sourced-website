@@ -23,6 +23,9 @@ class MainIntro extends React.Component {
       inputValueMain_error: false,
     };
   }
+  componentDidMount(){
+    document.addEventListener("click", this.handleDocumentClick);
+  }
   componentDidUpdate(prevProps) {
     if (prevProps.performer_search_main !== this.props.performer_search_main) {
       this.setState({
@@ -30,7 +33,10 @@ class MainIntro extends React.Component {
       });
     }
   }
- 
+  componentWillUnmount() {
+    // Remove the click event listener when the component unmounts
+    document.removeEventListener("click", this.handleDocumentClick);
+  }
   handleInputChange = (e) => {
     const value = e.target.value;
     if (e.target) this.setState({ inputValueMain: value });
@@ -47,7 +53,7 @@ class MainIntro extends React.Component {
       });
     }
   };
- 
+
   searchEvent = () => {
     if (this.state.inputValueMain) {
       this.props.history.push(
@@ -76,19 +82,18 @@ class MainIntro extends React.Component {
   onClickEvent = (eventId) => {
     if (eventId) {
       //this.props.history.push(`/event-details/${eventId}`)
-      this.props.history.push(`/events-results/performer-tickets/${(eventId).replace(/\s+/g, '-')}`);
+      this.props.history.push(
+        `/events-results/performer-tickets/${eventId.replace(/\s+/g, "-")}`
+      );
       this.handleClearClick();
     }
   };
   handleDocumentClick = (event) => {
-
-    const inputElement = event.target.outerHTML.includes(
-      "main-intro-search-bar"
-    );
-
+    const inputElement = event.target.outerHTML.includes("main-intro-search-bar");
+ 
     if (!inputElement) {
       // An input element was found within the clicked element
-      console.log("Found an input element:", inputElement);
+     
       this.handleClearClick();
     } else {
       // No input element was found within the clicked element
@@ -111,7 +116,7 @@ class MainIntro extends React.Component {
                   Experience More. <br />
                   Spend Less.
                 </h2>
-                
+
                 <h3>
                   {" "}
                   <img
@@ -121,7 +126,7 @@ class MainIntro extends React.Component {
                   Lowest Fees Guaranteed{" "}
                 </h3>
 
-                    <h3>
+                <h3>
                   {" "}
                   <img
                     src={require("../../assets/images/newimages/tick.png")}
@@ -130,7 +135,7 @@ class MainIntro extends React.Component {
                   No Surprises at Checkout{" "}
                 </h3>
 
-                    <h3>
+                <h3>
                   {" "}
                   <img
                     src={require("../../assets/images/newimages/tick.png")}
@@ -138,7 +143,6 @@ class MainIntro extends React.Component {
                   />{" "}
                   Quick, Hassle-Free Purchasing{" "}
                 </h3>
-
 
                 <div className="main-search-bar">
                   <div className="main-search-bar-inner-one">
@@ -165,46 +169,44 @@ class MainIntro extends React.Component {
                               onClick={this.handleClearClick}
                             ></i>
                           )}
-                        </span> 
-                      </div> 
+                        </span>
+                      </div>
                     </div>
 
- {this.state.search_results_main.length > 0 ? (
+                    {this.state.search_results_main.length > 0 ? (
                       <div className="suggestions-main">
-                      <ul>
-                        <li className="suggestion-list-items">
-                          <div className="suggestion_box-main">
-                            <div className="suggestion_name-main">
-                              <h4> Suggested Results </h4>
+                        <ul>
+                          <li className="suggestion-list-items">
+                            <div className="suggestion_box-main">
+                              <div className="suggestion_name-main">
+                                <h4> Suggested Results </h4>
+                              </div>
                             </div>
-                          </div>
-                        </li>
-                        {this.state.search_results_main.length > 0 &&
-                          this.state.search_results_main.map(
-                            (suggestion, index) => (
-                              <li
-                                key={index}
-                                onClick={() =>
-                                  this.onClickEvent(suggestion.name)
-                                }
-                                className="suggestion-list-items-main"
-                              >
-                                <div className="suggestion_box-main">
-                                  <div className="suggestion_name-main">
-                                    <h3> {suggestion.name} </h3>
-                                    {/* <h6 className="search-city-name-main"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
+                          </li>
+                          {this.state.search_results_main.length > 0 &&
+                            this.state.search_results_main.map(
+                              (suggestion, index) => (
+                                <li
+                                  key={index}
+                                  onClick={() =>
+                                    this.onClickEvent(suggestion.name)
+                                  }
+                                  className="suggestion-list-items-main"
+                                >
+                                  <div className="suggestion_box-main">
+                                    <div className="suggestion_name-main">
+                                      <h3> {suggestion.name} </h3>
+                                      {/* <h6 className="search-city-name-main"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
+                                    </div>
                                   </div>
-                                </div>
-                              </li>
-                            )
-                          )}
-                      </ul>
+                                </li>
+                              )
+                            )}
+                        </ul>
                       </div>
                     ) : (
                       ""
                     )}
-
-
                   </div>
                   {/* <div>
                     <nav class="nav purchase_btn" onClick={this.searchPerformer}>
@@ -218,27 +220,27 @@ class MainIntro extends React.Component {
                   </div> */}
                 </div>
               </div>
-              
-                <div class="icons">
-                  <div class="icon1">
-                    <img
-                      src={require("../../assets/images/newimages/mic.png")}
-                      alt="sourced"
-                    />
-                  </div>
-                  <div class="icon2">
-                    <img
-                      src={require("../../assets/images/newimages/earth.png")}
-                      alt="sourced"
-                    />
-                  </div>
-                  <div class="icon3">
-                    <img
-                      src={require("../../assets/images/newimages/ticket.png")}
-                      alt="sourced"
-                    />
-                  </div>
-                </div> 
+
+              <div class="icons">
+                <div class="icon1">
+                  <img
+                    src={require("../../assets/images/newimages/mic.png")}
+                    alt="sourced"
+                  />
+                </div>
+                <div class="icon2">
+                  <img
+                    src={require("../../assets/images/newimages/earth.png")}
+                    alt="sourced"
+                  />
+                </div>
+                <div class="icon3">
+                  <img
+                    src={require("../../assets/images/newimages/ticket.png")}
+                    alt="sourced"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </header>

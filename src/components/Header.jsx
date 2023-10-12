@@ -27,7 +27,7 @@ class Header extends Component {
       let data = {
         performer_name: value,
       };
-      console.log('data',data)
+      console.log("data", data);
       this.props.searchedPerformerHeader(data, "performer");
     } else {
       this.setState({
@@ -45,12 +45,9 @@ class Header extends Component {
     if (
       prevProps.performer_search_header !== this.props.performer_search_header
     ) {
-     
-        this.setState({
-          search_results:
-            this.props.performer_search_header,
-        });
-      
+      this.setState({
+        search_results: this.props.performer_search_header,
+      });
     }
   }
   handleSuggestionClick = (suggestion) => {
@@ -82,7 +79,7 @@ class Header extends Component {
 
     if (!inputElement) {
       // An input element was found within the clicked element
-    
+
       this.handleClearClick();
     } else {
       // No input element was found within the clicked element
@@ -111,12 +108,13 @@ class Header extends Component {
   onClickEvent = (eventId) => {
     if (eventId) {
       //this.props.history.push(`/event-details/${eventId}`)
-      this.props.history.push(`/events-results/performer-tickets/${(eventId).replace(/\s+/g, '-')}`);
+      this.props.history.push(
+        `/events-results/performer-tickets/${eventId.replace(/\s+/g, "-")}`
+      );
       this.handleClearClick();
     }
   };
   render() {
-
     const { inputValue, suggestions } = this.state;
     return (
       <div>
@@ -125,80 +123,96 @@ class Header extends Component {
             <div className="collapse navbar-collapse" id="main-navbar">
               <div className="source_logo_left">
                 <a className="navbar-brand" onClick={() => this.goToHome()}>
-                <img src={require("../assets/images/logo.png")} alt="" className="logo_mobile"/>
-                  <div><img src={require("../assets/images/newimages/logo.png")} alt=""  className="logo d-md-block"/></div>
-                </a> 
+                  <img
+                    src={require("../assets/images/logo.png")}
+                    alt=""
+                    className="logo_mobile"
+                  />
+                  <div>
+                    <img
+                      src={require("../assets/images/newimages/logo.png")}
+                      alt=""
+                      className="logo d-md-block"
+                    />
+                  </div>
+                </a>
               </div>
 
               <div className="search_bar_right text-right">
                 <div className="flex_profile">
-                 <div className="search-box flex">
-                  <div className="search-img">
-                    <img
-                      src={require("../assets/images/newimages/search-nav.png")}
-                      alt="sourced"
-                    />{" "}
-                  </div>
-                  <div className="search-div auto-suggest">
-                    <span className="searhbar-icons">
-                      <input
-                        type="text"
-                        placeholder="Search for Artist, Team, or Performer"
-                        value={inputValue}
-                        onChange={this.handleInputChange}
-                        className="header-search-bar"
-                      />
-                      {inputValue && (
-                        <i
-                          class="fa fa-times cross-icon"
-                          aria-hidden="true"
-                          onClick={this.handleClearClick}
-                        ></i>
-                      )}
-                    </span>
-
-                  </div>
+                  <div className="search-box flex">
+                    <div className="search-img">
+                      <img
+                        src={require("../assets/images/newimages/search-nav.png")}
+                        alt="sourced"
+                      />{" "}
+                    </div>
+                    <div className="search-div auto-suggest">
+                      <span className="searhbar-icons">
+                        <input
+                          type="text"
+                          placeholder="Search for Artist, Team, or Performer"
+                          value={inputValue}
+                          onChange={this.handleInputChange}
+                          className="header-search-bar"
+                        />
+                        {inputValue && (
+                          <i
+                            class="fa fa-times cross-icon"
+                            aria-hidden="true"
+                            onClick={this.handleClearClick}
+                          ></i>
+                        )}
+                      </span>
+                    </div>
 
                     {this.state.search_results.length > 0 ? (
-                    <div className="suggestions">
-                      <ul>
-                        <li className="suggestion-list-items">
-                          <div className="suggestion_box">
-                            <div className="suggestion_name suggest_h2">
-                               Suggested Results 
-                            </div>
-                          </div>
-                        </li>
-                        {this.state.search_results.length > 0 &&
-                          this.state.search_results.map((suggestion, index) => (
-                            <li
-                              key={index}
-                              onClick={() => this.onClickEvent(suggestion.name)}
-                              className="suggestion-list-items"
-                            >
-                              <div className="suggestion_box">
-                                <div className="suggestion_name suggest_h3">
-                                    {suggestion.name}  
-                                  {/* <h6 className="search-city-name"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
-                                </div>
+                      <div className="suggestions">
+                        <ul>
+                          <li className="suggestion-list-items">
+                            <div className="suggestion_box">
+                              <div className="suggestion_name suggest_h2">
+                                Suggested Results
                               </div>
-                            </li>
-                          ))}
-                      </ul>
+                            </div>
+                          </li>
+                          {this.state.search_results.length > 0 &&
+                            this.state.search_results.map(
+                              (suggestion, index) => (
+                                <li
+                                  key={index}
+                                  onClick={() =>
+                                    this.onClickEvent(suggestion.name)
+                                  }
+                                  className="suggestion-list-items"
+                                >
+                                  <div className="suggestion_box">
+                                    <div className="suggestion_name suggest_h3">
+                                      {suggestion.name}
+                                      {/* <h6 className="search-city-name"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
+                                    </div>
+                                  </div>
+                                </li>
+                              )
+                            )}
+                        </ul>
                       </div>
                     ) : (
                       ""
-                    )} 
+                    )}
+                  </div>
+                  <div className="search_icons">
+                    <img src={require("../assets/images/search.png")} alt="" />
+                  </div>
+                  <div className="profile_div">
+                    <a>
+                      <img
+                        src={require("../assets/images/profile.png")}
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
-                <div className="search_icons"> 
-                <img src={require("../assets/images/search.png")} alt=""/>
-                </div>
-                <div className="profile_div"> 
-                <a>
-                  <img src={require("../assets/images/profile.png")} alt=""/>
-                </a>
-                </div>
-              </div>
               </div>
             </div>
           </div>
@@ -211,7 +225,8 @@ class Header extends Component {
 const mapStateToProps = (state) => ({
   user_info: state.user_info,
   user_added: state.user_added,
-  performer_search_header: state.performer_search_header.performer_search_header,
+  performer_search_header:
+    state.performer_search_header.performer_search_header,
 });
 export default withRouter(
   connect(mapStateToProps, { searchedPerformerHeader })(Header)
