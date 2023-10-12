@@ -160,6 +160,7 @@
       font-size: 15px;
       font-weight: 600;
       padding-left: 10px;
+      word-spacing: 3px;
     }
 }
 .main-search-bar-inner-one {
@@ -192,6 +193,15 @@
   background: transparent;
 }
 
+
+
+/* Style the scrollbar handle */
+.suggestions-main ul::-webkit-scrollbar-thumb {
+  background:#fff;
+}
+
+
+
 .suggestions ul
 {
 /* Style the scrollbar handle */
@@ -202,7 +212,7 @@
 
 /* Style the scrollbar handle */
 ::-webkit-scrollbar-thumb {
-  background:red;
+  background:#211e32;
 }
 
 .suggestions-main ul{
@@ -336,13 +346,12 @@ li.suggestion-list-items-main {
  
 @media (max-width:768px)
 {
-
   .suggestions-main{
     width:100%;
   }
 
   .profile_div{
-    padding-top:4px;
+    padding-top:3px;
   }
 
   .icons{
@@ -368,16 +377,16 @@ li.suggestion-list-items-main {
   }
 
   .icon1 {
-    left: 3%;
-    top: 20em;
+    left: 0%;
+    top: 21em;
   }
 }
 
 @media (max-width:768px)
 {
   .icon2 {
-    left: 4%;
-    top: 6em;
+    left: 3%;
+    top: 5em;
   }
  
 .main-search-bar{

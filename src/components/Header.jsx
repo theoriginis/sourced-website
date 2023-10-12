@@ -126,7 +126,7 @@ class Header extends Component {
               <div className="source_logo_left">
                 <a className="navbar-brand" onClick={() => this.goToHome()}>
                 <img src={require("../assets/images/logo.png")} alt="" className="logo_mobile"/>
-                  <img src={require("../assets/images/newimages/logo.png")} alt=""  className="logo d-md-block"/>
+                  <div><img src={require("../assets/images/newimages/logo.png")} alt=""  className="logo d-md-block"/></div>
                 </a> 
               </div>
 
