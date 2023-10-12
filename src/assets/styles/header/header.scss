@@ -195,6 +195,10 @@ padding: 1rem;
   width:93%;
 }
 
+ nav .search-div{
+  padding: 6px;
+}
+
 .search-box {
   border: 1px solid #D3D3DC;
   width:370px;
@@ -322,13 +326,34 @@ h5{
   background: transparent;
 }
 
- 
+ /* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #211E32 #1b182b;  
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #211E32;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1b182b;
+  border-radius: 20px;
+  border: 3px solid #1b182b;
+}
+
+
 
 .suggestions {
   scroll-behavior: auto;
   list-style: none;
   position: absolute;
-  width: 390px;
+  width: 340px;
   top: 54px;
   background-color: #211e32;
   border-radius: 10px;
@@ -350,7 +375,7 @@ max-height: 250px;
   font-size: 16px !important;
   color: #fff;
   cursor: pointer;
-  padding: 5px;
+  padding: 3px;
 }
 .search-city-name{
   color: #7B7794;
@@ -360,7 +385,7 @@ max-height: 250px;
   font-size: 15px;
   padding:0 32px 0 0;
 
-  
+
 }
 
 .flex_profile {
@@ -518,6 +543,15 @@ margin-right: 4px;
   display: none;
 }
 
+@media (max-width:991px)
+{
+  .venue-map{
+    background-color: transparent !important;
+  }
+
+  
+}
+
 @media (max-width:768px)
 {
   #home .container{
@@ -556,6 +590,10 @@ margin-right: 4px;
     margin-bottom: 0;
   }
 
+  .suggestion_name-main h3 {
+    width:auto;
+  }
+
   .search_bar_right{
     width: 30%;
   }
@@ -577,17 +615,17 @@ margin-right: 4px;
   }
 
   .logo_mobile{
-    height: 40px;
+    height: 34px;
     margin-top: 0x;
     margin-right: 0px;
   }
 
 
   .navigation .logo{
-    width: 170px;
-  height: 33px;
-  margin-left: 15px;
-  margin-top:5px;
+    height: 25px;
+    margin-left: 15px;
+    margin-top: 5px;
+    width: 130px;
   }
 }
 
