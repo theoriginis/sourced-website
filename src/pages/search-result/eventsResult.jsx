@@ -28,7 +28,6 @@ class SearchResult extends Component {
 //document.removeEventListener("click", this.handleDocumentClick);
   }
   handlePopState = (event) => {
-    console.log('in the event results')
     if (this.props.location.pathname.includes("/events-results")) {
       // Reload the window to refresh the home page
       window.location.reload();

@@ -100,7 +100,12 @@ class MainIntro extends React.Component {
       console.log("No input element found within the clicked element.");
     }
   };
-
+  handleKeyPress = (event) =>{
+   
+    if (event.key === 'Enter' && this.state.inputValueMain!='') {
+      this.props.history.push(`/events-results/performer-tickets/${(this.state.inputValueMain).replace(/\s+/g, '-')}`);
+    }
+  }
   render() {
     const { inputValueMain } = this.state;
     return (
@@ -161,6 +166,7 @@ class MainIntro extends React.Component {
                             value={inputValueMain}
                             onChange={this.handleInputChange}
                             className="main-intro-search-bar"
+                            onKeyPress={this.handleKeyPress}
                           />
                           {inputValueMain && (
                             <i

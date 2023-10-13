@@ -27,7 +27,6 @@ class Header extends Component {
       let data = {
         performer_name: value,
       };
-      console.log("data", data);
       this.props.searchedPerformerHeader(data, "performer");
     } else {
       this.setState({
@@ -114,6 +113,12 @@ class Header extends Component {
       this.handleClearClick();
     }
   };
+  handleKeyPress = (event) =>{
+   
+    if (event.key === 'Enter' && this.state.inputValue!='') {
+      this.props.history.push(`/events-results/performer-tickets/${(this.state.inputValue).replace(/\s+/g, '-')}`);
+    }
+  }
   render() {
     const { inputValue, suggestions } = this.state;
     return (
@@ -154,6 +159,7 @@ class Header extends Component {
                           placeholder="Search for Artist, Team, or Performer"
                           value={inputValue}
                           onChange={this.handleInputChange}
+                          onKeyPress={this.handleKeyPress}
                           className="header-search-bar"
                         />
                         {inputValue && (
@@ -161,6 +167,7 @@ class Header extends Component {
                             class="fa fa-times cross-icon"
                             aria-hidden="true"
                             onClick={this.handleClearClick}
+                           
                           ></i>
                         )}
                       </span>

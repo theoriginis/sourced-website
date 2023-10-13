@@ -38,6 +38,7 @@ class EventDetails extends Component {
     Seatics.config.currencyIntl = {};
 
     Seatics.config.useC3 = true;
+  
   }
   handlePopState = (event) => {
     
@@ -61,7 +62,7 @@ class EventDetails extends Component {
             <div class="container">
               <div class="row">
                 <div id="tn-maps"  role="main"  className="seatics" style={{
-                    height: "1200px",
+                    height: "800px",
                     backgroundColor: "#211E32",
                     overflow: "auto",
                   }}
