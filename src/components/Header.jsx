@@ -16,6 +16,7 @@ class Header extends Component {
       user_information: JSON.parse(localStorage.getItem("user_info")),
       inputValue: "",
       search_results: [],
+      showDiv:false
     };
   }
   handleInputChange = (e) => {
@@ -119,6 +120,12 @@ class Header extends Component {
       this.props.history.push(`/events-results/performer-tickets/${(this.state.inputValue).replace(/\s+/g, '-')}`);
     }
   }
+  openSearchDiv =()=>{
+    console.log('ajhdhjdh')
+    this.setState({
+      showDiv:!this.state.showDiv
+    })
+  }
   render() {
     const { inputValue, suggestions } = this.state;
     return (
@@ -145,13 +152,15 @@ class Header extends Component {
 
               <div className="search_bar_right text-right">
                 <div className="flex_profile">
-                  <div className="search-box flex">
+                  {
+                    this.state.showDiv ? <div className="search-box flex">
                     <div className="search-img">
                       <img
                         src={require("../assets/images/newimages/search-nav.png")}
                         alt="sourced"
                       />{" "}
                     </div>
+                    
                     <div className="search-div auto-suggest">
                       <span className="searhbar-icons">
                         <input
@@ -207,8 +216,11 @@ class Header extends Component {
                     ) : (
                       ""
                     )}
-                  </div>
-                  <div className="search_icons">
+                  </div>:""
+                  }
+                  
+                 
+                  <div className="search_icons" onClick={this.openSearchDiv}>
                     <img src={require("../assets/images/search.png")} alt="" />
                   </div>
                   <div className="profile_div">

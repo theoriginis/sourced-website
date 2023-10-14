@@ -540,7 +540,7 @@ margin-right: 4px;
   padding-right: 30px;
   padding-top: 7px;
   height: 30px;
-  display: none;
+  display: block;
 }
 
 @media (max-width:991px)
@@ -607,7 +607,7 @@ margin-right: 4px;
   }
 
   nav .search-box{ 
-    display: none !important;
+    //display: none !important;
   }
 
   .profile_div{
