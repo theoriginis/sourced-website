@@ -224,7 +224,7 @@ class Header extends Component {
                     <img src={require("../assets/images/search.png")} alt="" />
                   </div>
                   <div className="profile_div">
-                    <a>
+                    <a href="https://accounts.sourcedtickets.com/">
                       <img
                         src={require("../assets/images/profile.png")}
                         alt=""
