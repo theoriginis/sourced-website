@@ -68,7 +68,7 @@ export async function SearchPerformer(data) {
     return axios({
       method: "get",
       //url: `https://www.tn-apis.com/catalog/v2/events/search?websiteConfigId=${websiteConfigId}&q=*&performerFilter=text/name eq %27${performer_name}%27`,
-      url: `https://www.tn-apis.com/catalog/v2/performers/suggest?websiteConfigId=${websiteConfigId}&q=*&filter=contains(text%2Fname%2C '${performer_name}')&filter=_metadata%2FticketCount%20ge%2010`,
+      url: `https://www.tn-apis.com/catalog/v2/performers/suggest?websiteConfigId=${websiteConfigId}&q=*&filter=contains(text%2Fname%2C '${performer_name}')`,
       // params: {
       //   performerFilter: salesRankOptions,
       //          page: "1",
