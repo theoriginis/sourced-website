@@ -212,21 +212,21 @@ class SearchResult extends Component {
                     <p>
                       {" "}
                       Embark on a journey through the live action of{" "}
-                      <span>Team Name</span>, a sensation that has captured
+                      <span>{this.state.keyword_searched.replace(/-/g, " ")}</span>, a sensation that has captured
                       hearts across the globe.{" "}
                     </p>
                     <h1>
-                      Secure Your <span>Team Name</span> Tickets with Sourced
+                      Secure Your <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> Tickets with Sourced
                       Tickets{" "}
                     </h1>
                     <h1>
-                      Don't miss the chance to witness <span>Team Name</span>{" "}
+                      Don't miss the chance to witness <span>{this.state.keyword_searched.replace(/-/g, " ")}</span>{" "}
                       live. Follow these steps to secure your tickets:{" "}
                     </h1>
 
                     <p>
                       {" "}
-                      Explore <span>Team Name</span> upcoming events on Sourced
+                      Explore <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> upcoming events on Sourced
                       Tickets to find an event near you.
                     </p>
                     <p>
@@ -246,13 +246,13 @@ class SearchResult extends Component {
                     </p>
                     <p>
                       {" "}
-                      Rest assured that your <span>Team Name</span> tickets from
+                      Rest assured that your <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> tickets from
                       Sourced Tickets will arrive in time for the event.
                     </p>
 
                     <h1>
                       {" "}
-                      Accessible <span>Team Name </span>Tickets at Sourced
+                      Accessible <span>{this.state.keyword_searched.replace(/-/g, " ")} </span>Tickets at Sourced
                       Tickets:
                     </h1>
                     <p>
@@ -260,35 +260,35 @@ class SearchResult extends Component {
                       Whether you're on a budget or seeking premium experiences,
                       Sourced Tickets offers an array of<span>
                         {" "}
-                        Team Name
+                        {this.state.keyword_searched.replace(/-/g, " ")}
                       </span>{" "}
-                      ticket options. Revel in <span>Team Name</span>{" "}
+                      ticket options. Revel in <span>{this.state.keyword_searched.replace(/-/g, " ")}</span>{" "}
                       captivating performances without compromising your budget.
                     </p>
 
                     <h1>
                       Sourced Tickets: Your Trusted Source for{" "}
-                      <span>Team Name</span> Tickets:{" "}
+                      <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> Tickets:{" "}
                     </h1>
                     <p>
                       With Sourced Tickets, you're guaranteed access to{" "}
-                      <span>Team Name</span> tickets, even for highly
-                      anticipated events. Secure your <span>Team Name</span>{" "}
+                      <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> tickets, even for highly
+                      anticipated events. Secure your <span>{this.state.keyword_searched.replace(/-/g, " ")}</span>{" "}
                       tickets through Sourced Tickets.
                     </p>
 
                     <p>
                       {" "}
                       Uncover the excitement of live events with{" "}
-                      <span>Team Name</span> captivating performances, brought
+                      <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> captivating performances, brought
                       to you by Sourced Tickets.
                     </p>
 
                     <p>
                       {" "}
-                      Stay tuned for updates on <span>Team Name</span> events
+                      Stay tuned for updates on <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> events
                       for today and beyond. Visit our website to explore our
-                      full range of <span>Team Name</span> tickets and secure
+                      full range of <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> tickets and secure
                       your spot in the crowd.
                     </p>
 
@@ -296,7 +296,7 @@ class SearchResult extends Component {
                       {" "}
                       Enjoy peace of mind with our 100% Buyer Guarantee,
                       ensuring the authenticity and timely delivery of your{" "}
-                      <span>Team Name </span>tickets.
+                      <span>{this.state.keyword_searched.replace(/-/g, " ")} </span>tickets.
                     </p>
                   </div>
                 </div>

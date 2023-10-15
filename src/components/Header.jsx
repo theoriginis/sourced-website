@@ -76,12 +76,14 @@ class Header extends Component {
   }
   handleDocumentClick = (event) => {
     const inputElement = event.target.outerHTML.includes("header-search-bar");
-
+    console.log('here',inputElement)
     if (!inputElement) {
       // An input element was found within the clicked element
-
+      //this.setState({showDiv:false})
       this.handleClearClick();
+      
     } else {
+    
       // No input element was found within the clicked element
       console.log("No input element found within the clicked element.");
     }
@@ -121,7 +123,7 @@ class Header extends Component {
     }
   }
   openSearchDiv =()=>{
-    console.log('ajhdhjdh')
+   
     this.setState({
       showDiv:!this.state.showDiv
     })
