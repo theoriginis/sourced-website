@@ -98,7 +98,7 @@ width: 12%;
 }
 
 .search_results .t2 {
-width:88px;
+width:93px;
 }
 
 .search_results h5{
@@ -152,6 +152,14 @@ h5.eventes-heading {
   padding: 10px;
 }
 
+@media (max-width:1120px) {
+.search-div input
+{
+  font-size: 13px;
+  padding-left: 0px;
+}
+}
+
 @media (max-width:1200px) {
 .search_results .time{
   width: 23%;
@@ -170,6 +178,13 @@ h5.eventes-heading {
   width: 20%;
 }
 }
+
+@media (max-width:1000px) {
+.search-div input{
+  font-size:12px;
+}
+}
+
 
 @media (max-width:900px) {
 #events .container, #events .container-md, #events .container-sm {
