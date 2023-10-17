@@ -566,6 +566,8 @@ margin-right: 4px;
 {
   .venue-map{
     background-color: transparent !important;
+    position: fixed;
+    z-index: 999;
   }
 }
 
