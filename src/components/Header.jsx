@@ -49,6 +49,7 @@ class Header extends Component {
         search_results: this.props.performer_search_header,
       });
     }
+   
   }
   handleSuggestionClick = (suggestion) => {
     this.setState({ inputValue: suggestion, suggestions: [] });
@@ -69,6 +70,7 @@ class Header extends Component {
     this.setState({
       user_information: JSON.parse(localStorage.getItem("user_info")),
     });
+    
   }
   componentWillUnmount() {
     // Remove the click event listener when the component unmounts
@@ -76,7 +78,6 @@ class Header extends Component {
   }
   handleDocumentClick = (event) => {
     const inputElement = event.target.outerHTML.includes("header-search-bar");
-    console.log('here',inputElement)
     if (!inputElement) {
       // An input element was found within the clicked element
       //this.setState({showDiv:false})
@@ -109,6 +110,7 @@ class Header extends Component {
   };
   onClickEvent = (eventId) => {
     if (eventId) {
+      this.setState({showDiv:false})
       //this.props.history.push(`/event-details/${eventId}`)
       this.props.history.push(
         `/events-results/performer-tickets/${eventId.replace(/\s+/g, "-")}`
@@ -119,7 +121,9 @@ class Header extends Component {
   handleKeyPress = (event) =>{
    
     if (event.key === 'Enter' && this.state.inputValue!='') {
+      this.setState({showDiv:false})
       this.props.history.push(`/events-results/performer-tickets/${(this.state.inputValue).replace(/\s+/g, '-')}`);
+      
     }
   }
   openSearchDiv =()=>{
@@ -129,6 +133,11 @@ class Header extends Component {
     })
   }
   render() {
+    // if(this.state.showDiv){
+    //   this.setState({
+    //     showDiv:false
+    //   })
+    // }
     const { inputValue, suggestions } = this.state;
     return (
       <div>
