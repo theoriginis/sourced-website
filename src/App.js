@@ -18,6 +18,7 @@ import EventDetails from "./pages/eventDetails/eventDetails";
 import Policies from "./pages/policies/policies";
 import Login  from "./pages/login/login";
 import Signup from "./pages/signup/signup"
+import MetaPixel from "./meta/metaPixel";
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +34,7 @@ export class App extends Component {
         <Router history={history}>
           <div>
             <Header />
+          
             <Switch>
               <Route path={"/"} exact render={(props) => <Home key="home" {...props} />}/>
               <Route
