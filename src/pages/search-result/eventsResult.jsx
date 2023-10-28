@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import { searchedEventByPerformer } from "../../redux/searched-events/action.js";
 import Loader from "../../components/spinner/spinner.jsx";
+import TiktokPixel from 'tiktok-pixel';
 class SearchResult extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +21,13 @@ class SearchResult extends Component {
     };
   }
   componentDidMount() {
+    TiktokPixel.init('CKUJAQ3C77UDR4OH6180');
+    TiktokPixel.track('Events Searches', {
+      content_type: 'event name',
+      content_name: this.state.keyword_searched.replace(/-/g, " ")
+     
+    });
+    
     window.addEventListener("beforeunload", this.handlePopState);
     this.getEventByPerformer();
   }
@@ -96,6 +104,7 @@ class SearchResult extends Component {
       window.location.href = `/event-details/${eventId}`
     }
   };
+  
   render() {
     const { inputValueFilter, filteredArray } = this.state;
     return (
