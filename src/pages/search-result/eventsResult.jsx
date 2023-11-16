@@ -198,10 +198,11 @@ class SearchResult extends Component {
                           {" "}
                           <button>
                             <a>
-                              {" "}
+                              {/* {" "}
                               {event.pricingInfo
                                 ? `From ${event.pricingInfo.lowPrice.text.formatted}`
-                                : "N/A"}{" "}
+                                : "N/A"}{" "} */}
+                                Buy Now
                             </a>{" "}
                           </button>
                         </div>
