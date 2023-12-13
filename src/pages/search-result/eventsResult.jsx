@@ -6,34 +6,34 @@ import { connect } from "react-redux";
 import moment from "moment";
 import { searchedEventByPerformer } from "../../redux/searched-events/action.js";
 import Loader from "../../components/spinner/spinner.jsx";
-import TiktokPixel from 'tiktok-pixel';
+import TiktokPixel from "tiktok-pixel";
+import { Helmet } from "react-helmet";
 class SearchResult extends Component {
   constructor(props) {
     super(props);
     this.state = {
       search_results: "",
-      original_results:"",
+      original_results: "",
       currentPage: 1,
       event_limit: 10,
       keyword_searched: "",
-      opneFilterBox:false,
-      inputValueFilter:""
+      opneFilterBox: false,
+      inputValueFilter: "",
     };
   }
   componentDidMount() {
-    TiktokPixel.init('CKUJAQ3C77UDR4OH6180');
-    TiktokPixel.track('Events Searches', {
-      content_type: 'event name',
-      content_name: this.state.keyword_searched.replace(/-/g, " ")
-     
+    TiktokPixel.init("CKUJAQ3C77UDR4OH6180");
+    TiktokPixel.track("Events Searches", {
+      content_type: "event name",
+      content_name: this.state.keyword_searched.replace(/-/g, " "),
     });
-    
+
     window.addEventListener("beforeunload", this.handlePopState);
     this.getEventByPerformer();
   }
   componentWillUnmount() {
     // Remove the click event listener when the component unmounts
-//document.removeEventListener("click", this.handleDocumentClick);
+    //document.removeEventListener("click", this.handleDocumentClick);
   }
   handlePopState = (event) => {
     if (this.props.location.pathname.includes("/events-results")) {
@@ -72,44 +72,65 @@ class SearchResult extends Component {
 
       this.setState({
         search_results: this.props.searched_events_by_performer,
-        original_results:this.props.searched_events_by_performer
+        original_results: this.props.searched_events_by_performer,
       });
     }
   }
-  openLocationFilter(){
+  openLocationFilter() {
     this.setState({
-      opneFilterBox:!this.state.opneFilterBox
-    })
+      opneFilterBox: !this.state.opneFilterBox,
+    });
   }
   handleInputChangeFilter = (e) => {
     const value = e.target.value;
     this.setState({
-      inputValueFilter:value
-    })
+      inputValueFilter: value,
+    });
   };
-  fliterEventsByLocation=()=>{
-      const filteredArray = this.state.original_results.filter((item) =>
-        item.city.text.name.toLowerCase().includes(this.state.inputValueFilter.toLowerCase())|| item.stateProvince.text.name.toLowerCase().includes(this.state.inputValueFilter.toLowerCase())
-      );
-      // Set the filtered array in the component's state
-      this.setState({ search_results: filteredArray});
-    
-  }
-  removeFilter = ()=>{
-    this.setState({ search_results: this.state.original_results,inputValueFilter:''});
-  }
+  fliterEventsByLocation = () => {
+    const filteredArray = this.state.original_results.filter(
+      (item) =>
+        item.city.text.name
+          .toLowerCase()
+          .includes(this.state.inputValueFilter.toLowerCase()) ||
+        item.stateProvince.text.name
+          .toLowerCase()
+          .includes(this.state.inputValueFilter.toLowerCase())
+    );
+    // Set the filtered array in the component's state
+    this.setState({ search_results: filteredArray });
+  };
+  removeFilter = () => {
+    this.setState({
+      search_results: this.state.original_results,
+      inputValueFilter: "",
+    });
+  };
   onClickEvent = (eventId) => {
     if (eventId) {
       //this.props.history.push(`/event-details/${eventId}`);
-      window.location.href = `/event-details/${eventId}`
+      window.location.href = `/event-details/${eventId}`;
     }
   };
-  
+
   render() {
     const { inputValueFilter, filteredArray } = this.state;
     return (
       <>
         <main>
+          <Helmet>
+            <title>
+              '{this.state.keyword_searched.replace(/-/g, " ")}' tickets in 2023
+              – Get Yours Now! | Sourced Tickets
+            </title>
+            <meta
+              name="description"
+              content={`${this.state.keyword_searched.replace(
+                /-/g,
+                " "
+              )} Tickets 2023 - Secure your seats for the ultimate game day experience. Get your Dallas Cowboys tickets now and be part of the action!`}
+            />
+          </Helmet>
           <section className="section events search_results" id="events">
             <div className="container">
               <div className="row">
@@ -128,27 +149,39 @@ class SearchResult extends Component {
                     </span>
                   </h2>
                   <ul className="tags">
-                    <li onClick={()=>this.openLocationFilter()}>
+                    <li onClick={() => this.openLocationFilter()}>
                       {" "}
                       <img
                         src={require("../../assets/images/newimages/c1.png")}
                         alt="sourced"
                       />{" "}
                       location{" "}
-                      
                     </li>
-                    {this.state.opneFilterBox ?
+                    {this.state.opneFilterBox ? (
                       <div className="location-filter-box">
                         <input
-                        type="text"
-                        placeholder="Search By Location"
-                        value={inputValueFilter}
-                        onChange={this.handleInputChangeFilter}
-                        className="header-search-bar"
-                      />
-                      <div  class="filter-apply" onClick={() => this.fliterEventsByLocation()}>Apply</div>
-                      <div class="filter-clear"onClick={() => this.removeFilter()}>Clear</div>
-                        </div>:''}
+                          type="text"
+                          placeholder="Search By Location"
+                          value={inputValueFilter}
+                          onChange={this.handleInputChangeFilter}
+                          className="header-search-bar"
+                        />
+                        <div
+                          class="filter-apply"
+                          onClick={() => this.fliterEventsByLocation()}
+                        >
+                          Apply
+                        </div>
+                        <div
+                          class="filter-clear"
+                          onClick={() => this.removeFilter()}
+                        >
+                          Clear
+                        </div>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </ul>
                   <h5 className="eventes-heading"> All Events </h5>
                   {this.props.in_action_search_by_performer ? (
@@ -162,7 +195,13 @@ class SearchResult extends Component {
                         className="event_box"
                         onClick={() =>
                           this.onClickEvent(
-                            `${(event.text.name).replace(/\s+/g, '-')}-tickets-${(event.city.text.name).replace(/\s+/g, '-')}-${event.date.date}/${event.id}`
+                            `${event.text.name.replace(
+                              /\s+/g,
+                              "-"
+                            )}-tickets-${event.city.text.name.replace(
+                              /\s+/g,
+                              "-"
+                            )}-${event.date.date}/${event.id}`
                           )
                         }
                       >
@@ -172,7 +211,11 @@ class SearchResult extends Component {
                         </div>
                         <div className="Info">
                           <h3>{event.text.name} </h3>
-                          <p> {event.city.text.name}, {event.stateProvince.text.name}</p>
+                          <p>
+                            {" "}
+                            {event.city.text.name},{" "}
+                            {event.stateProvince.text.name}
+                          </p>
                         </div>
                         <div className="date_1">
                           <p className="t2">
@@ -202,7 +245,7 @@ class SearchResult extends Component {
                               {event.pricingInfo
                                 ? `From ${event.pricingInfo.lowPrice.text.formatted}`
                                 : "N/A"}{" "} */}
-                                Buy Now
+                              Buy Now
                             </a>{" "}
                           </button>
                         </div>
@@ -210,34 +253,43 @@ class SearchResult extends Component {
                     ))
                   ) : (
                     // <div className="event_box no-records">No Records Found</div>
-                    <div className="event_box no-records">Sorry. There are currently no events matching this criteria.</div>
+                    <div className="event_box no-records">
+                      Sorry. There are currently no events matching this
+                      criteria.
+                    </div>
                   )}
 
-
                   <div className="unviel_infor">
-                    <h1>
-                      {" "}
-                      Unveil the Magic of Live Events with Sourced Tickets{" "}
+                    <h1 className="first-heading">
+                      {this.state.keyword_searched.replace(/-/g, " ")} Live
+                      Events: Your Ticket Guide
                     </h1>
                     <p>
                       {" "}
-                      Embark on a journey through the live action of{" "}
-                      <span>{this.state.keyword_searched.replace(/-/g, " ")}</span>, a sensation that has captured
-                      hearts across the globe.{" "}
+                      Get Your Easy and Affordable Seats for Dallas Cowboys Live
+                      Events Today!
                     </p>
-                    <h1>
-                      Secure Your <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> Tickets with Sourced
-                      Tickets{" "}
-                    </h1>
-                    <h1>
-                      Don't miss the chance to witness <span>{this.state.keyword_searched.replace(/-/g, " ")}</span>{" "}
+                    <h2 className="second-heading">
+                      Secure Your{" "}
+                      {this.state.keyword_searched.replace(/-/g, " ") }  Tickets with Sourced Tickets
+                      
+                    </h2>
+                    <p>
+                      Don't miss the chance to witness{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
                       live. Follow these steps to secure your tickets:{" "}
-                    </h1>
+                    </p>
 
                     <p>
                       {" "}
-                      Explore <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> upcoming events on Sourced
-                      Tickets to find an event near you.
+                      Explore{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
+                      upcoming events on Sourced Tickets to find an event near
+                      you.
                     </p>
                     <p>
                       {" "}
@@ -256,57 +308,94 @@ class SearchResult extends Component {
                     </p>
                     <p>
                       {" "}
-                      Rest assured that your <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> tickets from
-                      Sourced Tickets will arrive in time for the event.
+                      Rest assured that your{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
+                      tickets will arrive in time for the event.
                     </p>
 
-                    <h1>
+                    <p>
                       {" "}
-                      Accessible <span>{this.state.keyword_searched.replace(/-/g, " ")} </span>Tickets at Sourced
-                      Tickets:
-                    </h1>
+                      Diverse{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}{" "}
+                      </span>
+                      Ticket Options for You
+                    </p>
                     <p>
                       {" "}
                       Whether you're on a budget or seeking premium experiences,
-                      Sourced Tickets offers an array of<span>
+                      we offers an variety of
+                      <span>
                         {" "}
                         {this.state.keyword_searched.replace(/-/g, " ")}
                       </span>{" "}
-                      ticket options. Revel in <span>{this.state.keyword_searched.replace(/-/g, " ")}</span>{" "}
-                      captivating performances without compromising your budget.
+                      ticket options. Enjoy
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
+                      while staying within your budget.
                     </p>
 
-                    <h1>
-                      Sourced Tickets: Your Trusted Source for{" "}
-                      <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> Tickets:{" "}
-                    </h1>
+                    <h3>
+                      Your Trusted Source for{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
+                      Tickets{" "}
+                    </h3>
                     <p>
-                      With Sourced Tickets, you're guaranteed access to{" "}
-                      <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> tickets, even for highly
-                      anticipated events. Secure your <span>{this.state.keyword_searched.replace(/-/g, " ")}</span>{" "}
-                      tickets through Sourced Tickets.
+                      With us you're guaranteed access to{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
+                      tickets, even for highly anticipated events. Secure your{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
+                      tickets today.
                     </p>
 
+                    <h3>
+                      Stay updated on{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
+                      Events
+                    </h3>
                     <p>
-                      {" "}
-                      Uncover the excitement of live events with{" "}
-                      <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> captivating performances, brought
-                      to you by Sourced Tickets.
+                      Stay informed about upcoming{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
+                      events and discover tips to secure the best tickets at the
+                      best prices with Sourced Tickets:
                     </p>
-
                     <p>
-                      {" "}
-                      Stay tuned for updates on <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> events
-                      for today and beyond. Visit our website to explore our
-                      full range of <span>{this.state.keyword_searched.replace(/-/g, " ")}</span> tickets and secure
-                      your spot in the crowd.
+                      We keep our prices up-to-date, ensuring you get the most
+                      competitive rates. Subscribe to our newsletter to receive
+                      regular updates on{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
+                      events, special promotions, and exclusive discounts.
                     </p>
-
                     <p>
-                      {" "}
-                      Enjoy peace of mind with our 100% Buyer Guarantee,
-                      ensuring the authenticity and timely delivery of your{" "}
-                      <span>{this.state.keyword_searched.replace(/-/g, " ")} </span>tickets.
+                      Follow us on social media for real-time notifications
+                      about ticket availability, game schedules, and last-minute
+                      deals.
+                    </p>
+                    <p>
+                      Customize your preferences to include your favorite sports
+                      teams' game times and locations, so you never miss a game.
+                    </p>
+                    <p>
+                      Rest easy knowing that your{" "}
+                      <span>
+                        {this.state.keyword_searched.replace(/-/g, " ")}
+                      </span>{" "}
+                      tickets are backed by our 100% Buyer Guarantee.
                     </p>
                   </div>
                 </div>

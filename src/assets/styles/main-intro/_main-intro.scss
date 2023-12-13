@@ -19,7 +19,16 @@
     padding-bottom: 16rem;
     max-width: 1500px;
   }
-
+  #home h1 {
+    font-size: 35px;
+    text-transform: none;
+    margin-top: 0;
+    line-height: 50px;
+    color: #fff;
+    text-align: left;
+    font-weight: 700;
+    margin-bottom: 11px;
+  }
   #home h2 {
     font-size: 35px;
     text-transform: none;
@@ -396,6 +405,9 @@ li.suggestion-list-items-main {
 
 .header{
   background-image: url("../../newimages/mobile_hero.png");
+  h1{
+    color: #fff;
+  }
 }
 }
 

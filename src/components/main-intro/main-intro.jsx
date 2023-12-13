@@ -8,6 +8,7 @@ import moment from "moment";
 import Tooltip from "react-simple-tooltip";
 import { css } from "styled-components";
 import { searchedPerformeMain } from "../../redux/searched-events/action.js";
+import { Helmet } from "react-helmet";
 class MainIntro extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +24,7 @@ class MainIntro extends React.Component {
       inputValueMain_error: false,
     };
   }
-  componentDidMount(){
+  componentDidMount() {
     document.addEventListener("click", this.handleDocumentClick);
   }
   componentDidUpdate(prevProps) {
@@ -89,27 +90,43 @@ class MainIntro extends React.Component {
     }
   };
   handleDocumentClick = (event) => {
-    const inputElement = event.target.outerHTML.includes("main-intro-search-bar");
- 
+    const inputElement = event.target.outerHTML.includes(
+      "main-intro-search-bar"
+    );
+
     if (!inputElement) {
       // An input element was found within the clicked element
-     
+
       this.handleClearClick();
     } else {
       // No input element was found within the clicked element
       console.log("No input element found within the clicked element.");
     }
   };
-  handleKeyPress = (event) =>{
-   
-    if (event.key === 'Enter' && this.state.inputValueMain!='') {
-      this.props.history.push(`/events-results/performer-tickets/${(this.state.inputValueMain).replace(/\s+/g, '-')}`);
+  handleKeyPress = (event) => {
+    if (event.key === "Enter" && this.state.inputValueMain != "") {
+      this.props.history.push(
+        `/events-results/performer-tickets/${this.state.inputValueMain.replace(
+          /\s+/g,
+          "-"
+        )}`
+      );
     }
-  }
+  };
   render() {
     const { inputValueMain } = this.state;
     return (
       <div>
+        <Helmet>
+          <title>
+            Affordable Tickets for Sports, Concerts, and More – Get Yours Now! |
+            Sourced Tickets
+          </title>
+          <meta
+            name="description"
+            content="Get unbeatable ticket deals for premier live events. Sourced Tickets offers guaranteed low prices on sports, concerts, and more. Secure your tickets today!"
+          />
+        </Helmet>
         <header class="header alter1-header section text-contrast" id="home">
           <div class="container">
             <div class="row">
@@ -117,10 +134,10 @@ class MainIntro extends React.Component {
                 class="col-md-12 col-lg-12 col-sm-12 col-xs-12 wow  center z-index-12"
                 style={{ visibility: "visible", animationName: "slideInRight" }}
               >
-                <h2>
+                <h1>
                   Experience More. <br />
                   Spend Less.
-                </h2>
+                </h1>
 
                 <h3>
                   {" "}
