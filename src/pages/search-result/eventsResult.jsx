@@ -128,7 +128,7 @@ class SearchResult extends Component {
               content={`${this.state.keyword_searched.replace(
                 /-/g,
                 " "
-              )} Tickets 2023 - Secure your seats for the ultimate game day experience. Get your Dallas Cowboys tickets now and be part of the action!`}
+              )} Tickets 2023 - Secure your seats for the ultimate game day experience. Get your  ${this.state.keyword_searched.replace(/-/g, " ") } tickets now and be part of the action!`}
             />
           </Helmet>
           <section className="section events search_results" id="events">
@@ -266,7 +266,7 @@ class SearchResult extends Component {
                     </h1>
                     <p>
                       {" "}
-                      Get Your Easy and Affordable Seats for Dallas Cowboys Live
+                      Get Your Easy and Affordable Seats for  {this.state.keyword_searched.replace(/-/g, " ") } Live
                       Events Today!
                     </p>
                     <h2 className="second-heading">
