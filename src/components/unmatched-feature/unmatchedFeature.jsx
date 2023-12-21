@@ -52,20 +52,20 @@ class UnmatchedFeature extends React.Component {
                 class="col-lg-12 wow slideInLeft"
                 style={{animationDuration: "3s"}}
               >
-                <h2
+                <h3
                   class="wow slideInLeft section-heading"
                   style={{animationDuration: "1s"}}
                 >
                   {" "}
                   <span>Unmatched</span> Features
-                </h2>
+                </h3>
               </div>
               <div
                 class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wow slideUp"
                 style={{animationDuration: "3s"}}
               >
                 <div class="feat_box">
-                  <h2> 100% Buyer Satisfaction</h2>
+                  <h3> 100% Buyer Satisfaction</h3>
                   <p>
                     Our number one priority is to make your ticket buying
                     experience easy and hassle-free, saving you time and money.
@@ -77,7 +77,7 @@ class UnmatchedFeature extends React.Component {
                 style={{animationDuration: "3s"}}
               >
                 <div class="feat_box">
-                  <h2> Lowest Fees Guaranteed</h2>
+                  <h3> Lowest Fees Guaranteed</h3>
                   <p>
                     Discover the industry's lowest fees at Sourced Tickets,
                     where saving you money is our top priority.
@@ -89,7 +89,7 @@ class UnmatchedFeature extends React.Component {
                 style={{animationDuration: "3s"}}
               >
                 <div class="feat_box">
-                  <h2> Safe and Secure Transactions </h2>
+                  <h3> Safe and Secure Transactions </h3>
                   <p>
                     No need to worry about scams. We guarantee 100% authentic
                     ticket sales transactions.

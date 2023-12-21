@@ -119,8 +119,7 @@ class MainIntro extends React.Component {
       <div>
         <Helmet>
           <title>
-            Affordable Tickets for Sports, Concerts, and More – Get Yours Now! |
-            Sourced Tickets
+            Affordable Tickets for Sports, Concerts, and More – Get Yours Now! | Sourced Tickets
           </title>
           <meta
             name="description"
@@ -135,8 +134,8 @@ class MainIntro extends React.Component {
                 style={{ visibility: "visible", animationName: "slideInRight" }}
               >
                 <h1>
-                  Experience More. <br />
-                  Spend Less.
+                  "Experience More. <br />
+                  Spend Less. With Source Tickets"
                 </h1>
 
                 <h3>
