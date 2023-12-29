@@ -52,13 +52,13 @@ class UnmatchedFeature extends React.Component {
                 class="col-lg-12 wow slideInLeft"
                 style={{animationDuration: "3s"}}
               >
-                <h2
+                <h3
                   class="wow slideInLeft section-heading"
                   style={{animationDuration: "1s"}}
                 >
                   {" "}
                   <span>Unmatched</span> Features
-                </h2>
+                </h3>
               </div>
               <div
                 class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wow slideUp"
