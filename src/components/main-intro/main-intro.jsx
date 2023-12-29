@@ -133,10 +133,10 @@ class MainIntro extends React.Component {
                 class="col-md-12 col-lg-12 col-sm-12 col-xs-12 wow  center z-index-12"
                 style={{ visibility: "visible", animationName: "slideInRight" }}
               >
-                <h1>
-                  "Experience More. <br />
-                  Spend Less."
-                </h1>
+                 <h2>
+                  Experience More. <br />
+                  Spend Less.
+                </h2>
 
                 <h3>
                   {" "}
