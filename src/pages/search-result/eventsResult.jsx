@@ -183,7 +183,7 @@ class SearchResult extends Component {
                       ""
                     )}
                   </ul>
-                  <h5 className="eventes-heading"> All Events </h5>
+                  <h3 className="eventes-heading"> All Events </h3>
                   {this.props.in_action_search_by_performer ? (
                     <div className="event_box no-records">
                       <Loader />
@@ -206,11 +206,11 @@ class SearchResult extends Component {
                         }
                       >
                         <div className="date">
-                          <h3>{moment(event.date.date).format("MM/D")} </h3>{" "}
+                          <h4>{moment(event.date.date).format("MM/D")} </h4>{" "}
                           <p> {moment(event.date.date).format("ddd")} </p>{" "}
                         </div>
                         <div className="Info">
-                          <h3>{event.text.name} </h3>
+                          <h4>{event.text.name} </h4>
                           <p>
                             {" "}
                             {event.city.text.name},{" "}

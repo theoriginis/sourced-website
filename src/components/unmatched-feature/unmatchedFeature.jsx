@@ -45,7 +45,7 @@ class UnmatchedFeature extends React.Component {
   render() {
     return (
       <div>
-        <section class="section" id="feat">
+        <section class="section unmatched-feature" id="feat">
           <div class="container">
             <div class="row">
               <div
@@ -56,7 +56,7 @@ class UnmatchedFeature extends React.Component {
                   class="wow slideInLeft section-heading"
                   style={{animationDuration: "1s"}}
                 >
-                  {" "}
+              
                   <span>Unmatched</span> Features
                 </h3>
               </div>
@@ -65,7 +65,7 @@ class UnmatchedFeature extends React.Component {
                 style={{animationDuration: "3s"}}
               >
                 <div class="feat_box">
-                  <h2> 100% Buyer Satisfaction</h2>
+                  <h4> 100% Buyer Satisfaction</h4>
                   <p>
                     Our number one priority is to make your ticket buying
                     experience easy and hassle-free, saving you time and money.
@@ -77,7 +77,7 @@ class UnmatchedFeature extends React.Component {
                 style={{animationDuration: "3s"}}
               >
                 <div class="feat_box">
-                  <h2> Lowest Fees Guaranteed</h2>
+                  <h4> Lowest Fees Guaranteed</h4>
                   <p>
                     Discover the industry's lowest fees at Sourced Tickets,
                     where saving you money is our top priority.
@@ -89,7 +89,7 @@ class UnmatchedFeature extends React.Component {
                 style={{animationDuration: "3s"}}
               >
                 <div class="feat_box">
-                  <h2> Safe and Secure Transactions </h2>
+                  <h4> Safe and Secure Transactions </h4>
                   <p>
                     No need to worry about scams. We guarantee 100% authentic
                     ticket sales transactions.
@@ -101,7 +101,7 @@ class UnmatchedFeature extends React.Component {
                 style={{animationDuration: "3s"}}
               >
                 <div class="feat_box">
-                  <h2> Full Service Customer Support </h2>
+                  <h4> Full Service Customer Support </h4>
                   <p>
                     Do you have any questions, issues, or concerns? We are here
                     to assist you with any inquiries that may arise.

@@ -26,10 +26,10 @@ class SellNow extends React.Component {
                 style={{animationDuration: "3s"}}
               >
                 <div class="sell_box">
-                  <h2>
+                  <h5>
                     Lower fees. Increased sales. Faster payment. <br /><strong> Sell
                     now! </strong>{" "}
-                  </h2>
+                  </h5>
                   <p>100% customer satisfaction</p>
                   <div class="hiden_quantity">
                   {/* <nav class="nav purchase_btn" onClick={this.goToSignUp}>

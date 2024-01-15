@@ -15,7 +15,7 @@
     min-height: 300px;
   }
 
-  #sell h2 {
+  #sell h5 {
     color: #fff;
     margin-bottom: 0;
     font-size: 29px;
@@ -73,12 +73,12 @@
 
   @media (max-width:768px)
   {
-    #sell h2{
+    #sell h5{
       line-height: 25px;
       font-size: 21px;
     }
 
-    #sell h2 strong{
+    #sell h5 strong{
   font-size: 30px;
   position: relative;
   top: 20px;  

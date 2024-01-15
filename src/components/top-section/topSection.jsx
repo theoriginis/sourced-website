@@ -57,7 +57,7 @@ class TopSection extends React.Component {
     
     return (
       <div>
-        <section class="section events" id="artists">
+        <section class="section events top-events" id="artists">
           <div class="container">
             <div class="row">
               <div
@@ -68,7 +68,7 @@ class TopSection extends React.Component {
                   class="col-lg-4 pad10 wow slideUp"
                   style={{ animationDuration: "2s" }}
                 >
-                  <h1>Top Artists</h1>
+                  <h3>Top Artists</h3>
                   {this.props.top_performer_list.in_action_performer ?
                    <div className="event_box no-records"><Loader /></div> :
                    this.state.performer_list &&
@@ -76,11 +76,11 @@ class TopSection extends React.Component {
                       <div class="event_box" onClick={()=>this.onClickArtist((perfoermer.text.name).replace(/\s+/g, '-'))} >
                         <div class="date">
                           {" "}
-                          <h3>{key + 1}</h3>
+                          <h3 class="keys-index">{key + 1}</h3>
                         </div>
                         <div class="Info">
                           {" "}
-                          <h3>{perfoermer.text.name} </h3>
+                          <h4>{perfoermer.text.name} </h4>
                         </div>
                       </div>
                     ))
@@ -92,7 +92,7 @@ class TopSection extends React.Component {
                   class="col-lg-4 pad10 wow slideUp"
                   style={{ animationDuration: "2s" }}
                 >
-                  <h1>Top Sports</h1>
+                  <h3>Top Sports</h3>
                   <div class="event_box">
                     <div class="date">
                       {" "}
@@ -100,7 +100,7 @@ class TopSection extends React.Component {
                     </div>
                     <div class="Info">
                       {" "}
-                      <h3>NFL Football </h3>
+                      <h4>NFL Football </h4>
                     </div>
                   </div>
                   <div class="event_box">
@@ -110,7 +110,7 @@ class TopSection extends React.Component {
                     </div>
                     <div class="Info">
                       {" "}
-                      <h3>NBA Basketball </h3>
+                      <h4>NBA Basketball </h4>
                     </div>
                   </div>
                   <div class="event_box">
@@ -120,7 +120,7 @@ class TopSection extends React.Component {
                     </div>
                     <div class="Info">
                       {" "}
-                      <h3>NHL Hockey </h3>
+                      <h4>NHL Hockey </h4>
                     </div>
                   </div>
                   <div class="event_box">
@@ -130,7 +130,7 @@ class TopSection extends React.Component {
                     </div>
                     <div class="Info">
                       {" "}
-                      <h3>MLB Baseball </h3>
+                      <h4>MLB Baseball </h4>
                     </div>
                   </div>
                   <div class="event_box">
@@ -140,7 +140,7 @@ class TopSection extends React.Component {
                     </div>
                     <div class="Info">
                       {" "}
-                      <h3>NCAA Football </h3>
+                      <h4>NCAA Football </h4>
                     </div>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ class TopSection extends React.Component {
                   class="col-lg-4 pad10 wow slideUp"
                   style={{ animationDuration: "2s" }}
                 >
-                  <h1>Top Shows</h1>
+                  <h3>Top Shows</h3>
                 {this.props.top_shows_list.in_action_shows ?
                 <div className="event_box no-records"><Loader /></div> :
                 this.state.top_shows &&
@@ -161,7 +161,7 @@ class TopSection extends React.Component {
                       </div>
                       <div class="Info">
                         {" "}
-                        <h3>{shows.text.name} </h3>
+                        <h4>{shows.text.name} </h4>
                       </div>
                     </div>
                   ))
