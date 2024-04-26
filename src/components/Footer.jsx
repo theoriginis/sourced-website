@@ -54,7 +54,7 @@ class Footer extends React.Component {
   render() {
     return (
       <div>
-        <footer id="footer">
+        <footer style={{ paddingLeft: '2em', paddingRight: '2em' }}  id="footer">
           <div className="footer-top">
             <div className="container">
               <div className="row footer-row">
@@ -63,7 +63,7 @@ class Footer extends React.Component {
                   style={{animationDuration: "3.5s"}}
                 >
                   <img src={require("../assets/images/newimages/logo.png")} className="Zaltol_footer" />
-                  <p> © 2023 Sourced Tickets LLC. All Rights Reserved </p>
+                  <p> © Sourced Tickets LLC. All Rights Reserved </p>
                 </div>
 
                 <div

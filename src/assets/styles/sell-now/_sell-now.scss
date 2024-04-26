@@ -13,6 +13,12 @@
     border-radius: 6px;
     padding: 50px 14px;
     min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 95%;
+    margin: 0 auto;
   }
 
   #sell h5 {
@@ -96,3 +102,8 @@
   }
 
 
+
+  .footer {
+    padding-left: 1em;
+    padding-right: 1em;
+  }

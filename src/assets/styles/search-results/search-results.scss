@@ -3,6 +3,8 @@
   background-color: #1b182b;
   padding-bottom: 4em;
   padding-top: 10em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .events h2 {
@@ -40,6 +42,9 @@ color: #fff;
   border-radius: 5px;
   padding: 12px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
 }
 
@@ -65,6 +70,7 @@ width: 10%;
 {
 width: 40%;
 margin-right: 3%;
+padding-left: 1em;
 }
 
 .time{
@@ -184,7 +190,7 @@ h3.eventes-heading {
 }
 
 .date_1 {
-  width: 23%;
+  // width: 23%;
 }
 
 .search_results .prices {
@@ -208,6 +214,17 @@ h3.eventes-heading {
 }
 
 @media (max-width:768px) {
+
+  .events {
+    padding-top: 5em ;
+  }
+
+  .date{
+    border-right: none !important;
+    margin-right: 3%;
+    width: 10%;
+    }
+
 .events h2{
   font-size: 25px;
 }
@@ -269,7 +286,7 @@ h3.eventes-heading {
 @media (max-width:570px) {
 .date_1
 {
-  width: 40%;
+  // width: 40%;
 }
 
 .search_results .date {

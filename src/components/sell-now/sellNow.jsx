@@ -27,7 +27,7 @@ class SellNow extends React.Component {
               >
                 <div class="sell_box">
                   <h5>
-                    Lower fees. Increased sales. Faster payment. <br /><strong> Sell
+                  Lowest fees. No surprises. Easy purchasing. <br /><strong> Buy
                     now! </strong>{" "}
                   </h5>
                   <p>100% customer satisfaction</p>

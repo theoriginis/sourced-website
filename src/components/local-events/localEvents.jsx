@@ -156,7 +156,7 @@ class LocalEvents extends React.Component {
                       </div>
                       <div className="Info">
                         {" "}
-                        <h3>{event.text.name}</h3>
+                        <h3 style={{ maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{event.text.name}</h3>
                         <h5 className="search-city-name-trending">
                           {event.city.text.name}, {event.stateProvince.text.name}
                         </h5>

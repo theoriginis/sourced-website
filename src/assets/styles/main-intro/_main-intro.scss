@@ -1,6 +1,7 @@
  
  	.header{
-    background-image: url(https://sourcedtickets.com/static/media/hero.e98663bf8fc64145807c.png);
+    // background-image: url(https://sourcedtickets.com/static/media/hero.e98663bf8fc64145807c.png);
+    background-image: url('../../images/header.png');
     background-size: 100% auto;
     background-position: 0 0;
     background-repeat: no-repeat;
@@ -16,7 +17,7 @@
     padding-top: 6%;
     position: relative;
     z-index: 999;
-    padding-bottom: 16rem;
+    padding-bottom: 20rem;
     max-width: 1500px;
   }
   #home h1 {
@@ -186,7 +187,7 @@
 
 .suggestions-main {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 9px;
   top: 55px;
   position: absolute;
   padding: 10px !important;
@@ -393,6 +394,14 @@ li.suggestion-list-items-main {
 
 @media (max-width:768px)
 {
+
+  #home h3{
+    color: rgba(255, 255, 255, 0.70) !important;
+    font-size: 13px !important;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
   .icon2 {
     left: 3%;
     top: 5em;

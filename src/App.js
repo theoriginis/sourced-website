@@ -19,6 +19,7 @@ import Policies from "./pages/policies/policies";
 import Login  from "./pages/login/login";
 import Signup from "./pages/signup/signup"
 import MetaPixel from "./meta/metaPixel";
+
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -27,13 +28,23 @@ export class App extends Component {
       user_information: JSON.parse(localStorage.getItem("user_info")),
     };
   }
- 
+
+  shouldRenderFooter() {
+    const { location } = this.props;
+    return !location.pathname.includes("/event-details/");
+  }
+
+  shouldRenderNav() {
+    const { location } = this.props;
+    return !location.pathname.includes("/event-details/");
+  }
+
   render() {
     return (
       <Provider store={configureStore()}>
         <Router history={history}>
           <div>
-            <Header />
+            {this.shouldRenderFooter() && <Header />}
           
             <Switch>
               <Route path={"/"} exact render={(props) => <Home key="home" {...props} />}/>
@@ -41,7 +52,7 @@ export class App extends Component {
                 path={"/events-results/:search"}
                 component={SearchResult}
               />
-               <Route
+              <Route
                 path={"/event-details"}
                 component={EventDetails}
               />
@@ -51,39 +62,11 @@ export class App extends Component {
               />
               <Route path={"/login"} component={Login} />
               <Route path={"/sign-up"} component={Signup} />
-              {/* <Route path={"/about"} component={About} />
-              <Route path={"/contact"} component={Contact} />
-              <Route path={"/login"} component={Login} />
-              <Route path={"/sign-up"} component={Signup} />
-              <Route
-                path={"/terms-and-conditions"}
-                component={TermsAndConditions}
-              />
-              <Route path={"/privacy-policies"} component={privacyPolicies} />
-              <Route path={"/forgot-password"} component={forgotPassword} />
-              <Route
-                path={"/events-results/:search"}
-                component={SearchResult}
-              />
-              <Route
-                path={"/performers-details/:artist_id"}
-                component={PerformerSearch}
-              />
-              <Route
-                path={"/event-details/:event_id"}
-                component={EventDetails}
-              />
-              <Route path={"/cart-details"} component={CartDetails} />
-              <Route path={"/contact-us"} component={ContactUs} />
-              <Route path={"/about-us"} component={AboutUs} />
-              <Route path={"/refund"} component={Refund} />
-
-              <Route path={"/all-events"} component={AllEvents} />
-              <Route path={"/faq"} component={Faq} /> */}
-          
+              {/* Add other routes here */}
               <Route component={ErrorPage} />
             </Switch>
-            <Footer />
+
+            {this.shouldRenderFooter() && <Footer />}
           </div>
         </Router>
       </Provider>

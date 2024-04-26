@@ -141,7 +141,7 @@ class Header extends Component {
     const { inputValue, suggestions } = this.state;
     return (
       <div>
-        <nav className="navbar navbar-expand-md main-nav navigation fixed-top sidebar-left wow">
+        <nav className="navbar navbar-expand-md fixed-top main-nav navigation  sidebar-left wow">
           <div className="container">
             <div className="collapse navbar-collapse" id="main-navbar">
               <div className="source_logo_left">
@@ -232,7 +232,11 @@ class Header extends Component {
                   
                  
                   <div className="search_icons" onClick={this.openSearchDiv}>
-                    <img src={require("../assets/images/search.png")} alt="" />
+                    {/* <img src={require("../assets/images/search.png")} alt="" /> */}
+                    <img
+                        src={require("../assets/images/newimages/search-nav.png")}
+                        alt="sourced"
+                      />
                   </div>
                   <div className="profile_div">
                     <a href="https://accounts.sourcedtickets.com/">

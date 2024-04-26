@@ -35,8 +35,11 @@ color: #fff;
   border: 1px solid #2C293C;
   border-radius: 5px;
   padding: 12px;
-  display: flex;
   margin-bottom: 9px;
+  display: flex;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
   cursor: pointer;
 }
 
@@ -56,6 +59,9 @@ width: 15px;
 border-right: 2px solid #2c293c;
 margin-right: 3%;
 width: 10%;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
 .Info
@@ -100,7 +106,7 @@ width: 12%;
 }
 
 .date_1{
-width: 14%;
+// width: 14%;
 }
 
 .search_results .t2 {
@@ -173,6 +179,10 @@ padding-right: 8%;
      margin-top: 0px;
    width: 91px;
    margin-top: 4px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
   }
   
   .t1 {
