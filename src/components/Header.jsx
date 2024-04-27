@@ -131,6 +131,7 @@ class Header extends Component {
     this.setState({
       showDiv:!this.state.showDiv
     })
+    document.querySelector('.search_icons').style.display = 'none'
   }
   render() {
     // if(this.state.showDiv){

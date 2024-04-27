@@ -562,6 +562,7 @@ div#venue-map-reset-ctn {
 }
 #tn-maps{
   overflow: hidden !important;
+  padding: 0 !important;
 }
 .venue-ticket-list::-webkit-scrollbar{
   width: 5px !important;
@@ -604,7 +605,7 @@ div#venue-map-reset-ctn {
 
 .filter-apply {
   color: #7B7794;
-  padding: 2px 10px 0 10px;
+  padding: 0 10px 0 10px;
   font-size: 15px;
   border: 1px solid;
   border-radius: 4px;
@@ -651,12 +652,12 @@ div#venue-map-reset-ctn {
   .filter-apply{
     margin-right: 3px;
   margin-left: 3px;
-  padding:5px 10px 0 10px;
+  padding: 0px 10px 0 10px;
   font-size: 13px;
   }
 
   .filter-clear{
-    padding:5px 10px 0 10px;
+    padding: 0px 10px 0 10px;
   font-size: 13px;
   }
 }
