@@ -1,15 +1,13 @@
  
  	.header{
     // background-image: url(https://sourcedtickets.com/static/media/hero.e98663bf8fc64145807c.png);
-    background-image: url(../../images/header.png);
+    background-image: url(../../images/headerv2.png);
     // background-size: 100% auto;
     background-size: cover;
     background-position: 0 0;
     background-repeat: no-repeat;
     width: 100%;
     background-color: transparent;
-    padding-bottom: 16em;
-    padding-top: 100px;
   }
   
   #home .container {
@@ -37,7 +35,7 @@
     margin-top: 0;
     line-height: 50px;
     color: #fff;
-    text-align: left;
+    text-align: center;
     font-weight: 700;
     margin-bottom: 11px;
   }
@@ -61,7 +59,9 @@
     font-weight: 500;
     text-transform: capitalize;
   }
-
+  .main-col{
+    text-align: center;
+  }
   .purchase_btn {
     max-width: 100%;
     margin: auto;
@@ -175,8 +175,9 @@
     }
 }
 .main-search-bar-inner-one {
-  width: 83%;
   position: relative;
+  display: flex;
+    justify-content: center;
 }
 .main-intro{
   display: flex;
@@ -352,6 +353,11 @@ li.suggestion-list-items-main {
   top: 4em;
   left: 2em;
 }
+#home .container {
+
+  padding-bottom: 10rem;
+
+}
 }
 
  
@@ -412,9 +418,14 @@ li.suggestion-list-items-main {
   padding-left: 5%; 
   padding-right: 5%;
 }
+#home .container {
+ 
+  padding-bottom: 10rem;
+
+}
 
 .header{
-  background-image: url("../../newimages/mobile_hero.png");
+  background-image: url("../../images/headerv2.png");
   h1{
     color: #fff;
   }

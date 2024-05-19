@@ -130,38 +130,24 @@ class MainIntro extends React.Component {
           <div class="container">
             <div class="row">
               <div
-                class="col-md-12 col-lg-12 col-sm-12 col-xs-12 wow  center z-index-12"
+                class="main-col"
                 style={{ visibility: "visible", animationName: "slideInRight" }}
               >
                  <h2>
-                  Experience More. <br />
-                  Spend Less.
+                  Experience More.  Spend Less. <br />
+                  With Sourced Tickets
                 </h2>
 
                 <h3>
-                  {" "}
-                  <img
-                    src={require("../../assets/images/newimages/tick.png")}
-                    alt="sourced"
-                  />{" "}
-                  Lowest Fees Guaranteed{" "}
+              
+                  Lowest Fees Guaranteed. No Surprises at Checkout{" "}
                 </h3>
+
+               
 
                 <h3>
                   {" "}
-                  <img
-                    src={require("../../assets/images/newimages/tick.png")}
-                    alt="sourced"
-                  />{" "}
-                  No Surprises at Checkout{" "}
-                </h3>
-
-                <h3>
-                  {" "}
-                  <img
-                    src={require("../../assets/images/newimages/tick.png")}
-                    alt="sourced"
-                  />{" "}
+                
                   Quick, Hassle-Free Purchasing{" "}
                 </h3>
 
@@ -230,39 +216,11 @@ class MainIntro extends React.Component {
                       ""
                     )}
                   </div>
-                  {/* <div>
-                    <nav class="nav purchase_btn" onClick={this.searchPerformer}>
-                      <span class="button_zal">
-                        {" "}
-                        Search{" "}
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-
-                      </span>
-                    </nav>
-                  </div> */}
+                  
                 </div>
               </div>
 
-              <div class="icons">
-                <div class="icon1">
-                  <img
-                    src={require("../../assets/images/newimages/mic.png")}
-                    alt="sourced"
-                  />
-                </div>
-                <div class="icon2">
-                  <img
-                    src={require("../../assets/images/newimages/earth.png")}
-                    alt="sourced"
-                  />
-                </div>
-                <div class="icon3">
-                  <img
-                    src={require("../../assets/images/newimages/ticket.png")}
-                    alt="sourced"
-                  />
-                </div>
-              </div>
+           
             </div>
           </div>
         </header>

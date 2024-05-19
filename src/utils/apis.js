@@ -44,15 +44,14 @@ export async function loginUser(data) {
 
 export async function SearchEvent(data) {
   try {
-    const config = {};
-    let salesRankOptions = data.salesRankOptions;
+  
     return axios({
       method: "get",
       url: `https://www.tn-apis.com/catalog/v2/events?websiteConfigId=${websiteConfigId}&filter=_metadata%2FticketCount%20ge%2010`,
        params: {
        
                page: "1",
-               perPage: "8",
+               perPage: "6",
             },
       headers: {
         Authorization: "Bearer " + token,
