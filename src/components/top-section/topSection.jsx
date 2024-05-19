@@ -98,7 +98,7 @@ class TopSection extends React.Component {
                   style={{ animationDuration: "2s" }}
                 >
                   <h3>Top Sports</h3>
-                  <div class="event_box" onClick={()=>this.onClickSportsName(('NFL Football'))} >
+                  <div class="event_box" onClick={()=>this.onClickSportsName(('NFL Football').replace(/\s+/g, '-'))} >
                     <div class="date">
                       {" "}
                       <h3>1</h3>

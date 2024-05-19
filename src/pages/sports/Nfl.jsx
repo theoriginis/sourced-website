@@ -25,7 +25,7 @@ class NFLSport extends Component {
     this.setState({
       keyword_searched: keyword_searched,
     });
-    if ((keyword_searched = "NFL Football")) {
+    if ((keyword_searched = "NFL-Football")) {
       sportToAdd = "NFL Football";
     } else if ((keyword_searched = "NBA-Basketball")) {
       sportToAdd = "NBA-Basketball";
@@ -63,7 +63,8 @@ class NFLSport extends Component {
 
   render() {
     let sports_page = [];
-    if (this.state.keyword_searched === "NFL Football") {
+    console.log('this.state.keyword_searched',this.state.keyword_searched)
+    if (this.state.keyword_searched === "NFL-Football") {
       sports_page = sports_teams.NFL;
     } else if (this.state.keyword_searched === "NBA-Basketball") {
       sports_page = sports_teams.basketballteams;
@@ -131,7 +132,7 @@ class NFLSport extends Component {
 
                   <div className="unviel_infor">
                     <p>
-                      {this.state.keyword_searched === "NFL Football"
+                      {this.state.keyword_searched === "NFL-Football"
                       
                         ? sports_teams.NFL_text
                         : this.state.keyword_searched === "NBA-Basketball"
