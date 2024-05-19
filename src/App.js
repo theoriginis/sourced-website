@@ -16,9 +16,8 @@ import history from "./history";
 import SearchResult from "./pages/search-result/eventsResult";
 import EventDetails from "./pages/eventDetails/eventDetails";
 import Policies from "./pages/policies/policies";
-import Login  from "./pages/login/login";
-import Signup from "./pages/signup/signup"
-import MetaPixel from "./meta/metaPixel";
+import NFLSport from "./pages/sports/Nfl";
+
 
 export class App extends Component {
   constructor(props) {
@@ -60,8 +59,8 @@ export class App extends Component {
                 path={"/policies"}
                 component={Policies}
               />
-              <Route path={"/login"} component={Login} />
-              <Route path={"/sign-up"} component={Signup} />
+              <Route path={'/sport-search/:sportname'} component={NFLSport} />
+            
               {/* Add other routes here */}
               <Route component={ErrorPage} />
             </Switch>

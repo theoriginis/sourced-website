@@ -1,0 +1,46 @@
+
+
+.teams-name.date h4, .Info h4:hover{
+    color: #A992FF;
+}
+.teams-name{
+    padding: 2% 10%;
+    .Info{
+        width: 100%;
+        padding: 13px;
+    }
+    .Info:hover{
+        transition: width 0.3s ease, height 0.3s ease;
+        background-color: lightblue;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+}
+.sports-teams-left,
+.sports-teams-right {
+    width: 50%;
+    float: left;
+}
+.sports-teams-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns items to the end of the flex container */
+    width: 100%;
+}
+.sport-container {
+    display: flex;
+    justify-content: center;
+}
+
+.sports-list {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping to create multiple rows */
+    justify-content: center; /* Center items horizontally */
+    //max-width: 600px; /* Maximum width of the container */
+}
+
+.sport-item {
+    flex-basis: calc(50% - 10px); /* Set width of each item to 50% minus the gap */
+    margin: 5px; /* Gap between items */
+    padding: 10px;  
+
+}

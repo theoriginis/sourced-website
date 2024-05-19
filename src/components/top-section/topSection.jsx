@@ -48,6 +48,11 @@ class TopSection extends React.Component {
       this.props.history.push(`/events-results/performer-tickets/${(performerName).replace(/\s+/g, '-')}`);
     }
   };
+  onClickSportsName = (sportsName)=>{
+    if(sportsName){
+      this.props.history.push(`/sport-search/${sportsName}`);
+    }
+  }
   onClickEvent = (eventId) => {
     if (eventId) {
       this.props.history.push(`/event-details/${eventId}`);
@@ -93,17 +98,19 @@ class TopSection extends React.Component {
                   style={{ animationDuration: "2s" }}
                 >
                   <h3>Top Sports</h3>
-                  <div class="event_box">
+                  <div class="event_box" onClick={()=>this.onClickSportsName(('NFL Football'))} >
                     <div class="date">
                       {" "}
                       <h3>1</h3>
                     </div>
+                    
                     <div class="Info">
                       {" "}
                       <h4>NFL Football </h4>
+                      
                     </div>
                   </div>
-                  <div class="event_box">
+                    <div class="event_box" onClick={()=>this.onClickSportsName(('NBA Basketball').replace(/\s+/g, '-'))} >
                     <div class="date">
                       {" "}
                       <h3>2</h3>
@@ -113,7 +120,7 @@ class TopSection extends React.Component {
                       <h4>NBA Basketball </h4>
                     </div>
                   </div>
-                  <div class="event_box">
+                    <div class="event_box" onClick={()=>this.onClickSportsName(('NHL Hockey').replace(/\s+/g, '-'))} >
                     <div class="date">
                       {" "}
                       <h3>3</h3>
@@ -123,7 +130,7 @@ class TopSection extends React.Component {
                       <h4>NHL Hockey </h4>
                     </div>
                   </div>
-                  <div class="event_box">
+                    <div class="event_box" onClick={()=>this.onClickSportsName(('MLB Baseball').replace(/\s+/g, '-'))} >
                     <div class="date">
                       {" "}
                       <h3>4</h3>
@@ -133,7 +140,7 @@ class TopSection extends React.Component {
                       <h4>MLB Baseball </h4>
                     </div>
                   </div>
-                  <div class="event_box">
+                    <div class="event_box" onClick={()=>this.onClickSportsName(('NCAA Football').replace(/\s+/g, '-'))} >
                     <div class="date">
                       {" "}
                       <h3>5</h3>

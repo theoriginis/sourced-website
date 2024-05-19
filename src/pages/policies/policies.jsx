@@ -23,8 +23,6 @@ class Policies extends Component {
       "src",
       `https://tickettransaction.com/?bid=13214&sitenumber=0&tid=600`
     );
-
-    console.log("script", script);
     script.onload = () => {
       // The script has loaded successfully; check for TN_Policy_Maker and call the function
       if (

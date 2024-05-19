@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import { searchedEvent } from "../../redux/searched-events/action";
 
-import Geocode from "react-geocode";
+
 import Loader from "../../components/spinner/spinner.jsx";
 import { Redirect } from "react-router-dom";
 class LocalEvents extends React.Component {
@@ -44,65 +44,7 @@ class LocalEvents extends React.Component {
     }
   };
  
-  // componentWillUnmount() {
-  //   // Remove the popstate event listener when the component unmounts
-  //   window.removeEventListener('popstate', this.handlePopState);
-  // }
 
-  // Geolocation(lat, lng) {
-  //   Geocode.setApiKey("AIzaSyC6l4iBNvQwIaPjoqKIoOBKJPxqqvXEYso");
-  //   Geocode.enableDebug();
-  //   Geocode.setRegion("es");
-  //   Geocode.setLanguage("en");
-
-  //   Geocode.fromLatLng(lat, lng).then(
-  //     (response) => {
-  //       const address = response.results[0].formatted_address;
-  //       let city, state, country;
-  //       for (
-  //         let i = 0;
-  //         i < response.results[0].address_components.length;
-  //         i++
-  //       ) {
-  //         for (
-  //           let j = 0;
-  //           j < response.results[0].address_components[i].types.length;
-  //           j++
-  //         ) {
-  //           switch (response.results[0].address_components[i].types[j]) {
-  //             case "locality":
-  //               city = response.results[0].address_components[i].long_name;
-  //               break;
-  //             case "administrative_area_level_1":
-  //               state = response.results[0].address_components[i].long_name;
-  //               break;
-  //             case "country":
-  //               country = response.results[0].address_components[i].long_name;
-  //               break;
-  //           }
-  //         }
-  //       }
-  //       if(city){
-  //         this.setState({
-  //           city:city
-  //         })
-  //         let searched_city = {
-  //           searched_city: city,
-  //         };
-  //         this.props.searchedEvent(searched_city);
-  //       }else{
-  //         let searched_city = {
-  //           searched_city: "new york",
-  //         };
-  //         this.props.searchedEvent(searched_city);
-  //       }
-
-  //     },
-  //     (error) => {
-  //       console.error(error);
-  //     }
-  //   );
-  // }
 
   onClickEvent = (eventId) => {
     if (eventId) {

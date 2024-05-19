@@ -10,7 +10,7 @@ export const searchedEvent = (data) => async (dispatch) => {
   dispatch({ type: "ACTION_INITIATED_SEARCH_EVENT" });
   try {
     const response = await SearchEvent(data);
-    console.log("api response seacrhed ", response);
+   
     if (response.status <= 201) {
       dispatch({
         type: "SEARCH_EVENT",
@@ -36,7 +36,6 @@ export const searchedEvent = (data) => async (dispatch) => {
 export const searchedPerformer = (data, type) => async (dispatch) => {
   dispatch({ type: "ACTION_INITIATED_SEARCH_PERFORMER" });
   try {
-    console.log("Type", type);
     let response = "";
     if (type == "performer") {
       response = await SearchPerformer(data);
@@ -45,7 +44,7 @@ export const searchedPerformer = (data, type) => async (dispatch) => {
     } else {
       response = await Searchvenue(data);
     }
-    console.log("response", response);
+ 
     if (response.status <= 201) {
       dispatch({
         type: "SEARCH_PERFORMER",
@@ -72,7 +71,7 @@ export const searchedPerformer = (data, type) => async (dispatch) => {
 export const searchedPerformerHeader = (data, type) => async (dispatch) => {
   dispatch({ type: "ACTION_INITIATED_SEARCH_PERFORMER" });
   try {
-    console.log("Type", type);
+  
     let response = "";
     if (type == "performer") {
       response = await SearchPerformer(data);
@@ -81,7 +80,6 @@ export const searchedPerformerHeader = (data, type) => async (dispatch) => {
     } else {
       response = await Searchvenue(data);
     }
-    console.log("response", response);
     if (response.status <= 201) {
       dispatch({
         type: "SEARCH_PERFORMER_HEADER",
@@ -111,7 +109,7 @@ export const searchedPerformerHeader = (data, type) => async (dispatch) => {
 export const searchedPerformeMain = (data, type) => async (dispatch) => {
   dispatch({ type: "ACTION_INITIATED_SEARCH_PERFORMER" });
   try {
-    console.log("Type", type);
+
     let response = "";
     if (type == "performer") {
       response = await SearchPerformer(data);
@@ -120,7 +118,7 @@ export const searchedPerformeMain = (data, type) => async (dispatch) => {
     } else {
       response = await Searchvenue(data);
     }
-    console.log("response", response);
+
     if (response.status <= 201) {
       dispatch({
         type: "SEARCH_PERFORMER_MAIN",
@@ -151,7 +149,7 @@ export const searchedEventByPerformer = (data) => async (dispatch) => {
   dispatch({ type: "ACTION_INITIATED_SEARCH_EVENT_BYPERFORMER" });
   try {
     const response = await SearchEventsByPerformer(data);
-    console.log("api response seacrhed ", response);
+
     if (response.status <= 201) {
       dispatch({
         type: "SEARCH_EVENT_EVENT_BYPERFORMER",
