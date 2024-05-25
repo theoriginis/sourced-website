@@ -10,7 +10,6 @@ import { searchedPerformerHeader } from "../redux/searched-events/action.js";
 import moment from "moment";
 import Sidebar from "./sidebar/sidebar";
 
-
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,7 @@ class Header extends Component {
       inputValue: "",
       search_results: [],
       showDiv: false,
-      isSidebarOpen: false
+      isSidebarOpen: false,
     };
   }
   handleInputChange = (e) => {
@@ -79,11 +78,13 @@ class Header extends Component {
       //this.setState({showDiv:false})
       this.handleClearClick();
     } else {
+   
       // No input element was found within the clicked element
       console.log("No input element found within the clicked element.");
-   
+  
     }
   };
+
   logOut = () => {
     localStorage.clear();
     window.location.href = "/";
@@ -103,6 +104,7 @@ class Header extends Component {
   handleClearClick = () => {
     this.setState({ inputValue: "", search_results: [] });
   };
+
   onClickEvent = (eventId) => {
     if (eventId) {
       this.setState({ showDiv: false });
@@ -115,12 +117,12 @@ class Header extends Component {
   };
   toggleSidebar = () => {
     this.setState((prevState) => ({
-      sidebarOpen: !prevState.sidebarOpen
+      sidebarOpen: !prevState.sidebarOpen,
     }));
   };
   closeSidebar = () => {
     this.setState({
-      sidebarOpen: false
+      sidebarOpen: false,
     });
   };
   handleKeyPress = (event) => {
@@ -168,7 +170,6 @@ class Header extends Component {
                     />
                   </div> */}
                 </a>
-              
               </div>
 
               <div className="search_bar_right text-right">
@@ -241,7 +242,7 @@ class Header extends Component {
                     ""
                   )}
 
-                  <div className="search_icons"  >
+                  <div className="search_icons">
                     {/* <img src={require("../assets/images/search.png")} alt="" /> */}
                     <img
                       src={require("../assets/images/newimages/search-nav.png")}
@@ -250,11 +251,14 @@ class Header extends Component {
                     />
                   </div>
                   <div className="profile_div">
-                 
-                   
-                      <span class="material-symbols-outlined hamburger-menu" onClick={()=>this.toggleSidebar()}>menu</span>
-                  
+                    <span
+                      class="material-symbols-outlined hamburger-menu"
+                      onClick={() => this.toggleSidebar()}
+                    >
+                      menu
+                    </span>
                   </div>
+
                   <Sidebar isOpen={sidebarOpen} onClose={this.closeSidebar} />
                 </div>
               </div>

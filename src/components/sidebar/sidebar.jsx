@@ -8,14 +8,18 @@ import { connect } from "react-redux";
 class Sidebar extends React.Component {
   onClickSportsName = (sportsName) => {
     if (sportsName) {
+        this.props.onClose();
       this.props.history.push(`/sport-search/${sportsName}`);
     }
   };
+
   render() {
     const { isOpen, onClose } = this.props;
 
     return (
-      <div className={`sidebar ${isOpen ? "open" : ""}`}>
+        <>      
+      
+        <div className={`sidebar ${isOpen ? 'open' : ''}`} >
         <button className="close-btn" onClick={onClose}>
           ×
         </button>
@@ -76,6 +80,7 @@ class Sidebar extends React.Component {
           </li>
         </ul>
       </div>
+      </>
     );
   }
 }
