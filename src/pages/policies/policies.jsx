@@ -55,10 +55,10 @@ class Policies extends Component {
     return (
       <>
         <main>
-          <section class="section events search_results">
-            <div class="container">
-              <div class="row policy-page">
-                <div class="policy_overflow">
+          <section className="section events search_results">
+            <div className="container">
+              <div className="row policy-page">
+                <div className="policy_overflow">
                   {error ? (
                     <p>Error: {error}</p>
                   ) : rawHtml ? (

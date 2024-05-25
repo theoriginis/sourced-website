@@ -167,13 +167,13 @@ class SearchResult extends Component {
                           className="header-search-bar"
                         />
                         <div
-                          class="filter-apply"
+                          className="filter-apply"
                           onClick={() => this.fliterEventsByLocation()}
                         >
                           Apply
                         </div>
                         <div
-                          class="filter-clear"
+                          className="filter-clear"
                           onClick={() => this.removeFilter()}
                         >
                           Clear

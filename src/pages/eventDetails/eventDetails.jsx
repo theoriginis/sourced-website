@@ -58,9 +58,9 @@ class EventDetails extends Component {
     return (
       <>
         <main>
-          <section class="section events search_results" id="products">
-            <div class="container">
-              <div class="row">
+          <section className="section events search_results" id="products">
+            <div className="container">
+              <div className="row">
           
                 <div id="tn-maps"  role="main"  className="seatics" style={{
                     height: "800px",
@@ -68,7 +68,7 @@ class EventDetails extends Component {
                     overflow: "auto",
                   }}
                 >
-                  <div class="loader">
+                  <div className="loader">
                   </div>
                 </div>
               </div>

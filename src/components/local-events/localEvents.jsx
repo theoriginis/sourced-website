@@ -55,15 +55,15 @@ class LocalEvents extends React.Component {
   render() {
     return (
       <div>
-        <section class="section events" id="events">
-          <div class="container">
-            <div class="row">
+        <section className="section events" id="events">
+          <div className="container">
+            <div className="row">
               <div
-                class="col-lg-12 wow slideInLeft"
+                className="col-lg-12 wow slideInLeft"
                 style={{ animationDuration: "3s" }}
               >
                 <h2
-                  class="wow section-heading"
+                  className="wow section-heading"
                   style={{ animationDuration: "1s" }}
                 >
                   {" "}

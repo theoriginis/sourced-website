@@ -19,7 +19,7 @@ class Loader extends React.Component {
           ariaLabel="tail-spin-loading"
           radius="1"
           wrapperStyle={{}}
-          wrapperClass="main-spinner"
+          wrapperclassName="main-spinner"
           visible={true}
         />
       </div>

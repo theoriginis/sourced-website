@@ -62,15 +62,15 @@ class TopSection extends React.Component {
     
     return (
       <div>
-        <section class="section events top-events" id="artists">
-          <div class="container">
-            <div class="row">
+        <section className="section events top-events" id="artists">
+          <div className="container">
+            <div className="row">
               <div
-                class="col-lg-12 wow slideInLeft"
+                className="col-lg-12 wow slideInLeft"
                 style={{ animationDuration: "3s" }}
               >
                 <div
-                  class="col-lg-4 pad10 wow slideUp"
+                  className="col-lg-4 pad10 wow slideUp"
                   style={{ animationDuration: "2s" }}
                 >
                   <h3>Top Artists</h3>
@@ -78,12 +78,12 @@ class TopSection extends React.Component {
                    <div className="event_box no-records"><Loader /></div> :
                    this.state.performer_list &&
                     this.state.performer_list.map((perfoermer, key) => (
-                      <div class="event_box" onClick={()=>this.onClickArtist((perfoermer.text.name).replace(/\s+/g, '-'))} >
-                        <div class="date">
+                      <div className="event_box" onClick={()=>this.onClickArtist((perfoermer.text.name).replace(/\s+/g, '-'))} >
+                        <div className="date">
                           {" "}
-                          <h3 class="keys-index">{key + 1}</h3>
+                          <h3 className="keys-index">{key + 1}</h3>
                         </div>
-                        <div class="Info">
+                        <div className="Info">
                           {" "}
                           <h4>{perfoermer.text.name} </h4>
                         </div>
@@ -94,58 +94,58 @@ class TopSection extends React.Component {
                 </div>
 
                 <div
-                  class="col-lg-4 pad10 wow slideUp"
+                  className="col-lg-4 pad10 wow slideUp"
                   style={{ animationDuration: "2s" }}
                 >
                   <h3>Top Sports</h3>
-                  <div class="event_box" onClick={()=>this.onClickSportsName(('NFL Football').replace(/\s+/g, '-'))} >
-                    <div class="date">
+                  <div className="event_box" onClick={()=>this.onClickSportsName(('NFL Football').replace(/\s+/g, '-'))} >
+                    <div className="date">
                       {" "}
                       <h3>1</h3>
                     </div>
                     
-                    <div class="Info">
+                    <div className="Info">
                       {" "}
                       <h4>NFL Football </h4>
                       
                     </div>
                   </div>
-                    <div class="event_box" onClick={()=>this.onClickSportsName(('NBA Basketball').replace(/\s+/g, '-'))} >
-                    <div class="date">
+                    <div className="event_box" onClick={()=>this.onClickSportsName(('NBA Basketball').replace(/\s+/g, '-'))} >
+                    <div className="date">
                       {" "}
                       <h3>2</h3>
                     </div>
-                    <div class="Info">
+                    <div className="Info">
                       {" "}
                       <h4>NBA Basketball </h4>
                     </div>
                   </div>
-                    <div class="event_box" onClick={()=>this.onClickSportsName(('NHL Hockey').replace(/\s+/g, '-'))} >
-                    <div class="date">
+                    <div className="event_box" onClick={()=>this.onClickSportsName(('NHL Hockey').replace(/\s+/g, '-'))} >
+                    <div className="date">
                       {" "}
                       <h3>3</h3>
                     </div>
-                    <div class="Info">
+                    <div className="Info">
                       {" "}
                       <h4>NHL Hockey </h4>
                     </div>
                   </div>
-                    <div class="event_box" onClick={()=>this.onClickSportsName(('MLB Baseball').replace(/\s+/g, '-'))} >
-                    <div class="date">
+                    <div className="event_box" onClick={()=>this.onClickSportsName(('MLB Baseball').replace(/\s+/g, '-'))} >
+                    <div className="date">
                       {" "}
                       <h3>4</h3>
                     </div>
-                    <div class="Info">
+                    <div className="Info">
                       {" "}
                       <h4>MLB Baseball </h4>
                     </div>
                   </div>
-                    <div class="event_box" onClick={()=>this.onClickSportsName(('NCAA Football').replace(/\s+/g, '-'))} >
-                    <div class="date">
+                    <div className="event_box" onClick={()=>this.onClickSportsName(('NCAA Football').replace(/\s+/g, '-'))} >
+                    <div className="date">
                       {" "}
                       <h3>5</h3>
                     </div>
-                    <div class="Info">
+                    <div className="Info">
                       {" "}
                       <h4>NCAA Football </h4>
                     </div>
@@ -153,7 +153,7 @@ class TopSection extends React.Component {
                 </div>
 
                 <div
-                  class="col-lg-4 pad10 wow slideUp"
+                  className="col-lg-4 pad10 wow slideUp"
                   style={{ animationDuration: "2s" }}
                 >
                   <h3>Top Shows</h3>
@@ -161,12 +161,12 @@ class TopSection extends React.Component {
                 <div className="event_box no-records"><Loader /></div> :
                 this.state.top_shows &&
                   this.state.top_shows.map((shows, key) => (
-                    <div class="event_box" onClick={() => this.onClickEvent(`${(shows.text.name).replace(/\s+/g, '-')}-tickets-${(shows.city.text.name).replace(/\s+/g, '-')}-${shows.date.date}/${shows.id}`)}>
-                      <div class="date">
+                    <div className="event_box" onClick={() => this.onClickEvent(`${(shows.text.name).replace(/\s+/g, '-')}-tickets-${(shows.city.text.name).replace(/\s+/g, '-')}-${shows.date.date}/${shows.id}`)}>
+                      <div className="date">
                         {" "}
                         <h3>{key + 1}</h3>
                       </div>
-                      <div class="Info">
+                      <div className="Info">
                         {" "}
                         <h4>{shows.text.name} </h4>
                       </div>

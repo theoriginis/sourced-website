@@ -130,23 +130,23 @@ class Signup extends Component {
           ) : (
             ""
           )}
-          <div class="padding-10 login-section">
+          <div className="padding-10 login-section">
             <img
               src={require("../../assets/images/newimages/logo.png")}
               className="logo-login"
             />
-            <h2 class="white font-size-20 font-weight-600 margin-bottom-15">
+            <h2 className="white font-size-20 font-weight-600 margin-bottom-15">
               {" "}
               Sign Up to Sourced
             </h2>
             <p> Enter your details to continue </p>
-            <div class="login-box">
-              <div class="margin-bottom-15">
+            <div className="login-box">
+              <div className="margin-bottom-15">
                 <lable> Full Name </lable>
                 <input
                   type="text"
                   placeholder="Enter Full Name"
-                  class="form-controls"
+                  className="form-controls"
                   value={this.state.fullname}
                   name="fullname"
                   onChange={this.handleInput}
@@ -159,12 +159,12 @@ class Signup extends Component {
                   ""
                 )}
               </div>
-              <div class="margin-bottom-15">
+              <div className="margin-bottom-15">
                 <lable> Email </lable>
                 <input
                   type="text"
                   placeholder="Enter Email"
-                  class="form-controls"
+                  className="form-controls"
                   value={this.state.email}
                   name="email"
                   onChange={this.handleInput}
@@ -177,12 +177,12 @@ class Signup extends Component {
                   ""
                 )}
               </div>
-              <div class="margin-bottom-15">
+              <div className="margin-bottom-15">
                 <lable> Password </lable>
                 <input
                   type="password"
                   placeholder="Enter Password"
-                  class="form-controls"
+                  className="form-controls"
                   name="password"
                   onChange={this.handleInput}
                 />
@@ -194,12 +194,12 @@ class Signup extends Component {
                   ""
                 )}
               </div>
-              <div class="margin-bottom-15">
+              <div className="margin-bottom-15">
                 <lable> Confirm Password </lable>
                 <input
                   type="password"
                   placeholder="Enter Password"
-                  class="form-controls"
+                  className="form-controls"
                   name="cofirmpassword"
                   value={this.state.cofirmpassword}
                   onChange={this.handleInput}
@@ -221,16 +221,16 @@ class Signup extends Component {
                 )}
               </div>
               <div
-                class="margin-bottom-15 margintop20"
+                className="margin-bottom-15 margintop20"
                 onClick={() => this.signUpUser()}
               >
-                <button class="button border-radius-5 font-size-13 font-weight-600 white">
+                <button className="button border-radius-5 font-size-13 font-weight-600 white">
                   Sign Up
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>{" "}
+                  <i className="fa fa-arrow-right" aria-hidden="true"></i>{" "}
                 </button>
               </div>
             </div>
-            <p class="ptext">
+            <p className="ptext">
               Need help? Contact us <a href="signup.html"> here</a>{" "}
             </p>
           </div>

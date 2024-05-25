@@ -63,7 +63,6 @@ class NFLSport extends Component {
 
   render() {
     let sports_page = [];
-    console.log('this.state.keyword_searched',this.state.keyword_searched)
     if (this.state.keyword_searched === "NFL-Football") {
       sports_page = sports_teams.NFL;
     } else if (this.state.keyword_searched === "NBA-Basketball") {
@@ -80,7 +79,7 @@ class NFLSport extends Component {
         <main>
           <Helmet>
             <title>
-              {this.state.keyword_searched.replace(/-/g, " ")} tickets in 2023 –
+              {this.state.keyword_searched.replace(/-/g, " ")} tickets –
               Get Yours Now! | Sourced Tickets
             </title>
             <meta

@@ -45,15 +45,15 @@ class UnmatchedFeature extends React.Component {
   render() {
     return (
       <div>
-        <section class="section unmatched-feature" id="feat">
-          <div class="container">
-            <div class="row">
+        <section className="section unmatched-feature" id="feat">
+          <div className="container">
+            <div className="row">
               <div
-                class="col-lg-12 wow slideInLeft"
+                className="col-lg-12 wow slideInLeft"
                 style={{animationDuration: "3s"}}
               >
                 <h3
-                  class="wow slideInLeft section-heading"
+                  className="wow slideInLeft section-heading"
                   style={{animationDuration: "1s"}}
                 >
               
@@ -61,10 +61,10 @@ class UnmatchedFeature extends React.Component {
                 </h3>
               </div>
               <div
-                class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wow slideUp"
+                className="col-lg-3 col-md-6 col-sm-6 col-xs-12 wow slideUp"
                 style={{animationDuration: "3s"}}
               >
-                <div class="feat_box">
+                <div className="feat_box">
                   <h4> 100% Buyer Satisfaction</h4>
                   <p>
                     Our number one priority is to make your ticket buying
@@ -73,10 +73,10 @@ class UnmatchedFeature extends React.Component {
                 </div>
               </div>
               <div
-                class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wow slideUp"
+                className="col-lg-3 col-md-6 col-sm-6 col-xs-12 wow slideUp"
                 style={{animationDuration: "3s"}}
               >
-                <div class="feat_box">
+                <div className="feat_box">
                   <h4> Lowest Fees Guaranteed</h4>
                   <p>
                     Discover the industry's lowest fees at Sourced Tickets,
@@ -85,10 +85,10 @@ class UnmatchedFeature extends React.Component {
                 </div>
               </div>
               <div
-                class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wow slideUp"
+                className="col-lg-3 col-md-6 col-sm-6 col-xs-12 wow slideUp"
                 style={{animationDuration: "3s"}}
               >
-                <div class="feat_box">
+                <div className="feat_box">
                   <h4> Safe and Secure Transactions </h4>
                   <p>
                     No need to worry about scams. We guarantee 100% authentic
@@ -97,10 +97,10 @@ class UnmatchedFeature extends React.Component {
                 </div>
               </div>
               <div
-                class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wow slideUp"
+                className="col-lg-3 col-md-6 col-sm-6 col-xs-12 wow slideUp"
                 style={{animationDuration: "3s"}}
               >
-                <div class="feat_box">
+                <div className="feat_box">
                   <h4> Full Service Customer Support </h4>
                   <p>
                     Do you have any questions, issues, or concerns? We are here

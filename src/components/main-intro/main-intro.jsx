@@ -126,41 +126,40 @@ class MainIntro extends React.Component {
             content="Get unbeatable ticket deals for premier live events. Sourced Tickets offers guaranteed low prices on sports, concerts, and more. Secure your tickets today!"
           />
         </Helmet>
-        <header class="header alter1-header section text-contrast" id="home">
-          <div class="container">
-            <div class="row">
+        <header className="header alter1-header section text-contrast" id="home">
+          <div className="container">
+            <div className="row">
               <div
-                class="main-col"
+                className="main-col"
                 style={{ visibility: "visible", animationName: "slideInRight" }}
               >
-                 <h2>
+                 <h1>
                   Experience More.  Spend Less. <br />
                   With Sourced Tickets
-                </h2>
+                </h1>
 
                 <h3>
               
-                  Lowest Fees Guaranteed. No Surprises at Checkout{" "}
+                  Lowest Fees Guaranteed. No Surprises at Checkout.
                 </h3>
 
                
 
                 <h3>
-                  {" "}
                 
                   Quick, Hassle-Free Purchasing{" "}
                 </h3>
 
                 <div className="main-search-bar">
                   <div className="main-search-bar-inner-one">
-                    <div class="search-box main-intro">
-                      <div class="search-img">
+                    <div className="search-box main-intro">
+                      <div className="search-img">
                         <img
                           src={require("../../assets/images/newimages/search.png")}
                           alt="sourced"
                         />{" "}
                       </div>
-                      <div class="search-div">
+                      <div className="search-div">
                         <span className="searhbar-icons">
                           <input
                             type="text"
@@ -172,7 +171,7 @@ class MainIntro extends React.Component {
                           />
                           {inputValueMain && (
                             <i
-                              class="fa fa-times cross-main"
+                              className="fa fa-times cross-main"
                               aria-hidden="true"
                               onClick={this.handleClearClick}
                             ></i>

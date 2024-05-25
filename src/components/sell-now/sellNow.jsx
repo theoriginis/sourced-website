@@ -19,24 +19,24 @@ class SellNow extends React.Component {
     return (
       <div>
         <section id="sell">
-          <div class="container">
-            <div class="row justify-content-center">
+          <div className="container">
+            <div className="row justify-content-center">
               <div
-                class="col-lg-12 text-center start-p wow slideUp"
+                className="col-lg-12 text-center start-p wow slideUp"
                 style={{animationDuration: "3s"}}
               >
-                <div class="sell_box">
+                <div className="sell_box">
                   <h5>
                   Lowest fees. No surprises. Easy purchasing. <br /><strong> Buy
                     now! </strong>{" "}
                   </h5>
                   <p>100% customer satisfaction</p>
-                  <div class="hiden_quantity">
-                  {/* <nav class="nav purchase_btn" onClick={this.goToSignUp}>
-                      <span class="button_zal">
+                  <div className="hiden_quantity">
+                  {/* <nav className="nav purchase_btn" onClick={this.goToSignUp}>
+                      <span className="button_zal">
                         {" "}
                         Create Account{" "}
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        <i className="fa fa-arrow-right" aria-hidden="true"></i>
 
                       </span>
                     </nav> */}
