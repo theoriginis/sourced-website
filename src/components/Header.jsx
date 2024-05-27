@@ -245,7 +245,7 @@ class Header extends Component {
 
                   {true ? (
                     <div id="box" className="search-box mobile-search-static flex block md:hidden">
-                      <div className="search-img">
+                      <div onClick={this.openSearchDiv} className="search-img">
                         <img
                           src={require("../assets/images/newimages/search-nav.png")}
                           alt="sourced"
@@ -322,7 +322,7 @@ class Header extends Component {
                       alt="sourced"
                       onClick={this.openSearchDiv}
                     />
-                  ) : <div onClick={this.openSearchDiv} className="close">x</div> }
+                  ) : "" }
                   </div>
                   <div className="profile_div">
                     <span
