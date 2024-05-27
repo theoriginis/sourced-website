@@ -9,6 +9,7 @@
     color: white;
     transition: right 0.3s ease;
     padding-top: 60px;
+    z-index: 10 !important;
   }
   
   .sidebar.open {

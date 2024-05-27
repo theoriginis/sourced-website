@@ -701,7 +701,7 @@ margin-right: 4px;
 @media (max-width:550px)
 {
   .search_icons{
-    padding-right: 17px;
+    padding-right: 10px;
   }
 
   .icon1{
@@ -764,10 +764,15 @@ margin-right: 4px;
   .search-icon_g {
     display: block !important;
     opacity: 1 !important;
-    z-index: 50 !important;
+    z-index: 0 !important;
   }
   
   #box {
     display: blcok;
   }
+}
+
+.close {
+  z-index: 0 !important;
+  position: relative;
 }
