@@ -17,6 +17,11 @@
 @import "../src/assets/styles/sports/sports";
 @import "../src/assets/styles/sidebar/sidebar";
 
+* {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
 body {
     max-width: 100vw;
     overflow-x: hidden;
