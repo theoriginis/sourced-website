@@ -19,6 +19,8 @@ class Header extends Component {
       inputValue: "",
       search_results: [],
       showDiv: false,
+      showLogo: true,
+      showIcon: true,
       isSidebarOpen: false,
     };
   }
@@ -107,7 +109,7 @@ class Header extends Component {
 
   onClickEvent = (eventId) => {
     if (eventId) {
-      this.setState({ showDiv: false });
+      this.setState({ showDiv: True });
       //this.props.history.push(`/event-details/${eventId}`)
       this.props.history.push(
         `/events-results/performer-tickets/${eventId.replace(/\s+/g, "-")}`
@@ -139,8 +141,12 @@ class Header extends Component {
   openSearchDiv = () => {
     this.setState({
       showDiv: !this.state.showDiv,
+      showLogo: !this.state.showLogo
     });
-    //document.querySelector(".search_icons").style.display = "none";
+    // Search div
+    let box = document.querySelector('#box')
+    console.log(box)
+    box.classList.toggle('mobile-search-animation')
   };
   render() {
     // if(this.state.showDiv){
@@ -155,7 +161,10 @@ class Header extends Component {
         <nav className="navbar navbar-expand-md fixed-top main-nav navigation  sidebar-left wow">
           <div className="container">
             <div className="collapse navbar-collapse" id="main-navbar">
-              <div className="source_logo_left">
+              {
+                this.state.showLogo ? (
+              
+              <div id="logo" className="source_logo_left">
                 <a className="navbar-brand" onClick={() => this.goToHome()}>
                   <img
                     src={require("../assets/images/logo.png")}
@@ -171,11 +180,13 @@ class Header extends Component {
                   </div> */}
                 </a>
               </div>
+              ) : ''}
+
 
               <div className="search_bar_right text-right">
                 <div className="flex_profile">
-                  {this.state.showDiv ? (
-                    <div className="search-box flex">
+
+                <div id="desktop-box"  className="search-box hidden md:block flex">
                       <div className="search-img">
                         <img
                           src={require("../assets/images/newimages/search-nav.png")}
@@ -183,7 +194,65 @@ class Header extends Component {
                         />{" "}
                       </div>
 
-                      <div className="search-div auto-suggest">
+                      <div className="search-div search-div-animate auto-suggest">
+                        <span className="searhbar-icons">
+                          <input
+                            type="text"
+                            placeholder="Search for Artist, Team, or Performer"
+                            value={inputValue}
+                            onChange={this.handleInputChange}
+                            onKeyPress={this.handleKeyPress}
+                            className="header-search-bar"
+                          />
+                        </span>
+                      </div>
+
+                      {this.state.search_results.length > 0 ? (
+                        <div className="suggestions">
+                          <ul>
+                            <li className="suggestion-list-items">
+                              <div className="suggestion_box">
+                                <div className="suggestion_name suggest_h2">
+                                  Suggested Results
+                                </div>
+                              </div>
+                            </li>
+                            {this.state.search_results.length > 0 &&
+                              this.state.search_results.map(
+                                (suggestion, index) => (
+                                  <li
+                                    key={index}
+                                    onClick={() =>
+                                      this.onClickEvent(suggestion.name)
+                                    }
+                                    className="suggestion-list-items"
+                                  >
+                                    <div className="suggestion_box">
+                                      <div className="suggestion_name suggest_h3">
+                                        {suggestion.name}
+                                        {/* <h6 className="search-city-name"> {moment(suggestion.date.date).format(" ddd MM/D")} • {suggestion.city.text.name},{suggestion.stateProvince.text.name}  </h6> */}
+                                      </div>
+                                    </div>
+                                  </li>
+                                )
+                              )}
+                          </ul>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+
+                  {true ? (
+                    <div id="box" className="search-box mobile-search-static flex block md:hidden">
+                      <div className="search-img">
+                        <img
+                          src={require("../assets/images/newimages/search-nav.png")}
+                          alt="sourced"
+                        />{" "}
+                      </div>
+
+                      <div className="search-div search-div-animate auto-suggest">
                         <span className="searhbar-icons">
                           <input
                             type="text"
@@ -242,13 +311,18 @@ class Header extends Component {
                     ""
                   )}
 
-                  <div className="search_icons">
+                  <div  className="search_icons block md:hidden search-icon_g">
                     {/* <img src={require("../assets/images/search.png")} alt="" /> */}
+                    {
+                      this.state.showLogo ? (
+                    
                     <img
+                    
                       src={require("../assets/images/newimages/search-nav.png")}
                       alt="sourced"
                       onClick={this.openSearchDiv}
                     />
+                  ) : <div onClick={this.openSearchDiv} className="close">x</div> }
                   </div>
                   <div className="profile_div">
                     <span
