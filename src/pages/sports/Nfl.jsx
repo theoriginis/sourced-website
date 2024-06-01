@@ -22,6 +22,7 @@ class NFLSport extends Component {
     let sportToAdd = null;
     let url_segment = this.props.location.pathname.split("/");
     let keyword_searched = url_segment["2"];
+    console.log('keyword_searched',keyword_searched)
     this.setState({
       keyword_searched: keyword_searched,
     });
@@ -39,6 +40,7 @@ class NFLSport extends Component {
 
     // Set the state with the selected sport
     this.setState({ sports_searched: sportToAdd });
+    this.updateStateFromURL(this.props);
   }
 
   handlePopState = (event) => {
@@ -49,6 +51,9 @@ class NFLSport extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
+    if (this.props.location !== prevProps.location || this.props.someProp !== prevProps.someProp) {
+      this.updateStateFromURL(this.props);
+    }
     window.scrollTo(0, 0);
   }
 
@@ -60,6 +65,17 @@ class NFLSport extends Component {
       );
     }
   };
+  updateStateFromURL(props) {
+    let url_segment = this.props.location.pathname.split("/");
+    let keyword_searched = url_segment["2"];
+
+    if (keyword_searched !== this.state.keyword_searched) {
+      this.setState({ keyword_searched: keyword_searched });
+
+      // Uncomment the following line if you want to refresh the page when the state changes
+      // window.location.reload();
+    }
+  }
 
   render() {
     let sports_page = [];
@@ -87,7 +103,7 @@ class NFLSport extends Component {
               content={`${this.state.keyword_searched.replace(
                 /-/g,
                 " "
-              )} Tickets 2023 - Secure your seats for the ultimate game day experience. Get your  ${this.state.keyword_searched.replace(
+              )} Tickets - Secure your seats for the ultimate game day experience. Get your  ${this.state.keyword_searched.replace(
                 /-/g,
                 " "
               )} tickets now and be part of the action!`}

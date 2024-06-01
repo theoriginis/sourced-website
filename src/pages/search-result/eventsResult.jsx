@@ -120,7 +120,7 @@ class SearchResult extends Component {
         <main>
           <Helmet>
             <title>
-              {this.state.keyword_searched.replace(/-/g, " ")} tickets in 2023
+              {this.state.keyword_searched.replace(/-/g, " ")} tickets
               – Get Yours Now! | Sourced Tickets
             </title>
             <meta
