@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import Login from "../pages/Login";
@@ -24,6 +25,26 @@ class Header extends Component {
       isSidebarOpen: false,
     };
   }
+
+
+  componentWillMount(){
+   // Add resize event listener
+   window.addEventListener("resize", this.handleResize);
+  }
+
+
+  componentWillUnmount() {
+    // Clean up: remove resize event listener
+    window.removeEventListener("resize", this.handleResize);
+  }
+  handleResize = () => {
+    // Check if browser width is above 1000px
+    if (window.innerWidth > 1000) {
+      this.setState({ showLogo: true });
+    }
+  };
+
+
   handleInputChange = (e) => {
     const value = e.target.value;
     if (e.target) this.setState({ inputValue: value });
@@ -154,6 +175,7 @@ class Header extends Component {
     // }
     const { inputValue, suggestions } = this.state;
     const { sidebarOpen } = this.state;
+
     return (
       <div>
         <nav className="navbar navbar-expand-md fixed-top main-nav navigation  sidebar-left wow">
