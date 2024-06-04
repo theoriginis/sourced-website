@@ -38,7 +38,9 @@
 .main-intro-search-bar:-ms-input-placeholder{
   color:#7B7794!important;
 }
-
+.header-search-bar {
+  padding: 12px 0;
+}
 .header-search-bar::-webkit-input-placeholder {
   color:#7B7794 !important;
 }
@@ -780,4 +782,8 @@ margin-right: 4px;
 .close {
   z-index: 0 !important;
   position: relative;
+}
+
+.search_icon_p {
+  padding: 4px 20px;
 }

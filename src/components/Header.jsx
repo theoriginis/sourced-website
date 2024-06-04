@@ -128,7 +128,7 @@ class Header extends Component {
 
   onClickEvent = (eventId) => {
     if (eventId) {
-      this.setState({ showDiv: True });
+      this.setState({ showDiv: true });
       //this.props.history.push(`/event-details/${eventId}`)
       this.props.history.push(
         `/events-results/performer-tickets/${eventId.replace(/\s+/g, "-")}`
@@ -210,6 +210,7 @@ class Header extends Component {
                   >
                     <div className="search-img">
                       <img
+                      className="search_icon_p"
                         src={require("../assets/images/newimages/search-nav.png")}
                         alt="sourced"
                       />{" "}
@@ -339,6 +340,7 @@ class Header extends Component {
                     {/* <img src={require("../assets/images/search.png")} alt="" /> */}
                     {this.state.showLogo ? (
                       <img
+                      className="search_icon_p"
                         src={require("../assets/images/newimages/search-nav.png")}
                         alt="sourced"
                         onClick={this.openSearchDiv}
